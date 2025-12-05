@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | Handmade by Key</title>
+    <!-- Links the external CSS file -->
+   
+     <link rel="stylesheet" href="testboton1.css">
+         <link rel="stylesheet" href="css.css">
+
+<style>    
+         table {
+        border-collapse: separate;
+        width: 600px;
+        margin: 10px auto;
+        /* Position relative is needed so we can position the pop-up images relative to the whole table */
+        position: relative;
+    }
+
+    td {
+        border: 2px solid #cccccc;
+        width: 150px;
+        height: 150px;
+        padding: 0;
+        text-align: center;
+        /* This is important: Set each cell to relative position */
+        position: relative;
+    }
+        .table-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        cursor: pointer;
+        /* Add transition for smooth resizing */
+        transition: transform 0.3s ease, z-index 0.1s ease;
+        
+    }
+
+    /* Pop-up effect on hover */
+    .table-img:hover {
+        /* Make the image big (e.g., 3x its size) */
+        transform: scale(3.0);
+        /* Bring the image above other elements on the page */
+        z-index: 10;
+        /* Position it absolutely within its cell to break free from the cell's overflow rules */
+        position: absolute;
+        /* Center it over its original cell location */
+        top: auto;
+        left: auto;
+        /* Add a subtle shadow for the "pop out" effect */
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        /* Ensure the transformation origin is centered */
+        transform-origin: center center;
+    }
+    
+    </style>
+</head>
+<body>
+
+
+    <header class="banner">
+        <div class="header-inline-container">
+            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-separator">|</span>
+            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+        </div>
+    </header>
+        <header class="banner1">
+        <h1>Welcome to Handmade Beanie by Key</h1>
+        
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <!-- Changed href values to match section IDs below -->
+            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
+            <li><a href="store.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
+            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+
+
+         <!-- NEW PHOTO GALLERY SECTION (4x4 Table) -->
+        <section id="photo-gallery">
+             <h2>Collection</h2>
+            <!--<table class="photo-table">-->
+        <table>
+                <!-- Row 1 -->
+                <tr>
+                    <td><img src="b&b.png" alt="Photo 2" class="table-img">$14.45</td>
+                    <td><img src="b&bb.png" alt="Photo 2" class="table-img">$14.45</td>
+                    <td><img src="b&g.png" alt="Photo 3" class="table-img">$14.45</td>
+                    <td><img src="p&gb.png" alt="Photo 4"class="table-img">$14.45</td>
+                </tr>
+                <!-- Row 2 -->
+
+                  <tr>
+                        <td><img src="boton.png" alt="Placeholder Photo 5" class="table-img">$18.75</td>
+                        <td><img src="botonb.png"Photo 6" class="table-img">$18.75</td>
+                        <td><img src="flor.png"Photo 7" class="table-img">$18.75</td>
+                        <td><img src="florb.png"Photo 8" class="table-img">$18.75</td>
+                    </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                    <td><img src="forest.png" alt="Photo 9" class="table-img">$14.45</td>
+                    <td><img src="forestb.png" alt="Photo 10" class="table-img">$14.45></td>
+                    <td><img src="g&b.png" alt="Photo 11" class="table-img">$18.75</td>
+                    <td><img src="g&bbflor.png" alt="Photo 12" class="table-img">$18.75</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td><img src="g&w.png" alt="Photo 13" class="table-img">$14.45</td>
+                    <td><img src="g&gb.png" alt="Photo 14" class="table-img">$14.45</td>
+                    <td><img src="brillo.png" alt="Photo 15" class="table-img">$19.25</td>
+                    <td><img src="red.png" alt="Photo 16" class="table-img">$14.45</td>
+                </tr>
+            </table>
+        
+        </section>
+    </main>
+
+
+
+
+
+
+     <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2025 Handmade Beanie by Key | <a href="about.html" class="footer-link">About Us</a></p>
+    </footer>
+</body>
+</html>
