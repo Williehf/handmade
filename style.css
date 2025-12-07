@@ -1,0 +1,96 @@
+body {
+    font-family: sans-serif;
+    margin: 10px;
+    height: 100%;
+    
+  
+}
+
+
+
+h2{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    position: relative;
+}
+.product-grid {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+
+}
+
+.product-card img {
+    /* Set a fixed size for all product images */
+    width: 150px; 
+    height: 150px; 
+    /* Ensures the image covers the entire box without stretching */
+    object-fit: cover; 
+    /* Optional: Add some space below the image */
+    margin-bottom: 1px; 
+    /* Optional: Make images slightly rounded */
+    border-radius: 5px; 
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+ 
+}
+
+    /* Pop-up effect on hover */
+    .product-card img:hover {
+        /* Make the image big (e.g., 3x its size) */
+        transform: scale(3.0);
+        /* Bring the image above other elements on the page */
+        z-index: 10;
+        /* Position it absolutely within its cell to break free from the cell's overflow rules */
+        position: absolute;
+        /* Center it over its original cell location */
+        top: auto;
+        left: auto;
+        /* Add a subtle shadow for the "pop out" effect */
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        /* Ensure the transformation origin is centered */
+        transform-origin: center center;
+    }
+.product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 180px;
+    margin: 0;
+    place-items: center;
+}
+
+.add-to-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.remove-item {
+    color: red;
+    cursor: pointer;
+}
