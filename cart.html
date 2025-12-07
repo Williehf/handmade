@@ -1,51 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-              <link rel="stylesheet" href="testboton1.css">
-         <link rel="stylesheet" href="css.css">
-
-     
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart | Handmade by Key</title>
-    <style>
-        /* Basic CSS for the cart layout (add to a style.css file) */
-        body { font-family: sans-serif; margin: opx; }
-        .container { max-width: 900px; margin: auto; }
-        h1 { text-align: center; }
-        .cart { display: flex; flex-direction: column; }
-        .product-header, .product-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .product-header { font-weight: bold; }
-        .product-item > div { flex: 1; text-align: center; }
-        .product-item .product-details { text-align: left; padding-left: 10px; }
-        .product-item img { width: 50px; height: 50px; object-fit: cover; }
-        .cart-total { text-align: right; padding: 20px 0; font-size: 1.2em; font-weight: bold; }
-        .checkout-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="testboton1.css">
+         <link rel="stylesheet" href="css.css">
 </head>
-
-
 <body>
 
-  <header class="banner">
+     <header class="banner">
         <div class="header-inline-container">
             <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
             <span class="header-separator">|</span>
@@ -53,7 +18,7 @@
         </div>
     </header>
         <header class="banner1">
-        <h1>Welcome to Handmade Beanie by Key</h1>
+        <h1>Welcome to Handmade by Key</h1>
         
     </header>
 
@@ -61,78 +26,46 @@
         <ul class="nav-list">
             <!-- Changed href values to match section IDs below -->
             <li><a href="index.html" class="nav-button">🏠 Home</a></li>
-            <li><a href="store.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
             <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
             <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
         </ul>
     </nav>
 
-    <div class="container">
-        <h1>Shopping Cart</h1>
-
-        <div class="cart">
-            <!-- Cart Headers -->
-            <div class="product-header">
-                <div>Image</div>
-                <div class="product-details">Product</div>
-                <div>Price</div>
-                <div>Quantity</div>
-                <div>Total</div>
-                <div>Remove</div>
-            </div>
-
-            <!-- Example Product Item 1 (Dynamically generated with JS in a real application) -->
-            <div class="product-item">
-                <div><img src="b&b.png" alt="Product Image"></div>
-                <div class="product-details">
-                    <div class="product-title">Sample Product 1</div>
-                    <p class="product-description">A brief description of the item.</p>
-                </div>
-                <div class="product-price">$19.99</div>
-                <div class="product-quantity">
-                    <input type="number" value="1" min="1">
-                </div>
-                <div class="product-line-price">$19.99</div>
-                <div class="product-removal">
-                    <button class="remove-product">Remove</button>
-                </div>
-            </div>
-
-            <!-- Example Product Item 2 -->
-            <div class="product-item">
-                <div><img src="flor.png" alt="Product Image"></div>
-                <div class="product-details">
-                    <div class="product-title">Sample Product 2</div>
-                    <p class="product-description">Another great product in your cart.</p>
-                </div>
-                <div class="product-price">$12.50</div>
-                <div class="product-quantity">
-                    <input type="number" value="2" min="1">
-                </div>
-                <div class="product-line-price">$25.00</div>
-                <div class="product-removal">
-                    <button class="remove-product">Remove</button>
-                </div>
-            </div>
-            
-            <!-- End of Product Items -->
-        </div>
-
+    
+    <main>
+        <section>
+            <div class="tabletitle">
+         <h4>Your Cart</h4></div>
+        <div class="product-grid">
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be inserted here by JavaScript -->
+            </tbody>
+        </table>
         <div class="cart-total">
-            Total: $<span id="cart-total-value">44.99</span>
+            <a href="collection.html">Continue Shopping</a>
+            <strong>Grand Total: $<span id="grand-total">0.00</span></strong>
         </div>
+                <a href="checkout.html">
+            <button>Proceed to Checkout</button>
+        </a></main></body>div></section>
+    </main>
 
-        <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
-    </div>
+    <script src="cart.js"></script>
 
-    <!-- JavaScript would go here to make it functional -->
-    <script>
-        // You would use JavaScript here to manage items, calculate totals, etc.
-        // For inspiration, you can look at resources like [CodePen]().
-    </script>
-     <!-- FOOTER SECTION -->
+            <!-- FOOTER SECTION -->
     <footer>
-        <p>&copy; 2025 Handmade Beanie by Key | <a href="about.html" class="footer-link">About Us</a></p>
+        <p>&copy; 2025 Handmade by Key | <a href="about.html" class="footer-link">About Us</a></p>
     </footer>
 </body>
 </html>
