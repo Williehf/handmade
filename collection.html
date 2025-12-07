@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | Handmade by Key</title>
+    <!-- Links the external CSS file -->
+   
+     <link rel="stylesheet" href="testboton1.css">
+         <link rel="stylesheet" href="css.css">
+         <link rel="stylesheet" href="style.css">
+
+<style>    
+         table {
+        border-collapse: separate;
+        width: 600px;
+        margin: 10px auto;
+        /* Position relative is needed so we can position the pop-up images relative to the whole table */
+        position: relative;
+    }
+
+    td {
+        border: 2px solid #cccccc;
+        width: 150px;
+        height: 150px;
+        padding: 0;
+        text-align: center;
+        /* This is important: Set each cell to relative position */
+        position: relative;
+    }
+        .table-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        cursor: pointer;
+        /* Add transition for smooth resizing */
+        transition: transform 0.3s ease, z-index 0.1s ease;
+        margin-top: 10px;
+        
+    }
+
+    /* Pop-up effect on hover */
+    .table-img:hover {
+        /* Make the image big (e.g., 3x its size) */
+        transform: scale(3.0);
+        /* Bring the image above other elements on the page */
+        z-index: 10;
+        /* Position it absolutely within its cell to break free from the cell's overflow rules */
+        position: absolute;
+        /* Center it over its original cell location */
+        top: auto;
+        left: auto;
+        /* Add a subtle shadow for the "pop out" effect */
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        /* Ensure the transformation origin is centered */
+        transform-origin: center center;
+    }
+    
+    </style>
+</head>
+<body>
+
+
+    <header class="banner">
+        <div class="header-inline-container">
+            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-separator">|</span>
+            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+        </div>
+    </header>
+        <header class="banner1">
+        <h1>Welcome to Handmade by Key</h1>
+        
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <!-- Changed href values to match section IDs below -->
+            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
+            <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
+            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
+        </ul>
+    </nav>
+
+  
+    
+    <main class="product-grid">
+        <!-- Product 1 -->
+         
+        <section>
+             <div class="tabletitle">
+        <h4>Our Collections</h4>
+        <a href="cart.html">View Cart (<span id="cart-count">0</span>)</a></div>
+        <table>
+         <tr>
+        <td><div class="product-card" data-id="1" data-name="Violet" data-price="14.45" data-image="b&b.png">
+            <img src="b&b.png" alt="Violet">
+            <h2>Violet</h2><p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <td><div class="product-card" data-id="1" data-name="Violet" data-price="14.45" data-image="b&b.png">
+            <img src="b&bb.png" alt="Violet">
+            <h2>Violet</h2><p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <!-- Product 2 -->
+        <td><div class="product-card" data-id="2" data-name="Black" data-price="14.45" data-image="b&g.png">
+            <img src="b&g.png" alt="Blacks">
+            <h2>Black</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <td><div class="product-card" data-id="2" data-name="Black" data-price="14.45" data-image="b&g.png">
+            <img src="b&gb.png" alt="Blacks">
+            <h2>Black</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td></tr>
+        <!-- Product 3 -->
+        <tr>
+         <td><div class="product-card" data-id="3" data-name="Pelusa" data-price="18.75" data-image="boton.png">
+            <img src="boton.png" alt="Pelusa">
+            <h2>Pelusa</h2>
+            <p>$18.75</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+         <td><div class="product-card" data-id="3" data-name="Pelusa" data-price="18.75" data-image="boton.png">
+            <img src="botonb.png" alt="Pelusa">
+            <h2>Pelusa</h2>
+            <p>$18.75</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+         <!-- Product 4 -->
+         <td><div class="product-card" data-id="4" data-name="Bella" data-price="18.75" data-image="flor.png">
+            <img src="flor.png" alt="Bella">
+            <h2>Bella</h2>
+            <p>$18.75</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <td><div class="product-card" data-id="4" data-name="Bella" data-price="18.75" data-image="flor.png">
+            <img src="florb.png" alt="Bella">
+            <h2>Bella</h2>
+            <p>$18.75</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td></tr>
+         <!-- Product 5 -->
+        <tr>
+         <td><div class="product-card" data-id="5" data-name="Forest" data-price="14.45" data-image="forest.png">
+            <img src="forest.png" alt="Pelusa">
+            <h2>Forest</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+          <td><div class="product-card" data-id="5" data-name="Forest" data-price="14.45" data-image="forest.png">
+            <img src="forestb.png" alt="Pelusa">
+            <h2>Forest</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+         <!-- Product 6 -->
+         <td><div class="product-card" data-id="6" data-name="Flor" data-price="14.45" data-image="g&b.png">
+            <img src="g&b.png" alt="Flor">
+            <h2>Flor</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <td><div class="product-card" data-id="6" data-name="Flor" data-price="14.45" data-image="g&bbflor.png">
+            <img src="g&bbflor.png" alt="Flor">
+            <h2>Flor</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td></tr>
+                 <!-- Product 7 -->
+        <tr>
+         <td><div class="product-card" data-id="7" data-name="Montana" data-price="14.45" data-image="g&w.png">
+            <img src="g&w.png" alt="Montana">
+            <h2>Montana</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+           <td><div class="product-card" data-id="7" data-name="Montana" data-price="14.45" data-image="g&w.png">
+            <img src="g&wb.png" alt="Montana">
+            <h2>Montana</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+         <!-- Product 8 -->
+         <td><div class="product-card" data-id="8" data-name="Brillo" data-price="19.35" data-image="brillo.png">
+            <img src="brillo.png" alt="Brollo">
+            <h2>Brillo</h2>
+            <p>$19.35</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td>
+        <td><div class="product-card" data-id="9" data-name="Rojo" data-price="14.45" data-image="red.png">
+            <img src="red.png" alt="Rojo">
+            <h2>Rojo</h2>
+            <p>$14.45</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div></td></tr>
+        </table></section>
+    </main>
+
+    <script src="collectionoriginal.js"></script>
+
+        <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2025 Handmade by Key | <a href="about.html" class="footer-link">About Us</a></p>
+    </footer>
+</body>
+</html>
