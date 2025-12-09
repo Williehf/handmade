@@ -6,12 +6,33 @@
 }
 
 /* --- Global Resets & Body Styles --- */
-body, h1, h2, h3, p, ul, li {
+body, h1, h3, p, ul, li {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+
+}
+h4{
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #3c48ee;
 }
 
+h2{
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #3c48ee;
+}
+h3{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
 body {
     background-color: #f8f9fa;
     display: flex;
@@ -49,6 +70,8 @@ img{
     align-items: stretch;
     max-width: 900px;
     margin: 0 auto;
+    
+    
 }
 
 .column {
@@ -61,6 +84,8 @@ img{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: dashed;
+   
 }
 
 .two-column-container1 {
@@ -121,9 +146,22 @@ img{
     box-shadow: 0 4px 6px rgba(172, 21, 127, 0.1);
 }
 
+.banner2 {
+    background-color: #a9b886;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+.tabletitle {
+   
+    text-align: right;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .navbar {
-    background-color: #f4f4f4;
+   
     padding: 10px 0;
     position: sticky; 
     top: 0;
@@ -150,10 +188,11 @@ img{
     display: block;
     color: white;
     background-color: #c27a1c;
-    padding: 10px 10px;
+    padding: 10px 1px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    text-align: center;
 }
 
 .nav-button:hover {
@@ -180,24 +219,26 @@ footer {
 
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
-    width: 640px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
+    width: 900px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
     border-collapse: collapse; /* Removes space between borders */
     /*margin: 20px auto; /* Centers the table on the page */
     border: 2px solid #333;
+    align-content: center;
 }
 
 .photo-table td {
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
-    width: 150px; /* Set a fixed width for each cell */
-    height: 150px; /* Set a fixed height for each cell */
+    width: 180px; /* Set a fixed width for each cell */
+    height: 180px; /* Set a fixed height for each cell */
     overflow: hidden; /* Hides any part of the image that goes over the cell size */
         /* Ensures content inside is centered horizontally by default */
     /*text-align: center; 
     /* Ensures content inside is centered vertically by default */
     /*vertical-align: middle; */
     filter: brightness(45%);
+    
 }
 
 .photo-table img {
@@ -264,7 +305,7 @@ footer {
 
 .gallery-container {
     position: relative; /* This is the anchor for the absolutely positioned button */
-    width: 640px;       /* Match the table width */
+    width: 900px;       /* Match the table width */
     margin: auto;  /* Centers the whole container/table combo */
 }
 
@@ -307,21 +348,22 @@ footer {
 .image-container {
     position: relative; /* */
     width: 100%; /* Ensure container takes full width of its parent */
-    max-width: 1000px; /* Optional: Set a maximum width for the image container */
+    max-width: 900px; /* Optional: Set a maximum width for the image container */
     margin: 0 auto; /* Center the container on the page */
+    height: auto;
 }
 
 .overlay-image {
     display: block;
     width: 100%;
     height: auto;
-    filter: brightness(70%); 
+    filter: brightness(35%); 
     object-fit: cover;
 }
 
 .overlay-text {
     position: absolute; /* Takes text out of flow */
-    top: 50%;           /* Center vertically */
+    top: 25%;           /* Center vertically */
     left: 0;          /* Center horizontally */
     transform: translate(-1%, -1%); /* Perfect centering */
     color: white;       /* White text */
@@ -385,4 +427,13 @@ footer {
     display: inline;
     vertical-align: middle; /* Aligns text vertically with the larger title/separator */
    
+}
+
+.add-to-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
 }
