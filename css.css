@@ -78,7 +78,7 @@ img{
     flex: 3;             /* Ensures both columns take up equal space */
     padding: 2px;       /* Inner padding for content */
     /*background-color: #ffffff; /* White background for visibility */
-    /*border-radius: 8px;  /* Rounded corners */
+    border-radius: 15px;  /* Rounded corners */
     /*box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
     /*max-width: 75%;*/
     display: flex;
@@ -265,6 +265,7 @@ footer {
     height: 100%;      /* Makes image fill the height of the container */
     object-fit: cover; /* Ensures image covers the space without distortion */
     display: block;
+    border-radius: 15px;
 }
 
 .image-wrapper1 {
@@ -277,6 +278,7 @@ footer {
     height: 100%;      /* Makes image fill the height of the container */
     object-fit: cover; /* Ensures image covers the space without distortion */
     display: block;
+    border-radius: 15px;
 }
 
 /* --- Styles for the Center Button Cell (NEW) --- */
@@ -348,7 +350,7 @@ footer {
 .image-container {
     position: relative; /* */
     width: 100%; /* Ensure container takes full width of its parent */
-    max-width: 900px; /* Optional: Set a maximum width for the image container */
+    max-width: 875px; /* Optional: Set a maximum width for the image container */
     margin: 0 auto; /* Center the container on the page */
     height: auto;
 }
@@ -437,4 +439,5 @@ footer {
     cursor: pointer;
     margin-bottom: 5px;
 }
+
 
