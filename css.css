@@ -219,7 +219,7 @@ footer {
 
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
-    width: 875px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
+    width: 700px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
     border-collapse: collapse; /* Removes space between borders */
     /*margin: 20px auto; /* Centers the table on the page */
     border: 2px solid #333;
@@ -230,8 +230,8 @@ footer {
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
-    width: 175px; /* Set a fixed width for each cell */
-    height: 175px; /* Set a fixed height for each cell */
+    width: 165px; /* Set a fixed width for each cell */
+    height: 165px; /* Set a fixed height for each cell */
     overflow: hidden; /* Hides any part of the image that goes over the cell size */
         /* Ensures content inside is centered horizontally by default */
     /*text-align: center; 
@@ -307,7 +307,7 @@ footer {
 
 .gallery-container {
     position: relative; /* This is the anchor for the absolutely positioned button */
-    width: 875px;       /* Match the table width */
+    width: 700px;       /* Match the table width */
     margin: auto;  /* Centers the whole container/table combo */
 }
 
