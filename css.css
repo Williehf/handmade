@@ -230,8 +230,8 @@ footer {
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
-    width: 165px; /* Set a fixed width for each cell */
-    height: 165px; /* Set a fixed height for each cell */
+    width: 150px; /* Set a fixed width for each cell */
+    height: 150px; /* Set a fixed height for each cell */
     overflow: hidden; /* Hides any part of the image that goes over the cell size */
         /* Ensures content inside is centered horizontally by default */
     /*text-align: center; 
