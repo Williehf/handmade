@@ -216,7 +216,7 @@ footer {
     text-decoration: none;
 }
 
-
+@media (max-width: 768){
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
     width: 660px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
@@ -385,6 +385,7 @@ footer {
 .overlay-text p {
     font-size: 1.1rem;
     margin-bottom: 20px;
+}
 }
 .crop-container {
     width: 4000px;  /* Set the container width to exactly half of the image width */
