@@ -216,7 +216,7 @@ footer {
     text-decoration: none;
 }
 
-
+@media (max-width: 768px){
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
     width: 660px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
@@ -254,7 +254,7 @@ footer {
     object-fit: cover; /* Ensures the image covers the area without stretching, cropping as needed */
     display: block; /* Removes default bottom margin that images sometimes have */
 }
-
+}
 .image-wrapper {
     flex: 1; /* Takes up 1 part of the space (1/4 = 25%) */
     /* ensures the image container takes exactly 25% */
@@ -304,13 +304,13 @@ footer {
 .show-button:hover {
     background-color: #45a1d6; /* Darker green on hover */
 }
-
+@media (max-width: 768px){
 .gallery-container {
     position: relative; /* This is the anchor for the absolutely positioned button */
     width: 660px;       /* Match the table width */
     margin: auto;  /* Centers the whole container/table combo */
 }
-
+}
 /* --- Styles for the "Show" Overlay Button (NEW) --- */
 .show-overlay-button {
     position: absolute; /* Takes the button out of the flow and overlays it */
