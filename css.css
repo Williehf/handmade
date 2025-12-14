@@ -256,7 +256,7 @@ footer {
 }
 
 .image-wrapper {
-    flex: 1; /* Takes up 1 part of the space (1/4 = 25%) */
+    flex: 25%; /* Takes up 1 part of the space (1/4 = 25%) */
     /* ensures the image container takes exactly 25% */
 }
 
@@ -269,7 +269,7 @@ footer {
 }
 
 .image-wrapper1 {
-    flex: 3; /* Takes up 1 part of the space (1/4 = 25%) */
+    flex: 75%; /* Takes up 1 part of the space (1/4 = 25%) */
     /* ensures the image container takes exactly 25% */
 }
 
