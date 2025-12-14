@@ -62,7 +62,7 @@ img{
 .two-column-container {
     display: flex;       /* Activates Flexbox */
     justify-content: space-between; /* Pushes columns apart */
-    gap: 40px;           /* Space between the columns */
+    gap: 30px;           /* Space between the columns */
     /*margin-top: 20px;    /* Space below the H2 title */
     width: 100%;
     flex-wrap: nowrap;
@@ -91,7 +91,7 @@ img{
 .two-column-container1 {
     display: flex;       /* Activates Flexbox */
     justify-content: space-between; /* Pushes columns apart */
-    gap: 40px;           /* Space between the columns */
+    gap: 30px;           /* Space between the columns */
     /*margin-top: 20px;    /* Space below the H2 title */
     width: 100%;
     flex-wrap: nowrap;
