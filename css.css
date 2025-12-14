@@ -120,7 +120,7 @@ img{
 .column p {
     margin-bottom: 10px;
 }
-
+}
 /* Optional: Make the layout responsive for small screens */
 /*@media (max-width: 768px) {
     .two-column-container {
@@ -216,7 +216,7 @@ footer {
     text-decoration: none;
 }
 
-
+@media (max-width: 768px){
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
     width: 660px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
@@ -280,7 +280,7 @@ footer {
     display: block;
     border-radius: 15px;
 }
-
+}
 /* --- Styles for the Center Button Cell (NEW) --- */
 .center-button-cell {
     background-color: #eee; /* Light gray background for contrast */
