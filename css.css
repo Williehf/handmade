@@ -120,7 +120,7 @@ img{
 .column p {
     margin-bottom: 10px;
 }
-}
+
 /* Optional: Make the layout responsive for small screens */
 /*@media (max-width: 768px) {
     .two-column-container {
@@ -216,7 +216,7 @@ footer {
     text-decoration: none;
 }
 
-@media (max-width: 768){
+
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
     width: 660px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
@@ -386,7 +386,7 @@ footer {
     font-size: 1.1rem;
     margin-bottom: 20px;
 }
-}
+
 .crop-container {
     width: 4000px;  /* Set the container width to exactly half of the image width */
     height: 800px; /* Set the container height to match the image height */
@@ -440,5 +440,5 @@ footer {
     cursor: pointer;
     margin-bottom: 5px;
 }
-
+}
 
