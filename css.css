@@ -58,7 +58,7 @@ img{
 }
 
 /* --- NEW COLUMN STYLES --- */
-
+@media (max-width: 768){
 .two-column-container {
     display: flex;       /* Activates Flexbox */
     justify-content: space-between; /* Pushes columns apart */
@@ -120,7 +120,7 @@ img{
 .column p {
     margin-bottom: 10px;
 }
-
+}
 /* Optional: Make the layout responsive for small screens */
 /*@media (max-width: 768px) {
     .two-column-container {
