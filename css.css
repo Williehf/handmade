@@ -6,7 +6,7 @@
 }
 
 /* --- Global Resets & Body Styles --- */
-body, h1, h3, p, ul, li {
+body, h1, p, ul, li {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
