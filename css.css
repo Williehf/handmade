@@ -280,7 +280,46 @@ footer {
     text-decoration: none;
 }
 
-@media (max-width: 768px){
+/* --- Photo Gallery Table Styles (NEW) --- */
+.photo-table {
+    width: 640px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
+    border-collapse: collapse; /* Removes space between borders */
+    /*margin: 20px auto; /* Centers the table on the page */
+    border: 2px solid #333;
+    align-content: center;
+}
+
+.photo-table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    width: 150px; /* Set a fixed width for each cell */
+    height: 150px; /* Set a fixed height for each cell */
+    overflow: hidden; /* Hides any part of the image that goes over the cell size */
+        /* Ensures content inside is centered horizontally by default */
+    /*text-align: center; 
+    /* Ensures content inside is centered vertically by default */
+    /*vertical-align: middle; */
+    filter: brightness(45%);
+    
+}
+
+.photo-table img {
+    width: 100%; /* Makes the image fill the width of the TD cell */
+    height: 100%; /* Makes the image fill the height of the TD cell */
+    object-fit: cover; /* Ensures the image covers the area without stretching, cropping as needed */
+    display: block; /* Removes default bottom margin that images sometimes have */
+}
+
+.photo-table1{
+    width: 50%; /* Makes the image fill the width of the TD cell */
+    height: 50%; /* Makes the image fill the height of the TD cell */
+    object-fit: cover; /* Ensures the image covers the area without stretching, cropping as needed */
+    display: block; /* Removes default bottom margin that images sometimes have */
+}
+
+
+@media screen and (max-width: 768px){
 /* --- Photo Gallery Table Styles (NEW) --- */
 .photo-table {
     width: 640px; /* Set a specific width for the whole table (4 * 150px images + padding/borders) */
@@ -368,7 +407,15 @@ footer {
 .show-button:hover {
     background-color: #45a1d6; /* Darker green on hover */
 }
-@media (max-width: 768px){
+
+.gallery-container {
+    position: relative; /* This is the anchor for the absolutely positioned button */
+    width: 640px;       /* Match the table width */
+    margin: auto;  /* Centers the whole container/table combo */
+}
+
+
+@media screen and (max-width: 768px){
 .gallery-container {
     position: relative; /* This is the anchor for the absolutely positioned button */
     width: 640px;       /* Match the table width */
