@@ -58,7 +58,7 @@ img{
 }
 
 /* --- NEW COLUMN STYLES --- */
-@media (max-width: 768px){
+
 .two-column-container {
     display: flex;       /* Activates Flexbox */
     justify-content: space-between; /* Pushes columns apart */
@@ -68,7 +68,7 @@ img{
     flex-wrap: nowrap;
     text-align: justify;
     align-items: stretch;
-    max-width: 875px;
+    max-width: 900px;
     margin: 0 auto;
     
     
@@ -97,7 +97,71 @@ img{
     flex-wrap: nowrap;
     text-align: justify;
     align-items: stretch;
-    max-width: 875px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.column1 {
+    flex: 2;             /* Ensures both columns take up equal space */
+    padding: 2px;       /* Inner padding for content */
+    /*background-color: #ffffff; /* White background for visibility */
+    /*border-radius: 8px;  /* Rounded corners */
+    /*box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+    /*max-width: 75%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.column h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.column p {
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 768px){
+.two-column-container {
+    display: flex;       /* Activates Flexbox */
+    justify-content: space-between; /* Pushes columns apart */
+    gap: 30px;           /* Space between the columns */
+    /*margin-top: 20px;    /* Space below the H2 title */
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: justify;
+    align-items: stretch;
+    /*max-width: 875px;*/
+    margin: 0 auto;
+    
+    
+}
+
+.column {
+    flex: 2;             /* Ensures both columns take up equal space */
+    padding: 2px;       /* Inner padding for content */
+    /*background-color: #ffffff; /* White background for visibility */
+    border-radius: 15px;  /* Rounded corners */
+    /*box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+    /*max-width: 75%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: dashed;
+   
+}
+
+.two-column-container1 {
+    display: flex;       /* Activates Flexbox */
+    justify-content: space-between; /* Pushes columns apart */
+    gap: 30px;           /* Space between the columns */
+    /*margin-top: 20px;    /* Space below the H2 title */
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: justify;
+    align-items: stretch;
+    /*max-width: 875px;*/
     margin: 0 auto;
 }
 
