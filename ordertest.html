@@ -166,7 +166,7 @@ function displayOrderSummary() {
 
         const itemsSummary = getOrderSummaryText();
           //const itemsSummary = displayOrderSummary();
-
+//const summaryTotalElement = document.getElementById('summary-total');
 
         // --- SMS Link Generation Logic ---
 
@@ -174,7 +174,7 @@ function displayOrderSummary() {
 
         // 1. Format the message content
 
-        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${summary-total}`;
+        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${summaryTotalElement}`;
 
 
 
@@ -201,6 +201,7 @@ function displayOrderSummary() {
 </body>
 
 </html>
+
 
 
 
