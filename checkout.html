@@ -85,6 +85,16 @@
             <input type="text" id="city" required>
             <label for="zip">ZIP Code:</label>
             <input type="text" id="zip" required>
+                <h3>Shipping Details</h3>
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="address" placeholder="Street Address">
+<input type="text" id="city" placeholder="City">
+<input type="text" id="zip" placeholder="Zip Code">
+
+<button onclick="placeOrder()">Save Order & Prepare SMS</button>
+<br>
+<a id="sms-owner-link" href="#">Send Order Summary via SMS</a>
+
             <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
             <a href="ordertest.html">Order Detail</a>
             <a id="sms-owner-link" href="#">Send Order Summary via SMS</a>
