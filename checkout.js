@@ -118,6 +118,7 @@ function placeOrder() {
                     `Total: $${total}`;
 
     // 5. Update the SMS Link
+    const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
     const ownerPhone = '+17873741297';
     const smsBtn = document.getElementById('sms-owner-link');
     
@@ -131,6 +132,7 @@ function placeOrder() {
 
 
 }
+
 
 
 
