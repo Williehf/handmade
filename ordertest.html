@@ -281,7 +281,13 @@ function setupSMSLink(name, address, city, zip) {
     
     // Encode for URL
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodeURIComponent(message)}`;
+   
+       localStorage.removeItem('cart');
+    alert("Order placed successfully! Thank you for your purchase.");
+    // Redirect the user to a confirmation page or the home page
+    window.location.href = 'collection.html'; 
 }
+
 
     </script>
 
