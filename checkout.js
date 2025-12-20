@@ -35,7 +35,7 @@ function placeOrder() {
         alert("Please fill in all shipping details.");
         return;
     }
-    setupSMSLink();
+    setupSMSLink(name, address, city, zip);
     // Clear the cart after successful order placement
     localStorage.removeItem('cart');
     alert("Order placed successfully! Thank you for your purchase.");
