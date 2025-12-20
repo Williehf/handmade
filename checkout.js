@@ -61,4 +61,34 @@ function placeOrder() {
     // 4. Clear cart and notify user
     localStorage.removeItem('cart');
     alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
+}*/
+function placeOrder() {
+    // 1. Capture elements safely
+    const nameField = document.getElementById('name');
+    const addrField = document.getElementById('address');
+    const cityField = document.getElementById('city');
+    const zipField = document.getElementById('zip');
+
+    // 2. Check if the fields actually exist in HTML
+    if (!nameField || !addrField || !cityField || !zipField) {
+        console.error("Missing one or more input fields in HTML!");
+        return;
+    }
+
+    // 3. Get the actual values
+    const name = nameField.value.trim();
+    const address = addrField.value.trim();
+    const city = cityField.value.trim();
+    const zip = zipField.value.trim();
+
+    // 4. Validate
+    if (!name || !address || !city || !zip) {
+        alert("Please fill in all shipping details first.");
+        return;
+    }
+
+    // 5. Update SMS link
+    setupSMSLink(name, address, city, zip);
+    alert("Details saved! You can now click the SMS button.");
 }
+
