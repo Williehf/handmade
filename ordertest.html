@@ -132,7 +132,7 @@ function displayOrderSummary() {
     summaryTotalElement.textContent = grandTotal.toFixed(2);
 }
 
-function setupSMSLink() {
+/*function setupSMSLink() {
     const smsLink = document.getElementById('sms-owner-link');
     const ownerPhoneNumber = '+17873741297';
     const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
@@ -151,6 +151,36 @@ function setupSMSLink() {
 
     // Set the href attribute
     // Note: Use '?' for iOS and '&' for Android/Universal compatibility
+    smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
+}*/
+
+//______
+function setupSMSLink() {
+    const smsLink = document.getElementById('sms-owner-link');
+    const ownerPhoneNumber = '+17873741297';
+    
+    // 1. Capture customer info from input fields
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const zip = document.getElementById('zip').value;
+
+    // 2. Capture order details
+    const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+    const total = document.getElementById('summary-total').textContent;
+    const items = Array.from(document.querySelectorAll('#summary-items li'))
+                       .map(li => li.innerText)
+                       .join(', ');
+
+    // 3. Construct the detailed message
+    const message = `New Order ${orderId}
+Customer: ${name}
+Address: ${address}, ${city}, ${zip}
+Items: ${items}
+Total: $${total}`;
+    
+    // 4. Encode and set the link
+    const encodedMessage = encodeURIComponent(message);
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
 }
 
