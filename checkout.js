@@ -128,12 +128,10 @@ function placeOrder() {
     smsBtn.style.display = "inline-block";
     
     alert("Order ready! 1-Click the 'Send SMS' button that just appeared.");
- localStorage.removeItem('cart');
-    //alert("Order placed successfully! Thank you for your purchase.");
-    // Redirect the user to a confirmation page or the home page
-    window.location.href = 'collection.html';
+
 
 }
+
 
 
 
