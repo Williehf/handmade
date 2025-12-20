@@ -23,7 +23,7 @@ function displayOrderSummary() {
 
     summaryTotalElement.textContent = grandTotal.toFixed(2);
 }
-
+/*
 function placeOrder() {
     // In a real application, you would send this data to your server via AJAX
     const name = document.getElementById('name').value;
@@ -41,4 +41,24 @@ function placeOrder() {
     alert("Order placed successfully! Thank you for your purchase.");
     // Redirect the user to a confirmation page or the home page
     //window.location.href = 'collection.html'; 
+}*/
+function placeOrder() {
+    // 1. Get field values
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const zip = document.getElementById('zip').value.trim();
+
+    // 2. Validate inputs
+    if (!name || !address || !city || !zip) {
+        alert("Please fill in all shipping details.");
+        return;
+    }
+
+    // 3. Update the SMS link with all data
+    setupSMSLink(name, address, city, zip);
+
+    // 4. Clear cart and notify user
+    localStorage.removeItem('cart');
+    alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
 }
