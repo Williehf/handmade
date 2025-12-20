@@ -40,5 +40,5 @@ function placeOrder() {
     localStorage.removeItem('cart');
     alert("Order placed successfully! Thank you for your purchase.");
     // Redirect the user to a confirmation page or the home page
-    window.location.href = 'collection.html'; 
+    //window.location.href = 'collection.html'; 
 }
