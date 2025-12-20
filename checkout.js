@@ -35,10 +35,10 @@ function placeOrder() {
         alert("Please fill in all shipping details.");
         return;
     //}
-    setupSMSLink();}
+    setupSMSLink();
     // Clear the cart after successful order placement
     localStorage.removeItem('cart');
-    alert("Order placed successfully! Thank you for your purchase.");
+    alert("Order placed successfully! Thank you for your purchase.");}
     // Redirect the user to a confirmation page or the home page
     window.location.href = 'collection.html'; 
 }
