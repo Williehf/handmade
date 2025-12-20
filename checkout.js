@@ -41,7 +41,7 @@ function placeOrder() {
     alert("Order placed successfully! Thank you for your purchase.");
     // Redirect the user to a confirmation page or the home page
     //window.location.href = 'collection.html'; 
-}*/
+}
 function placeOrder() {
     // 1. Get field values
     const name = document.getElementById('name').value.trim();
