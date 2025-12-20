@@ -108,9 +108,9 @@
 
     <script>
 
-        // --- Dynamic Data Simulation (Replace with actual order retrieval logic) ---
-document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
     displayOrderSummary();
+    setupSMSLink();
 });
 
 function displayOrderSummary() {
@@ -125,74 +125,35 @@ function displayOrderSummary() {
         const li = document.createElement('li');
         const itemTotal = item.price * item.quantity;
         grandTotal += itemTotal;
-        li.innerHTML = `
-            <span>${item.name} (x${item.quantity})</span>
-            <span>$${itemTotal.toFixed(2)}</span>
-        `;
+        li.innerHTML = `<span>${item.name} (x${item.quantity}) - $${itemTotal.toFixed(2)}</span>`;
         summaryItemsElement.appendChild(li);
     });
 
     summaryTotalElement.textContent = grandTotal.toFixed(2);
 }
-        // Assume you have retrieved this data after the user placed the order
 
-        const orderId = 'ORD-' + Math.floor(Math.random() * 1000000); 
+function setupSMSLink() {
+    const smsLink = document.getElementById('sms-owner-link');
+    const ownerPhoneNumber = '+17873741297';
+    const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+    const total = document.getElementById('summary-total').textContent;
+    
+    // Get item names from the list
+    const items = Array.from(document.querySelectorAll('#summary-items li'))
+                       .map(li => li.innerText)
+                       .join(', ');
 
-        const total = '$59.99';
+    // Construct the message
+    const message = `New Order ${orderId}: ${items}. Total: $${total}`;
+    
+    // Encode the message for a URL (replaces spaces with %20, etc.)
+    const encodedMessage = encodeURIComponent(message);
 
-        const ownerPhoneNumber = '+17873741297'; // Replace with the Owner's Phone Number
+    // Set the href attribute
+    // Note: Use '?' for iOS and '&' for Android/Universal compatibility
+    smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
+}
 
-
-
-        // Function to extract simple summary text from the HTML list items
-
-        function getOrderSummaryText() {
-
-            const items = document.querySelectorAll('#summary-items');
-
-            let summary = '';
-
-            items.forEach(item => {
-
-                summary += item.textContent + ', ';
-
-            });
-
-            return summary.slice(0, -2); // Remove trailing comma and space
-
-        }
-
-
-
-        const itemsSummary = getOrderSummaryText();
-          //const itemsSummary = displayOrderSummary();
-const summaryTotal = document.getElementById('summary-total');
-const info = placeOrder(name);
-        // --- SMS Link Generation Logic ---
-
-
-
-        // 1. Format the message content
-
-        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${'#grand-total'}`;
-
-
-
-        // 2. URL-encode the message body
-
-        const encodedMessage = encodeURIComponent(rawMessage);
-
-
-
-        // 3. Construct the final SMS link
-
-        const smsHref = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
-
-
-
-        // 4. Update the HTML link's href attribute
-
-        document.getElementById('sms-owner-link').href = smsHref;
 
     </script>
 
