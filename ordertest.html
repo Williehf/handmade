@@ -185,7 +185,7 @@ Total: $${total}`;
     const encodedMessage = encodeURIComponent(message);
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
 }*/
-
+/*
 function placeOrder() {
     // 1. Get field values
     const name = document.getElementById('name').value.trim();
@@ -205,7 +205,7 @@ function placeOrder() {
     // 4. Clear cart and notify user
     localStorage.removeItem('cart');
     alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
-}
+}*/
 
 function setupSMSLink(name, address, city, zip) {
     const smsLink = document.getElementById('sms-owner-link');
