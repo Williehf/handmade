@@ -133,7 +133,7 @@ function displayOrderSummary() {
 
     summaryTotalElement.textContent = grandTotal.toFixed(2);
 }
-
+/*
 function setupSMSLink() {
     const smsLink = document.getElementById('sms-owner-link');
     const ownerPhoneNumber = '+17873741297';
@@ -154,10 +154,10 @@ function setupSMSLink() {
     // Set the href attribute
     // Note: Use '?' for iOS and '&' for Android/Universal compatibility
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
-}
+}*/
 
 //______
-/*function setupSMSLink() {
+function setupSMSLink() {
     const smsLink = document.getElementById('sms-owner-link');
     const ownerPhoneNumber = '+17873741297';
     
@@ -184,7 +184,7 @@ Total: $${total}`;
     // 4. Encode and set the link
     const encodedMessage = encodeURIComponent(message);
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
-}*/
+}
 
 
     </script>
