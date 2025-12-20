@@ -138,7 +138,7 @@ function displayOrderSummary() {
 
         const orderId = 'ORD-' + Math.floor(Math.random() * 1000000); 
 
-        //const total = '$59.99';
+        const total = '$59.99';
 
         const ownerPhoneNumber = '+17873741297'; // Replace with the Owner's Phone Number
 
@@ -164,8 +164,8 @@ function displayOrderSummary() {
 
 
 
-        //const itemsSummary = getOrderSummaryText();
-          const itemsSummary = displayOrderSummary();
+        const itemsSummary = getOrderSummaryText();
+          //const itemsSummary = displayOrderSummary();
 
 
         // --- SMS Link Generation Logic ---
@@ -174,7 +174,7 @@ function displayOrderSummary() {
 
         // 1. Format the message content
 
-        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${summaryTotalElement}`;
+        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${total}`;
 
 
 
@@ -201,4 +201,5 @@ function displayOrderSummary() {
 </body>
 
 </html>
+
 
