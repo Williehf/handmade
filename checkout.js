@@ -61,7 +61,7 @@ function placeOrder() {
     // 4. Clear cart and notify user
     localStorage.removeItem('cart');
     alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
-}*/
+}
 function placeOrder() {
     // 1. Capture elements safely
     const nameField = document.getElementById('name');
@@ -90,5 +90,44 @@ function placeOrder() {
     // 5. Update SMS link
     setupSMSLink(name, address, city, zip);
     alert("Details saved! You can now click the SMS button.");
+}*/
+function placeOrder() {
+    // 1. Live capture of data from the screen
+    const name = document.getElementById('cust-name')?.value || "";
+    const addr = document.getElementById('cust-address')?.value || "";
+    const city = document.getElementById('cust-city')?.value || "";
+    const zip = document.getElementById('cust-zip')?.value || "";
+
+    // 2. Debugging Check: If values are still empty, alert the user
+    if (!name || !addr) {
+        alert("Error: Please enter your Name and Address first.");
+        return;
+    }
+
+    // 3. Get the order details from the summary area
+    const total = document.getElementById('summary-total')?.innerText || "0.00";
+    const itemsList = Array.from(document.querySelectorAll('#summary-items li'))
+                           .map(li => li.innerText.trim())
+                           .join(', ');
+
+    // 4. Build the message with line breaks
+    const message = `ORDER NOTICE\n` +
+                    `Customer: ${name}\n` +
+                    `Address: ${addr}, ${city} ${zip}\n` +
+                    `Items: ${itemsList}\n` +
+                    `Total: $${total}`;
+
+    // 5. Update the SMS Link
+    const ownerPhone = '+17873741297';
+    const smsBtn = document.getElementById('sms-owner-link');
+    
+    // Use encodeURIComponent to handle spaces and special characters
+    smsBtn.href = `sms:${ownerPhone}?body=${encodeURIComponent(message)}`;
+    
+    // 6. Reveal the SMS button once it is ready
+    smsBtn.style.display = "inline-block";
+    alert("Order ready! Click the 'Send SMS' button that just appeared.");
 }
+
+
 
