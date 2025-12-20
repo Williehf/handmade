@@ -186,6 +186,56 @@ Total: $${total}`;
     smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
 }*/
 
+function placeOrder() {
+    // 1. Get field values
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const zip = document.getElementById('zip').value.trim();
+
+    // 2. Validate inputs
+    if (!name || !address || !city || !zip) {
+        alert("Please fill in all shipping details.");
+        return;
+    }
+
+    // 3. Update the SMS link with all data
+    setupSMSLink(name, address, city, zip);
+
+    // 4. Clear cart and notify user
+    localStorage.removeItem('cart');
+    alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
+}
+
+function setupSMSLink(name, address, city, zip) {
+    const smsLink = document.getElementById('sms-owner-link');
+    const ownerPhoneNumber = '+17873741297';
+    
+    // Get Order ID and Total from the page
+    const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+    const total = document.getElementById('summary-total').innerText;
+    
+    // Get item names from the summary list
+    const items = Array.from(document.querySelectorAll('#summary-items li'))
+                       .map(li => li.innerText.trim())
+                       .join(', ');
+
+    // Construct the formatted message
+    const message = `New Order: ${orderId}\n` +
+                    `Customer: ${name}\n` +
+                    `Address: ${address}, ${city}, ${zip}\n` +
+                    `Items: ${items}\n` +
+                    `Total: $${total}`;
+    
+    // CRITICAL: Encode the message for the URL
+    // Use '?' for most phones, but some older iOS need '&' or ';'
+    const encodedMessage = encodeURIComponent(message);
+    smsLink.href = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
+    
+    // Debugging: Log the link to the browser console (F12) to verify it generated
+    console.log("SMS Link Generated:", smsLink.href);
+}
+
 
     </script>
 
