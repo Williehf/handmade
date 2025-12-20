@@ -205,7 +205,7 @@ function placeOrder() {
     // 4. Clear cart and notify user
     localStorage.removeItem('cart');
     alert("Details captured! Now click the blue 'Send Order' button to open your SMS app.");
-}*/
+}
 
 function setupSMSLink(name, address, city, zip) {
     const smsLink = document.getElementById('sms-owner-link');
@@ -234,8 +234,54 @@ function setupSMSLink(name, address, city, zip) {
     
     // Debugging: Log the link to the browser console (F12) to verify it generated
     console.log("SMS Link Generated:", smsLink.href);
+}*/
+
+function placeOrder() {
+    // 1. Capture elements safely
+    const nameField = document.getElementById('name');
+    const addrField = document.getElementById('address');
+    const cityField = document.getElementById('city');
+    const zipField = document.getElementById('zip');
+
+    // 2. Check if the fields actually exist in HTML
+    if (!nameField || !addrField || !cityField || !zipField) {
+        console.error("Missing one or more input fields in HTML!");
+        return;
+    }
+
+    // 3. Get the actual values
+    const name = nameField.value.trim();
+    const address = addrField.value.trim();
+    const city = cityField.value.trim();
+    const zip = zipField.value.trim();
+
+    // 4. Validate
+    if (!name || !address || !city || !zip) {
+        alert("Please fill in all shipping details first.");
+        return;
+    }
+
+    // 5. Update SMS link
+    setupSMSLink(name, address, city, zip);
+    alert("Details saved! You can now click the SMS button.");
 }
 
+function setupSMSLink(name, address, city, zip) {
+    const smsLink = document.getElementById('sms-owner-link');
+    const ownerPhoneNumber = '+17873741297';
+    const total = document.getElementById('summary-total').innerText;
+    
+    // Get items from the list
+    const items = Array.from(document.querySelectorAll('#summary-items li'))
+                       .map(li => li.innerText.trim())
+                       .join(', ');
+
+    // Construct message with line breaks
+    const message = `New Order\nName: ${name}\nAddress: ${address}, ${city} ${zip}\nItems: ${items}\nTotal: $${total}`;
+    
+    // Encode for URL
+    smsLink.href = `sms:${ownerPhoneNumber}?body=${encodeURIComponent(message)}`;
+}
 
     </script>
 
