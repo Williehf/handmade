@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order | Handmade by Key</title>
+    <!-- Links the external CSS file -->
+   
+    <link rel="stylesheet" href="testboton1.css">
+      <link rel="stylesheet" href="css.css">
+           
+        
+        
+
+    <style>
+
+        body { font-family: sans-serif; max-width: 600px; margin: 20px auto; padding: 0 15px; }
+
+        .summary-box { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+
+        #sms-owner-link {
+
+            display: inline-block;
+
+            padding: 10px 20px;
+
+            background-color: #007bff;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header class="banner">
+        <div class="header-inline-container">
+            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-separator">|</span>
+            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+        </div>
+    </header>
+        <header class="banner1">
+        <h1>Welcome to Handmade by Key</h1>
+        
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <!-- Changed href values to match section IDs below -->
+            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
+            <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
+            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
+        </ul>
+    </nav>
+
+
+    <h1>✅ Order Confirmed!</h1>
+
+    <p>Thank you for your purchase. Details below:</p>
+
+
+
+    <div class="summary-box">
+
+        <strong>Order Details:</strong>
+
+        <ul id="summary-items">
+
+            <!-- These list items can be generated dynamically by your application -->
+<!--
+            <li>Item A: $10.00</li>
+
+            <li>Item B: $49.99</li>-->
+
+        </ul>
+
+        <p><strong>Total: $<span id="summary-total">0.00</span></strong></p>
+
+    </div>
+
+
+
+    <h2>Notify the Owner?</h2>
+
+    <p>Click the button below to pre-fill an SMS with your order number and summary, then tap send in your messaging app.</p>
+
+    
+
+    <!-- The user-clickable link/button -->
+
+    <a id="sms-owner-link" href="#">Send Order Summary to Owner via SMS</a>
+
+
+
+    <script>
+
+        // --- Dynamic Data Simulation (Replace with actual order retrieval logic) ---
+document.addEventListener('DOMContentLoaded', () => {
+    displayOrderSummary();
+});
+
+function displayOrderSummary() {
+    const summaryItemsElement = document.getElementById('summary-items');
+    const summaryTotalElement = document.getElementById('summary-total');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let grandTotal = 0;
+
+    summaryItemsElement.innerHTML = '';
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        const itemTotal = item.price * item.quantity;
+        grandTotal += itemTotal;
+        li.innerHTML = `
+            <span>${item.name} (x${item.quantity})</span>
+            <span>$${itemTotal.toFixed(2)}</span>
+        `;
+        summaryItemsElement.appendChild(li);
+    });
+
+    summaryTotalElement.textContent = grandTotal.toFixed(2);
+}
+        // Assume you have retrieved this data after the user placed the order
+
+        const orderId = 'ORD-' + Math.floor(Math.random() * 1000000); 
+
+        //const total = '$59.99';
+
+        const ownerPhoneNumber = '+17873741297'; // Replace with the Owner's Phone Number
+
+
+
+        // Function to extract simple summary text from the HTML list items
+
+        function getOrderSummaryText() {
+
+            const items = document.querySelectorAll('#summary-items li');
+
+            let summary = '';
+
+            items.forEach(item => {
+
+                summary += item.textContent + ', ';
+
+            });
+
+            return summary.slice(0, -2); // Remove trailing comma and space
+
+        }
+
+
+
+        //const itemsSummary = getOrderSummaryText();
+          const itemsSummary = displayOrderSummary();
+
+
+        // --- SMS Link Generation Logic ---
+
+
+
+        // 1. Format the message content
+
+        const rawMessage = `New Customer Order:\nID: ${orderId}\nSummary: ${itemsSummary}\nTotal: ${summaryTotalElement}`;
+
+
+
+        // 2. URL-encode the message body
+
+        const encodedMessage = encodeURIComponent(rawMessage);
+
+
+
+        // 3. Construct the final SMS link
+
+        const smsHref = `sms:${ownerPhoneNumber}?body=${encodedMessage}`;
+
+
+
+        // 4. Update the HTML link's href attribute
+
+        document.getElementById('sms-owner-link').href = smsHref;
+
+    </script>
+
+
+
+</body>
+
+</html>
+
