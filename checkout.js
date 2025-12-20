@@ -109,16 +109,19 @@ function placeOrder() {
     const itemsList = Array.from(document.querySelectorAll('#summary-items li'))
                            .map(li => li.innerText.trim())
                            .join(', ');
+                        
+const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
 
     // 4. Build the message with line breaks
     const message = `ORDER NOTICE\n` +
+                    `Order number: ${orderId}\n` +
                     `Customer: ${name}\n` +
                     `Address: ${addr}, ${city} ${zip}\n` +
                     `Items: ${itemsList}\n` +
                     `Total: $${total}`;
 
     // 5. Update the SMS Link
-    const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+    
     const ownerPhone = '+17873741297';
     const smsBtn = document.getElementById('sms-owner-link');
     
