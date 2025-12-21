@@ -136,7 +136,7 @@ const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
 localStorage.removeItem('cart');
 //alert("Your Order is sucessfully send by SMS! Thank you for choice Handmade by Key.");
     // Redirect the user to a confirmation page or the home page
-    //window.location.href = 'index.html'; 
+    window.location.href = 'index.html'; 
 }
 
 
