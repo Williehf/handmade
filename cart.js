@@ -42,3 +42,37 @@ function removeFromCart(itemId) {
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart(); // Re-render the cart
 }
+
+//Add link to the Google Sheet
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwl-mGIVArNe89Pv20bwbSTy9e5KW001Q7ohTMd-aYOqqSnBpRLcWkRV5PPGOc6Wwit/exec';
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', async (e) => {
+        const card = e.target.closest('.product-card');
+        const productId = card.getAttribute('data-id');
+
+        // Disable button while processing
+        button.disabled = true;
+        button.textContent = "Updating...";
+
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify({ id: productId })
+            });
+            const result = await response.json();
+
+            if (result.status === "success") {
+                card.querySelector('.stock-display').textContent = result.newStock;
+                button.textContent = "Added!";
+                button.disabled = false;
+            } else {
+                button.textContent = "Sold Out";
+            }
+        } catch (error) {
+            console.error("Inventory error:", error);
+            button.textContent = "Error";
+            button.disabled = false;
+        }
+    });
+});
