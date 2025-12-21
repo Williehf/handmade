@@ -220,18 +220,40 @@
         <button class="add-to-cart">Add to Cart</button>
     </div></td>
          <!-- Product 4 -->
-         <td><div class="product-card" data-id="4" data-name="Bella" data-price="18.75" data-image="flor.png">
-            <img src="flor.png" alt="Bella">
-            <h2>Bella</h2>
-            <p>$18.75</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div></td>
-        <td><div class="product-card" data-id="4" data-name="Bella" data-price="18.75" data-image="flor.png">
-            <img src="florb.png" alt="Bella">
-            <h2>Bella</h2>
-            <p>$18.75</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div></td></tr>
+         <td>
+             <div class="product-card" 
+         data-id="4" 
+         data-name="Bella" 
+         data-price="14.45" 
+         data-image="flor.png" 
+         data-stock="3">
+         
+        <img src="flor.png" alt="Bella">
+        <h2>Bella</h2>
+        <p>$18.75</p>
+        
+        <!-- This span is critical for the JavaScript update to work -->
+        <p>Stock: <span class="stock-display">3</span></p> 
+        
+        <button class="add-to-cart">Add to Cart</button>
+    </div></td>
+        <td>
+             <div class="product-card" 
+         data-id="4" 
+         data-name="Bella" 
+         data-price="14.45" 
+         data-image="florb.png" 
+         data-stock="3">
+         
+        <img src="florb.png" alt="Bella">
+        <h2>Bella</h2>
+        <p>$18.75</p>
+        
+        <!-- This span is critical for the JavaScript update to work -->
+        <p>Stock: <span class="stock-display">3</span></p> 
+        
+        <button class="add-to-cart">Add to Cart</button>
+    </div></td></tr>
          <!-- Product 5 -->
         <tr>
          <td><div class="product-card" data-id="5" data-name="Forest" data-price="14.45" data-image="forest.png">
@@ -297,6 +319,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
