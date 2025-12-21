@@ -1,3 +1,12 @@
+/* A Modern CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width/height */
+    margin: 0;            /* Removes default outer spacing (margins) */
+    padding: 0;           /* Removes default inner spacing (padding) */
+}
+
+
+
 body {
     font-family: sans-serif;
     margin: 10px;
