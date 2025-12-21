@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -101,4 +101,94 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
             button.disabled = false;
         }
     });
+});*/
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwl-mGIVArNe89Pv20bwbSTy9e5KW001Q7ohTMd-aYOqqSnBpRLcWkRV5PPGOc6Wwit/exec';
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+    // OPTIONAL: Add a function here to fetch initial stock from Google on load
 });
+
+// ONE unified listener for all "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', async (e) => {
+        const card = e.target.closest('.product-card');
+        const productId = card.getAttribute('data-id');
+        const stockDisplay = card.querySelector('.stock-display');
+        
+        // 1. Disable button immediately to prevent double-clicks
+        button.disabled = true;
+        const originalText = button.textContent;
+        button.textContent = "Checking Stock...";
+
+        try {
+            // 2. Update Google Sheets first (The "Source of Truth")
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify({ id: productId })
+            });
+            const result = await response.json();
+
+            if (result.status === "success" && result.newStock >= 0) {
+                // 3. Update the HTML display with the REAL stock from Google
+                stockDisplay.textContent = result.newStock;
+                card.setAttribute('data-stock', result.newStock);
+
+                // 4. Run your local cart logic ONLY if stock was successfully reduced
+                const product = {
+                    id: productId,
+                    name: card.getAttribute('data-name'),
+                    price: parseFloat(card.getAttribute('data-price')),
+                    image: card.getAttribute('data-image'),
+                    quantity: 1
+                };
+                addToCart(product);
+                updateCartCount();
+
+                // 5. Final button state
+                if (result.newStock === 0) {
+                    button.textContent = "Out of Stock";
+                    button.style.backgroundColor = "#ccc";
+                    button.disabled = true;
+                } else {
+                    button.textContent = "Added!";
+                    setTimeout(() => {
+                        button.textContent = "Add to Cart";
+                        button.disabled = false;
+                    }, 1000);
+                }
+            } else {
+                // If Google says no stock available
+                button.textContent = "Sold Out";
+                button.disabled = true;
+                stockDisplay.textContent = "0";
+            }
+        } catch (error) {
+            console.error("Inventory error:", error);
+            button.textContent = "Error";
+            button.disabled = false;
+        }
+    });
+});
+
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingIndex = cart.findIndex(item => item.id === product.id);
+
+    if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    if (!cartCountElement) return; // Prevent errors if element doesn't exist
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCountElement.textContent = count;
+}
+
