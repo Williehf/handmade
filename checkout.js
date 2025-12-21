@@ -131,12 +131,22 @@ const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
     // 6. Reveal the SMS button once it is ready
     smsBtn.style.display = "inline-block";
     
-    alert("Order ready! 1-Click the 'Send SMS' button that just appeared.");
+    alert("Order prepared! 1-Please click the 'Send SMS' button to complete your order.");
 
-localStorage.removeItem('cart');
+//localStorage.removeItem('cart');
 //alert("Your Order is sucessfully send by SMS! Thank you for choice Handmade by Key.");
     // Redirect the user to a confirmation page or the home page
-    window.location.href = 'index.html'; 
+    //window.location.href = 'index.html'; 
+}
+
+function finalizeOrder() {
+    // Clear the cart
+    localStorage.removeItem('cart');
+    
+    alert("Thank you for choosing Handmade by Key!");
+    
+    // Redirect
+    window.location.href = 'index.html';
 }
 
 
