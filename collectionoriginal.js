@@ -192,3 +192,37 @@ function updateCartCount() {
     cartCountElement.textContent = count;
 }
 
+// Function to fetch live stock when page loads or refreshes
+async function syncLiveStock() {
+    try {
+        // Send a GET request to your script (ensure your Google Script has a doGet function)
+        const response = await fetch(GOOGLE_SCRIPT_URL + "?action=getInventory");
+        const result = await response.json();
+
+        if (result.status === "success") {
+            result.data.forEach(item => {
+                const card = document.querySelector(`.product-card[data-id="${item.id}"]`);
+                if (card) {
+                    const display = card.querySelector('.stock-display');
+                    const btn = card.querySelector('.add-to-cart');
+                    
+                    // Update display and internal data attribute
+                    display.textContent = item.stock;
+                    card.setAttribute('data-stock', item.stock);
+
+                    // Disable button if live stock is 0
+                    if (parseInt(item.stock) <= 0) {
+                        btn.disabled = true;
+                        btn.textContent = "Out of Stock";
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Initial sync failed:", error);
+    }
+}
+
+// Run this automatically on page load
+document.addEventListener('DOMContentLoaded', syncLiveStock);
+
