@@ -226,3 +226,4 @@ async function syncLiveStock() {
 // Run this automatically on page load
 document.addEventListener('DOMContentLoaded', syncLiveStock);
 
+
