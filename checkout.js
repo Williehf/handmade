@@ -127,13 +127,13 @@ const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
     
     // Use encodeURIComponent to handle spaces and special characters
     smsBtn.href = `sms:${ownerPhone}?body=${encodeURIComponent(message)}`;
-    localStorage.removeItem('cart');
+    
     // 6. Reveal the SMS button once it is ready
     smsBtn.style.display = "inline-block";
     
     alert("Order ready! 1-Click the 'Send SMS' button that just appeared.");
 
-
+localStorage.removeItem('cart');
 }
 
 
