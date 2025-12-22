@@ -587,7 +587,7 @@ footer {
   transition: transform 0.3s ease;
   pointer-events: auto;
   /* CUTS 25% OFF THE BOTTOM */
-  clip-path: inset(0 0 25% 0);
+  /*clip-path: inset(0 0 25% 0);
   /* Prevents iOS from trying to "pick up" the image while swiping */
   -webkit-user-drag: none;
 }
@@ -609,3 +609,4 @@ footer {
     height: 200px;
   }
 }
+
