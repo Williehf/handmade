@@ -551,6 +551,49 @@ footer {
     cursor: pointer;
     margin-bottom: 5px;
 }
+/*image scroll*/
+.scroll-wrapperq {
+  width: 100%;
+  overflow: hidden; /* Important: Hides the manual scrollbar */
+  /*background: #70bfdf;*/
+  padding: 40px 0; /* Space for the 50% zoom */
+  cursor: crosshair;
+  max-width:900px;
+ margin: 0 auto;
+ 
+}
+
+.scroll-contentq {
+  display: flex;
+  gap: 20px;
+  width: max-content; /* Keeps all images in a single row */
+  padding: 0 100px;
+  will-change: transform; /* Performance boost for 2025 browsers */
+  transition: transform 0.1s ease-out; /* Makes the horizontal movement smooth */
+}
+
+.zoom-imgq {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+  pointer-events: auto; /* Allows the hover to detect the image */
+}
+
+/* Increases image size by 50% when pointer is over it */
+.zoom-imgq:hover {
+  transform: scale(1.5);
+  z-index: 999; /* Keeps zoomed image on top of neighbors */
+  box-shadow: 0 20px 40px rgba(207, 243, 5, 0.6);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .zoom-imgq {
+    width: 85%; /* Shows a partial image to hint at more content */
+  }
+}
 
 
 
