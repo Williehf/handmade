@@ -554,22 +554,29 @@ footer {
 /*image scroll*/
 .scroll-wrapperq {
   width: 100%;
-  overflow: hidden; /* Important: Hides the manual scrollbar */
-  /*background: #70bfdf;*/
-  padding: 40px 0; /* Space for the 50% zoom */
+  /* Change to 'auto' for iPhone, but hide scrollbar with CSS */
+  overflow-x: auto; 
+  overflow-y: hidden;
+  padding: 60px 0; 
   cursor: crosshair;
-  max-width:900px;
- margin: 0 auto;
- 
+  max-width: 900px;
+  margin: 0 auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -webkit-overflow-scrolling: touch; /* Essential for iPhone smooth scrolling */
+}
+
+/* Hide scrollbar for Chrome/Safari (iPhone) */
+.scroll-wrapperq::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-contentq {
   display: flex;
   gap: 20px;
-  width: max-content; /* Keeps all images in a single row */
+  width: max-content;
   padding: 0 100px;
-  will-change: transform; /* Performance boost for 2025 browsers */
-  transition: transform 0.1s ease-out; /* Makes the horizontal movement smooth */
+  /* On mobile, we use native scroll, on desktop we use JS transform */
+  transition: transform 0.1s ease-out; 
 }
 
 .zoom-imgq {
@@ -577,23 +584,28 @@ footer {
   height: 150px;
   object-fit: cover;
   border-radius: 15px;
-  transition: transform 0.3s ease; /* Smooth zoom transition */
-  pointer-events: auto; /* Allows the hover to detect the image */
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+  /* CUTS 25% OFF THE BOTTOM */
+  clip-path: inset(0 0 25% 0);
+  /* Prevents iOS from trying to "pick up" the image while swiping */
+  -webkit-user-drag: none;
 }
 
-/* Increases image size by 50% when pointer is over it */
 .zoom-imgq:hover {
   transform: scale(1.5);
-  z-index: 999; /* Keeps zoomed image on top of neighbors */
+  z-index: 999;
   box-shadow: 0 20px 40px rgba(207, 243, 5, 0.6);
 }
 
-/* Mobile adjustments */
 @media (max-width: 768px) {
+  .scroll-contentq {
+    /* Disable JS transform on mobile to allow native finger swiping */
+    transform: none !important; 
+    padding: 0 20px;
+  }
   .zoom-imgq {
-    width: 85%; /* Shows a partial image to hint at more content */
+    width: 200px; /* Larger for touch targets */
+    height: 200px;
   }
 }
-
-
-
