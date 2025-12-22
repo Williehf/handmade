@@ -1,20 +1,27 @@
-const wrapper = document.getElementById('scroll-wrapperq');
+const wrapper = document.getElementById('scroll-wrapper');
 const content = wrapper.querySelector('.scroll-contentq');
 
-wrapper.addEventListener('mousemove', (e) => {
-  const wrapperWidth = wrapper.offsetWidth;
-  const contentWidth = content.scrollWidth;
-  
-  // The total distance the content can move left
-  const maxMove = contentWidth - wrapperWidth;
-  
-  // Mouse position as a percentage of the wrapper width (0 to 1)
-  const mouseX = e.clientX - wrapper.offsetLeft;
-  const percentage = mouseX / wrapperWidth;
-  
-  // Calculate movement (clamped between 0 and maxMove)
-  const moveX = Math.max(0, Math.min(percentage * maxMove, maxMove));
-  
-  // Move the content using transform for the smoothest performance
-  content.style.transform = `translateX(-${moveX}px)`;
-});
+// Detect if it's a touch device (iPhone)
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+if (!isTouchDevice) {
+  // DESKTOP: Move images based on mouse pointer position
+  wrapper.addEventListener('mousemove', (e) => {
+    const rect = wrapper.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Mouse position inside wrapper
+    const width = rect.width;
+    
+    const contentWidth = content.offsetWidth;
+    const maxScroll = contentWidth - width;
+    
+    // Calculate percentage and movement
+    const percentage = x / width;
+    const moveX = percentage * maxScroll;
+    
+    content.style.transform = `translateX(-${moveX}px)`;
+  });
+} else {
+  // IPHONE: The CSS 'overflow-x: auto' handles the movement naturally.
+  // We don't need JS to move it; fingers work better with native scrolling.
+  console.log("iPhone/Touch detected: Using native scroll.");
+}
