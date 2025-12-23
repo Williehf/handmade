@@ -666,4 +666,59 @@ footer {
     }
 }
 
+/*test*/
+.scroll-wrapperql {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 0;
+    /* IPHONE FIXES */
+    overflow-x: auto; /* Enable native horizontal swipe for touch */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Momentum scroll for iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    overscroll-behavior-x: contain; /* Prevent Safari back-swipe gesture */
+}
+
+/* Hide scrollbars for Chrome/Safari/iPhone */
+.scroll-wrapperql::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-contentql {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding: 0 100px;
+    will-change: transform;
+    /* Transition only for Desktop (overridden in JS for mobile) */
+    transition: transform 0.1s ease-out;
+}
+
+/* Fixed Center Buttons */
+.button-groupl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+    pointer-events: none; /* Clicks pass through group to images */
+}
+
+.show-overlay-buttonl {
+    pointer-events: auto; /* Re-enable clicks for buttons */
+    padding: 15px 30px;
+    background-color: #dbd35d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
 
