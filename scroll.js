@@ -1,5 +1,5 @@
-/*const wrapper = document.getElementById('scroll-wrapper');
-const content = wrapper.querySelector('.scroll-contentq');
+const wrapper = document.getElementById('scroll-wrapper');
+const content = wrapper.querySelector('.scroll-contentqw');
 
 // Detect if it's a touch device (iPhone)
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -24,8 +24,8 @@ if (!isTouchDevice) {
   // IPHONE: The CSS 'overflow-x: auto' handles the movement naturally.
   // We don't need JS to move it; fingers work better with native scrolling.
   console.log("iPhone/Touch detected: Using native scroll.");
-}*/
-
+}
+/*
 const wrapper = document.getElementById('scroll-wrapper');
 const content = wrapper.querySelector('.scroll-contentql');
 
@@ -53,6 +53,7 @@ if (!isTouch) {
     content.style.transition = "none";
     // Optional: Hide pointer if you want a cleaner touch look
     wrapper.style.cursor = "default";
-}
+}*/
+
 
 
