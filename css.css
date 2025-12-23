@@ -907,7 +907,7 @@ footer {
     }
 }
 
-/*collextio new*/
+/*--------collextio new--------*/
 /* Container spacing */
 .product-grid-containery {
     max-width: 900px;
@@ -987,7 +987,9 @@ footer {
     padding-bottom: 10px;
 }
 
-/*specification*/
+
+
+/*----------specification--------*/
 /* General container for spacing and responsiveness */
 .specs-container {
     max-width: 900px;
@@ -1034,6 +1036,7 @@ footer {
 .material-list-wrapper li strong {
     color: #000;
 }
+
 
 
 
