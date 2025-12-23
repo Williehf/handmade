@@ -838,15 +838,22 @@ footer {
 @media (min-width: 1024px) {
     .product-layout-gridy { grid-template-columns: repeat(3, 1fr); } /* 3 columns */
 }
-
+@media (max-width: 480px) {
+    .product-layout-gridy {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two items per row on iPhone */
+        gap: 10px;
+    }
+  .product-cardy img {
+        width: 120px; /* Slightly smaller for 2-column mobile layout */
+        height: 120px;
+    }
+}
 /* Product Card Styling */
 .product-cardy {
-    border: 1px solid #ddd;
+    min-width: 160px;       /* Ensures the card is slightly wider than the image */
     padding: 15px;
-    border-radius: 12px;
     text-align: center;
-    background: #fff;
-    transition: transform 0.3s ease;
 }
 
 .product-cardy:hover {
@@ -854,11 +861,12 @@ footer {
 }
 
 .product-cardy img {
-    width: 50%;
-    height: 50px;
-    object-fit: cover; /* Keeps images consistent size */
-    border-radius: 8px;
-    margin-bottom: 10px;
+    width: 150px;           /* Fixed width */
+    height: 150px;          /* Fixed height to keep it square */
+    object-fit: cover;      /* This prevents the image from looking "stretched" */
+    border-radius: 10px;    /* Optional: adds nice rounded corners */
+    display: block;         /* Centers the image */
+    margin: 0 auto 10px;    /* Centers image and adds space below */
 }
 
 /* Modern Button */
