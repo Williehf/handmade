@@ -766,6 +766,7 @@ footer {
     font-size: 0.8rem;
     color: #888;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .columnx h3 {
@@ -985,6 +986,7 @@ footer {
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
 }
+
 
 
 
