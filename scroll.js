@@ -1,5 +1,5 @@
 const wrapper = document.getElementById('scroll-wrapper');
-const content = wrapper.querySelector('.scroll-contentqw');
+const content = wrapper.querySelector('.scroll-contentq');
 
 // Detect if it's a touch device (iPhone)
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -54,6 +54,7 @@ if (!isTouch) {
     // Optional: Hide pointer if you want a cleaner touch look
     wrapper.style.cursor = "default";
 }*/
+
 
 
 
