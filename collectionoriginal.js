@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ONE unified listener for all "Add to Cart" buttons
-document.querySelectorAll('.add-to-cart').forEach(button => {
+document.querySelectorAll('.add-to-carty').forEach(button => {
     button.addEventListener('click', async (e) => {
-        const card = e.target.closest('.product-card');
+        const card = e.target.closest('.product-cardy');
         const productId = card.getAttribute('data-id');
         const stockDisplay = card.querySelector('.stock-display');
         
@@ -201,10 +201,10 @@ async function syncLiveStock() {
 
         if (result.status === "success") {
             result.data.forEach(item => {
-                const card = document.querySelector(`.product-card[data-id="${item.id}"]`);
+                const card = document.querySelector(`.product-cardy[data-id="${item.id}"]`);
                 if (card) {
                     const display = card.querySelector('.stock-display');
-                    const btn = card.querySelector('.add-to-cart');
+                    const btn = card.querySelector('.add-to-carty');
                     
                     // Update display and internal data attribute
                     display.textContent = item.stock;
@@ -225,5 +225,6 @@ async function syncLiveStock() {
 
 // Run this automatically on page load
 document.addEventListener('DOMContentLoaded', syncLiveStock);
+
 
 
