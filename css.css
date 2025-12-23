@@ -428,7 +428,7 @@ footer {
     top: 50%;           /* Moves the top edge of the button to the middle of the container */
     left: 50%;          /* Moves the left edge of the button to the middle of the container */
     transform: translate(-50%, -50%); /* Shifts the button back by half its own width/height to center it perfectly */
-    z-index: 10;        /* Ensures the button appears on top of the images/table */
+    z-index: 500;        /* Ensures the button appears on top of the images/table */
 
     /* Button styling */
     padding: 20px 40px;
@@ -609,4 +609,5 @@ footer {
     height: 200px;
   }
 }
+
 
