@@ -907,87 +907,6 @@ footer {
     }
 }
 
-/*--------collextio new--------*/
-/* Container spacing */
-.product-grid-containery {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* THE MAGIC GRID: 1 column on iPhone, 2 on Tablets, 3 on Desktop */
-.product-layout-gridy {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 1 column for iPhone */
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Responsive adjustment for larger screens */
-@media (min-width: 600px) {
-    .product-layout-gridy { grid-template-columns: repeat(2, 1fr); } /* 2 columns */
-}
-
-@media (min-width: 1024px) {
-    .product-layout-gridy { grid-template-columns: repeat(3, 1fr); } /* 3 columns */
-}
-@media (max-width: 480px) {
-    .product-layout-gridy {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two items per row on iPhone */
-        gap: 10px;
-    }
-  .product-cardy img {
-        width: 120px; /* Slightly smaller for 2-column mobile layout */
-        height: 120px;
-    }
-}
-/* Product Card Styling */
-.product-cardy {
-    min-width: 160px;       /* Ensures the card is slightly wider than the image */
-    padding: 15px;
-    text-align: center;
-}
-
-.product-cardy:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.product-cardy img {
-    width: 150px;           /* Fixed width */
-    height: 150px;          /* Fixed height to keep it square */
-    object-fit: cover;      /* This prevents the image from looking "stretched" */
-    border-radius: 10px;    /* Optional: adds nice rounded corners */
-    display: block;         /* Centers the image */
-    margin: 0 auto 10px;    /* Centers image and adds space below */
-}
-
-/* Modern Button */
-.add-to-carty {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-}
-
-.add-to-carty:hover {
-    background-color: #555;
-}
-
-/* Table Title Formatting */
-.tabletitley {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-
 
 /*----------specification--------*/
 /* General container for spacing and responsiveness */
@@ -1036,6 +955,7 @@ footer {
 .material-list-wrapper li strong {
     color: #000;
 }
+
 
 
 
