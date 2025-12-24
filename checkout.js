@@ -138,7 +138,7 @@ const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
     // Redirect the user to a confirmation page or the home page
     //window.location.href = 'index.html'; 
 }
-
+/*
 function finalizeOrder() {
     // Clear the cart
     localStorage.removeItem('cart');
@@ -147,6 +147,19 @@ function finalizeOrder() {
     
     // Redirect
     window.location.href = 'index.html';
+}*/
+function finalizeOrder() {
+    // 1. Clear the cart data from memory
+    localStorage.removeItem('cart');
+    
+    // 2. Small delay (500ms) to ensure the SMS app launches 
+    // before the browser leaves the current page
+    setTimeout(function() {
+        alert("Thank you for choosing Handmade by Key!");
+        
+        // 3. Redirect to home page
+        window.location.href = 'index.html';
+    }, 500); 
 }
 
 
