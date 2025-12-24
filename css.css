@@ -607,7 +607,14 @@ footer {
   .zoom-imgq {
     width: 150px; /* Larger for touch targets */
     height: 150px;
-  }
+    
+    /*width: 150px;           /* Fixed width */
+    /*height: 150px;          /* Fixed height to keep it square */
+    /*object-fit: cover;      /* This prevents the image from looking "stretched" */
+    /*border-radius: 10px;    /* Optional: adds nice rounded corners */
+    /*display: block;         /* Centers the image */
+    /*margin: 0 auto 10px; 
+  
 }
 /*new test*/
 /* Anchor the buttons to this wrapper */
