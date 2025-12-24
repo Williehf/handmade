@@ -557,7 +557,7 @@ footer {
   /* Change to 'auto' for iPhone, but hide scrollbar with CSS */
   overflow-x: auto; 
   overflow-y: hidden;
-  padding: 60px 0; 
+  padding: 30px 0; 
   cursor: crosshair;
   max-width: 900px;
   margin: 0 auto;
