@@ -580,8 +580,8 @@ footer {
 }
 
 .zoom-imgq {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 15px;
   transition: transform 0.3s ease;
@@ -605,8 +605,8 @@ footer {
     padding: 0 20px;
   }
   .zoom-imgq {
-    width: 200px; /* Larger for touch targets */
-    height: 200px;
+    width: 150px; /* Larger for touch targets */
+    height: 150px;
   }
 }
 /*new test*/
