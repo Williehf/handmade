@@ -956,6 +956,98 @@ footer {
     color: #000;
 }
 
+/*new cart*/
+    /* Responsive Table/Grid Logic */
+    .cart-container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    #cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    #cart-table th {
+        background-color: #f4f4f4;
+        padding: 12px;
+        text-align: left;
+        border-bottom: 2px solid #ddd;
+    }
+
+    #cart-table td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+    }
+
+    /* Total and Buttons Styling */
+    .cart-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .grand-total-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .checkout-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 100%; /* Full width on mobile */
+        max-width: 300px;
+    }
+
+    /* MOBILE OPTIMIZATION (iPhone) */
+    @media (max-width: 600px) {
+        /* Force the table to stop being a table */
+        #cart-table thead { display: none; } /* Hide headers on mobile */
+        
+        #cart-table tr {
+            display: block;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        #cart-table td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            text-align: right;
+        }
+
+        /* Add labels before each piece of data on mobile */
+        #cart-table td::before {
+            content: attr(data-label); /* Uses a data attribute for titles */
+            font-weight: bold;
+            text-align: left;
+            flex: 1;
+        }
+
+        #cart-table td:last-child { border-bottom: none; }
+
+        .cart-footer {
+            align-items: center;
+            text-align: center;
+        }
+    }
+
 
 
 
