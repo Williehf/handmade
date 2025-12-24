@@ -4,128 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Handmade by Key</title>
-       <link rel="icon" type="image/png" href="logo2.png">
+    <link rel="icon" type="image/png" href="logo2.png">
     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="testboton1.css">
-         <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="testboton1.css">
+    <link rel="stylesheet" href="css.css">
     <style>
+        /* Responsive Container */
         .checkout-container {
             display: flex;
-            gap: 20px;
-            margin-top: 20px;
+            flex-direction: column; /* Default to mobile-first (stacked) */
+            gap: 30px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
+
+        /* Form Styling */
         .checkout-form {
             flex: 2;
-            display: grid;
-            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
+
+        .checkout-form input {
+            padding: 12px;
+            font-size: 16px; /* Prevents iPhone "auto-zoom" on focus */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Order Summary Styling */
         .order-summary {
             flex: 1;
-            border: 1px solid #ccc;
-            padding: 15px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+            height: fit-content;
         }
+
         .order-summary ul {
             list-style: none;
             padding: 0;
+            margin: 15px 0;
         }
+
         .order-summary li {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
-        .place-order-btn {
+
+        /* Button Styling */
+        .place-order-btn, .nav-buttonf {
+            display: block;
+            text-align: center;
             width: 100%;
             padding: 15px;
             background-color: #28a745;
             color: white;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1.1em;
-            margin-top: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .nav-buttonf {
+            background-color: #007bff; /* Different color for the SMS button */
+        }
+
+        /* DESKTOP LAYOUT (Wider than iPhone) */
+        @media (min-width: 768px) {
+            .checkout-container {
+                flex-direction: row; /* Side-by-side on desktop */
+                align-items: flex-start;
+            }
+        }
+
+        /* Typography Fixes */
+        .tabletitle {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     </style>
 </head>
 <body>
 
-     <header class="banner">
+    <header class="banner">
         <div class="header-inline-container">
-            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-main-title">Free shipping on orders over $30</span>
             <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+            <span class="header-second-sentence">Order before 15:00 to ship today!</span>
         </div>
     </header>
-        <header class="banner1">
+
+    <header class="banner1">
         <h1>Handmade by Key</h1>
-        
     </header>
 
     <nav class="navbar">
         <ul class="nav-list">
-            <!-- Changed href values to match section IDs below -->
             <li><a href="index.html" class="nav-button">🏠 Home</a></li>
             <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
             <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
             <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
         </ul>
     </nav>
-    <header>
-        <section class="tabletitle">
-        
+
+    <div class="tabletitle">
         <h4>Checkout</h4>
-        <a href="cart.html">Back to Cart</a></header></section>
-    </header>
+        <a href="cart.html">Back to Cart</a>
+    </div>
+
     <main class="checkout-container">
+        <!-- Shipping Details Section -->
         <div class="checkout-form">
-         
-<h3>Shipping Details</h3>
-<p>There are different method of payments:
-CashApp, 
-Venmo,
-PayPal, 
-ATH móvil</p>
-                        <!-- Shipping Form -->
-<input type="text" id="cust-name" placeholder="Name">
-<input type="text" id="cust-address" placeholder="Address">
-<input type="text" id="cust-city" placeholder="City">
-<input type="text" id="cust-zip" placeholder="Zip Code">
-
-<button onclick="placeOrder()">1.Save Order & Prepare SMS</button>
-
-<!--<a id="sms-owner-link" href="#">2.Send this Order Summary via SMS</a>-->
-
-          <!--  <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
-            <a href="ordertest.html">Order Detail</a>
-            <a id="sms-owner-link" href="#">Send Order Summary via SMS</a>
-            -->
-
-
-<!-- The Buttons 
-<button onclick="placeOrder()">1. Save Order Info</button>-->
-<!--<a id="sms-owner-link" href="#" style="display:none;">2. Send SMS to Owner</a>-->
-<a id="sms-owner-link" href="#" style="display:none;" class="nav-buttonf" onclick="finalizeOrder()">2. Send SMS to Owner</a>
-
-<!--<a id="sms-owner-link" href="#">2. Send SMS to Owner</a>-->
+            <h3>Shipping Details</h3>
+            <p style="font-size: 0.9rem; color: #666;">Methods: CashApp, Venmo, PayPal, ATH móvil</p>
             
+            <input type="text" id="cust-name" placeholder="Full Name">
+            <input type="text" id="cust-address" placeholder="Address">
+            <input type="text" id="cust-city" placeholder="City">
+            <input type="text" id="cust-zip" placeholder="Zip Code">
+
+            <button class="place-order-btn" onclick="placeOrder()">1. Save Order & Prepare SMS</button>
+            <a id="sms-owner-link" href="#" style="display:none;" class="nav-buttonf" onclick="finalizeOrder()">2. Send SMS to Owner</a>
         </div>
+
+        <!-- Order Summary Section -->
         <div class="order-summary">
-            <h2>Order Summary</h2>
+            <h3>Order Summary</h3>
             <ul id="summary-items">
-                <!-- Summary items here -->
+                <!-- Items injected by checkout.js -->
             </ul>
             <hr>
-            <div>
+            <div style="margin-top: 15px; font-size: 1.2rem;">
                 <strong>Total: $<span id="summary-total">0.00</span></strong>
             </div>
         </div>
     </main>
 
     <script src="checkout.js"></script>
-            <!-- FOOTER SECTION -->
+
     <footer>
         <p>&copy; 2025 Handmade by Key | <a href="about.html" class="footer-link">About Us</a></p>
     </footer>
 </body>
 </html>
+
 
 
 
