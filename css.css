@@ -1077,7 +1077,7 @@ footer {
         background-position: center;
         
         /* 35% Transparency for the image only */
-        opacity: 0.35; 
+        opacity: 0.50; 
         z-index: 1;
     }
 
