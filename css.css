@@ -574,7 +574,7 @@ footer {
   display: flex;
   gap: 20px;
   width: max-content;
-  padding: 0 100px;
+  padding: 0 50px;
   /* On mobile, we use native scroll, on desktop we use JS transform */
   transition: transform 0.1s ease-out; 
 }
