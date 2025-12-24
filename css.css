@@ -580,8 +580,8 @@ footer {
 }
 
 .zoom-imgq {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   object-fit: cover;
   border-radius: 15px;
   transition: transform 0.3s ease;
