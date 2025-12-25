@@ -1059,7 +1059,7 @@ footer {
 
    /* The main container */
     .story-section {
-        position: absolute; /* relative Required for the background positioning */
+        position: relative; /* relative Required for the background positioning */
         padding: 80px 20px;
         min-height: 100vh;
         display: flex;
