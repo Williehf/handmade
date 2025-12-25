@@ -1085,7 +1085,7 @@ footer {
         
         /* 35% Transparency for the image only */
         opacity: 0.50; 
-        z-index: -1;
+        z-index: 1;
     }
 
     /* The Text Content Layer */
@@ -1102,8 +1102,8 @@ footer {
 
     .story-content p {
         font-family: 'Georgia', serif;
-        font-size: 1.25rem;
-        line-height: 1.9;
+        font-size: 1rem; /*1.25*/
+        line-height: 1; /*1.9*/
         color: #1a1a1a; /* Dark solid text */
         margin-bottom: 20px;
     }
