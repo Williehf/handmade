@@ -1079,12 +1079,12 @@ footer {
         height: 100%;
         
         /* Replace 'grandma-yarn.jpg' with your image path */
-        background-image: url('todo.png'); 
+        background-image: url('beanies.png'); 
         background-size: cover;
         background-position: center;
         
         /* 35% Transparency for the image only */
-        opacity: 0.50; 
+        opacity: 0.35; 
         z-index: 1;
     }
 
