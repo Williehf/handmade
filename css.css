@@ -1059,7 +1059,7 @@ footer {
 
    /* The main container */
     .story-section {
-        position: relative; /* Required for the background positioning */
+        position: absolute; /* relative Required for the background positioning */
         padding: 80px 20px;
         min-height: 100vh;
         display: flex;
@@ -1075,8 +1075,8 @@ footer {
         position: absolute;
         top: 0; 
         left: 0;
-        width: 75%; 
-        height: 75%;
+        width: 100%; 
+        height: 100%;
         
         /* Replace 'grandma-yarn.jpg' with your image path */
         background-image: url('todo.png'); 
@@ -1118,7 +1118,7 @@ footer {
             /*background: rgba(255, 255, 255, 0.7); /* More solid on mobile for readability */
         }
         .story-content p {
-            font-size: 1.15rem;
+            font-size: 1rem;/*1.15*/
         }
     }
 
