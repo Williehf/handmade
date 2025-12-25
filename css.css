@@ -1066,7 +1066,7 @@ footer {
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        background-color: #fff; /* Base color under the image */
+        /*background-color: #fff; /* Base color under the image */
     }
 
     /* The background image layer */
