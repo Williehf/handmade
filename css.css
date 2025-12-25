@@ -1115,7 +1115,7 @@ footer {
         }
         .story-content {
             padding: 20px;
-            background: rgba(255, 255, 255, 0.7); /* More solid on mobile for readability */
+            /*background: rgba(255, 255, 255, 0.7); /* More solid on mobile for readability */
         }
         .story-content p {
             font-size: 1.15rem;
