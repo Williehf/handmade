@@ -1106,6 +1106,7 @@ footer {
         line-height: 1; /*1.9*/
         color: #1a1a1a; /* Dark solid text */
         margin-bottom: 20px;
+        text-align: justify;
     }
 
     /* Mobile Fix for iPhone */
