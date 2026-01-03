@@ -1114,6 +1114,12 @@ footer {
         .story-section {
             padding: 20px 15px;
         }
+        .story-section::before{
+        background-image: url('beanies.png'); 
+        background-size: cover;
+        background-position: center;
+        }
+        
         .story-content {
             padding: 20px;
             /*background: rgba(255, 255, 255, 0.7); /* More solid on mobile for readability */
@@ -1124,6 +1130,7 @@ footer {
             font-family: 'Georgia', serif;
         }
     }
+
 
 
 
