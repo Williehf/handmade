@@ -1079,7 +1079,7 @@ footer {
         height: 100%;
         
         /* Replace 'grandma-yarn.jpg' with your image path */
-        background-image: url('beanies.png'); 
+        background-image: url('logos.png'); 
         background-size: cover;
         background-position: center;
         
@@ -1115,7 +1115,7 @@ footer {
             padding: 20px 15px;
         }
         .story-section::before{
-        background-image: url('beanies.png'); 
+        background-image: url('logos.png'); 
         background-size: cover;
         background-position: center;
         }
@@ -1130,6 +1130,7 @@ footer {
             font-family: 'Georgia', serif;
         }
     }
+
 
 
 
