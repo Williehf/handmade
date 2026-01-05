@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | Handmade by K</title>
+      <link rel="icon" type="image/png" href="logo2.png">
+    <!-- Links the external CSS file -->
+   
+     <link rel="stylesheet" href="testboton1.css">
+         <link rel="stylesheet" href="css.css">
+         <link rel="stylesheet" href="style.css">
+
+<style>    
+         table {
+        border-collapse: separate;
+        width: 600px;
+        margin: 10px auto;
+        /* Position relative is needed so we can position the pop-up images relative to the whole table */
+        position: relative;
+    }
+
+  td {
+    width: 180px;           /* Slightly wider than the image for padding */
+    height: auto;           /* Let the height adjust to the content */
+    vertical-align: top;
+    padding: 10px;
+}
+
+        .table-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        cursor: pointer;
+        /* Add transition for smooth resizing */
+        transition: transform 0.3s ease, z-index 0.1s ease;
+        margin-top: 10px;
+        
+    }
+
+    /* Pop-up effect on hover */
+    .table-img:hover {
+        /* Make the image big (e.g., 3x its size) */
+        transform: scale(3.0);
+        /* Bring the image above other elements on the page */
+        z-index: 10;
+        /* Position it absolutely within its cell to break free from the cell's overflow rules */
+        position: absolute;
+        /* Center it over its original cell location */
+        top: auto;
+        left: auto;
+        /* Add a subtle shadow for the "pop out" effect */
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        /* Ensure the transformation origin is centered */
+        transform-origin: center center;
+    }
+    
+    </style>
+</head>
+<body>
+
+
+    <header class="banner">
+        <div class="header-inline-container">
+            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-separator">|</span>
+            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+        </div>
+    </header>
+        <header class="banner1">
+        <h1>Handmade by K</h1>
+        
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <!-- Changed href values to match section IDs below -->
+            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
+            <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
+            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
+        </ul>
+    </nav>  
+      
+      <!--new part-->
+      <main class="product-grid-containery">
+    <div class="tabletitley">
+        <h4>Our Collections</h4>
+        <a href="cart.html" class="cart-link">View Cart (<span id="cart-count">0</span>)</a>
+    </div>
+
+    <!-- We use a DIV instead of a TABLE for better responsiveness -->
+    <div class="product-layout-gridy">
+        <!-- Product 1 -->
+        <div class="product-cardy" data-id="1" data-name="Violet" data-price="14.45" data-image="b&amp;b.png" data-stock="3">
+            <div class="img-containery"><img src="b&amp;b.png" alt="Violet"></div>
+            <h2>Violet</h2>
+            <p class="price">$14.45</p>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-cardy" data-id="2" data-name="Dark" data-price="14.45" data-image="b&amp;g.png" data-stock="4">
+            <div class="img-containery"><img src="b&amp;g.png" alt="Dark"></div>
+            <h2>Dark</h2>
+        </div>
+
+         <!-- Product 3 -->
+        <div class="product-cardy" data-id="3" data-name="Pelusa" data-price="18.75" data-image="boton.png" data-stock="2">
+            <div class="img-containery"><img src="boton.png" alt="Pelusa"></div>
+            <h2>Pelusa</h2>
+        </div>
+         <!-- Product 4 -->
+        <div class="product-cardy" data-id="4" data-name="Bella" data-price="18.75" data-image="flor.png" data-stock="3">
+            <div class="img-containery"><img src="flor.png" alt="Bella"></div>
+            <h2>Bella</h2>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-cardy" data-id="5" data-name="Forest" data-price="14.45" data-image="forest.png" data-stock="2">
+            <div class="img-containery"><img src="forest.png" alt="Forest"></div>
+            <h2>Forest</h2>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-cardy" data-id="6" data-name="Montana Gray" data-price="14.45" data-image="g&amp;b.png" data-stock="3">
+            <div class="img-containery"><img src="g&amp;b.png" alt="Montana Gray"></div>
+            <h2>Montana Gray</h2>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-cardy" data-id="7" data-name="Montana" data-price="14.45" data-image="g&amp;w.png" data-stock="4">
+            <div class="img-containery"><img src="g&amp;w.png" alt="Montana"></div>
+            <h2>Montana</h2>
+        </div>
+            <!-- Product 8 -->
+        <div class="product-cardy" data-id="8" data-name="Brillo" data-price="19.35" data-image="brillo.png" data-stock="3">
+            <div class="img-containery"><img src="brillo.png" alt="Brillo"></div>
+            <h2>Brillo</h2>
+        </div>
+            <!-- Product 9 -->
+        <div class="product-cardy" data-id="9" data-name="Scarlet" data-price="14.45" data-image="red.png" data-stock="2">
+            <div class="img-containery"><img src="red.png" alt="Scarlet"></div>
+            <h2>Scarlet</h2>
+        </div>
+        <!-- Product 10 -->
+        <div class="product-cardy" data-id="10" data-name="Colorful" data-price="14.45" data-image="menta.png" data-stock="2">
+            <div class="img-containery"><img src="menta.png" alt="Colorful"></div>
+            <h2>Colorful</h2>
+        </div>
+        
+        <!-- Repeat for other products... Just keep adding product-card divs here -->
+    </div>
+</main>
+
+    <script src="collect.js"></script>
+
+        <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2025 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
