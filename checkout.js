@@ -70,7 +70,7 @@ function placeOrder() {
                     `Total: $${total}`;
 
     // 5. Update the SMS Link
-    const ownerPhone = '+17873741297';
+    const ownerPhone = '+17874147255';
     const smsBtn = document.getElementById('sms-owner-link');
     
     // Encode message for SMS link
@@ -93,3 +93,4 @@ function finalizeOrder() {
         window.location.href = 'index.html';
     }, 1000); 
 }
+
