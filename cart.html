@@ -3,84 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart | Handmade by K</title>
-       <link rel="icon" type="image/png" href="logo2.png">
+    <title>Checkout | Handmade by K</title>
+    <link rel="icon" type="image/png" href="logo2.png">
     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="testboton1.css">
-         <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="testboton1.css">
+    <link rel="stylesheet" href="css.css">
+    <style>
+        /* Responsive Container */
+        .checkout-container {
+            display: flex;
+            flex-direction: column; /* Default to mobile-first (stacked) */
+            gap: 30px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Form Styling */
+        .checkout-form {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .checkout-form input {
+            padding: 12px;
+            font-size: 16px; /* Prevents iPhone "auto-zoom" on focus */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Order Summary Styling */
+        .order-summary {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+            height: fit-content;
+        }
+
+        .order-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .order-summary li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Button Styling */
+        .place-order-btn, .nav-buttonf {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .nav-buttonf {
+            background-color: #007bff; /* Different color for the SMS button */
+        }
+
+        /* DESKTOP LAYOUT (Wider than iPhone) */
+        @media (min-width: 768px) {
+            .checkout-container {
+                flex-direction: row; /* Side-by-side on desktop */
+                align-items: flex-start;
+            }
+        }
+
+        /* Typography Fixes */
+        .tabletitle {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
 
-     <header class="banner">
+    <header class="banner">
         <div class="header-inline-container">
-            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
+            <span class="header-main-title">Free shipping on orders over $30</span>
             <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+            <span class="header-second-sentence">Order before 15:00 to ship today!</span>
         </div>
     </header>
-        <header class="banner1">
+
+    <header class="banner1">
         <h1>Handmade by K</h1>
-        
     </header>
 
     <nav class="navbar">
         <ul class="nav-list">
-            <!-- Changed href values to match section IDs below -->
             <li><a href="index.html" class="nav-button">🏠 Home</a></li>
             <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
             <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
             <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
         </ul>
     </nav>
-    
-<main class="cart-container">
+
     <div class="tabletitle">
-        <h4>Your Cart</h4>
+        <h4>Checkout</h4>
+        <a href="cart.html">Back to Cart</a>
     </div>
 
-    <table id="cart-table">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-        <tbody id="cart-items">
-            <!-- Example of how JS should insert rows for mobile compatibility -->
-            <!-- <tr>
-                <td data-label="Product">Handmade Beanie</td>
-                <td data-label="Price">$14.45</td>
-                <td data-label="Quantity">1</td>
-                <td data-label="Total">$14.45</td>
-                <td data-label="Remove"><button>X</button></td>
-            </tr> -->
-        </tbody>
-    </table>
+    <main class="checkout-container">
+        <!-- Shipping Details Section -->
+        <div class="checkout-form">
+            <h3>Shipping Details</h3>
+            <p> We accept multiple forms of payment. 
+                Mobile users can fill out the form below and send us an SMS. 
+                Your unique order or reference number will be generated automatically and included in the message.</p>
+            <p style="font-size: 0.9rem; color: #666;">Methods: CashApp, Venmo, PayPal, ATH móvil</p>
+            
+            <input type="text" id="cust-name" placeholder="Full Name">
+            <input type="text" id="cust-address" placeholder="Address">
+            <input type="text" id="cust-city" placeholder="City">
+            <input type="text" id="cust-zip" placeholder="Zip Code">
 
-    <div class="cart-footer">
-        <div class="grand-total-text">
-            Grand Total: $<span id="grand-total">0.00</span>
+            <button class="place-order-btn" onclick="placeOrder()">1. Save Order & Prepare SMS</button>
+            <a id="sms-owner-link" href="#" style="display:none;" class="nav-buttonf" onclick="finalizeOrder()">2. Send SMS to Owner</a>
         </div>
-        <a href="collection.html" style="text-decoration: none; color: #555;">Continue Shopping</a>
-        <a href="checkout.html" style="width: 100%; display: flex; justify-content: center; text-decoration: none;">
-            <button class="checkout-btn">Proceed to Checkout</button>
-        </a>
-    </div>
-</main>
-</body>
-    
 
-    <script src="cart.js"></script>
+        <!-- Order Summary Section -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <ul id="summary-items">
+                <!-- Items injected by checkout.js -->
+            </ul>
+            <hr>
+            <div style="margin-top: 15px; font-size: 1.2rem;">
+                <strong>Total: $<span id="summary-total">0.00</span></strong>
+            </div>
+        </div>
+    </main>
 
-            <!-- FOOTER SECTION -->
+    <script src="checkout.js"></script>
+
     <footer>
         <p>&copy; 2025 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
     </footer>
 </body>
 </html>
+
+
+
 
 
 
