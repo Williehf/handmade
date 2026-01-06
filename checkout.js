@@ -32,7 +32,7 @@ function placeOrder() {
     const message = `ORDER #${orderRef}\nName: ${name}\nAddress: ${address}\nItems:\n${itemDetails}\nTOTAL: $${total}`;
     
     // Prepare the SMS link (Replace 1234567890 with your actual phone number)
-    const smsLink = `sms:+1234567890?body=${encodeURIComponent(message)}`;
+    const smsLink = `sms:+17874147255?body=${encodeURIComponent(message)}`;
     
     const btn = document.getElementById('sms-owner-link');
     btn.href = smsLink;
@@ -44,3 +44,4 @@ function finalizeOrder() {
     // Clear cart after sending SMS
     localStorage.removeItem('cart');
 }
+
