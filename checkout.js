@@ -1,95 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    displayOrderSummary();
-});
-
-function displayOrderSummary() {
-    const summaryItemsElement = document.getElementById('summary-items');
-    const summaryTotalElement = document.getElementById('summary-total');
+    const summaryItems = document.getElementById('summary-items');
+    const summaryTotal = document.getElementById('summary-total');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let grandTotal = 0;
+    let total = 0;
 
-    summaryItemsElement.innerHTML = '';
-
-    if (cart.length === 0) {
-        summaryItemsElement.innerHTML = '<li>Your cart is empty</li>';
-        summaryTotalElement.textContent = "0.00";
-        return;
-    }
-
+    summaryItems.innerHTML = '';
     cart.forEach(item => {
         const li = document.createElement('li');
-        const itemTotal = item.price * item.quantity;
-        grandTotal += itemTotal;
-        
-        // We include the 'details' property to show colors in the summary
-        li.innerHTML = `
-            <div style="display:flex; flex-direction:column; width:100%;">
-                <div style="display:flex; justify-content:space-between;">
-                    <span><strong>${item.name}</strong> (x${item.quantity})</span>
-                    <span>$${itemTotal.toFixed(2)}</span>
-                </div>
-                <small style="color: #666;">${item.details || ''}</small>
-            </div>
-        `;
-        summaryItemsElement.appendChild(li);
+        li.innerHTML = `<span>${item.name} x${item.quantity}</span> <span>$${(item.price * item.quantity).toFixed(2)}</span>`;
+        summaryItems.appendChild(li);
+        total += item.price * item.quantity;
     });
-
-    summaryTotalElement.textContent = grandTotal.toFixed(2);
-}
+    summaryTotal.textContent = total.toFixed(2);
+});
 
 function placeOrder() {
-    // 1. Live capture of data from the screen
-    const name = document.getElementById('cust-name')?.value.trim() || "";
-    const addr = document.getElementById('cust-address')?.value.trim() || "";
-    const city = document.getElementById('cust-city')?.value.trim() || "";
-    const zip = document.getElementById('cust-zip')?.value.trim() || "";
+    const name = document.getElementById('cust-name').value;
+    const address = document.getElementById('cust-address').value;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = document.getElementById('summary-total').textContent;
+    const orderRef = Math.floor(Math.random() * 10000); // Random Order ID
 
-    // 2. Validation
-    if (!name || !addr || !city || !zip) {
-        alert("Error: Please enter your Full Name, Address, City, and Zip Code.");
+    if (!name || !address) {
+        alert("Please fill in your name and address.");
         return;
     }
 
-    // 3. Get the order details including custom colors
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const total = document.getElementById('summary-total')?.innerText || "0.00";
-    
-    // Formatting the items for SMS including the color details
-    const itemsList = cart.map(item => 
-        `${item.name} (${item.details || 'No details'}) x${item.quantity}`
-    ).join('\n');
-                        
-    const orderId = 'ORD-2026-' + Math.floor(Math.random() * 1000000);
+    // Build the item list text
+    let itemDetails = cart.map(item => `- ${item.name} (${item.details})`).join('\n');
 
-    // 4. Build the message
-    const message = `HANDMADE BY K - ORDER NOTICE\n` +
-                    `Order ID: ${orderId}\n` +
-                    `Customer: ${name}\n` +
-                    `Address: ${addr}, ${city} ${zip}\n` +
-                    `Items:\n${itemsList}\n` +
-                    `Total: $${total}`;
-
-    // 5. Update the SMS Link
-    const ownerPhone = '+17873741297';
-    const smsBtn = document.getElementById('sms-owner-link');
+    const message = `ORDER #${orderRef}\nName: ${name}\nAddress: ${address}\nItems:\n${itemDetails}\nTOTAL: $${total}`;
     
-    // Encode message for SMS link
-    smsBtn.href = `sms:${ownerPhone}?body=${encodeURIComponent(message)}`;
+    // Prepare the SMS link (Replace 1234567890 with your actual phone number)
+    const smsLink = `sms:+1234567890?body=${encodeURIComponent(message)}`;
     
-    // 6. Reveal the SMS button
-    smsBtn.style.display = "inline-block";
-    
-    alert("Order details saved! Now click the blue button to send your SMS.");
+    const btn = document.getElementById('sms-owner-link');
+    btn.href = smsLink;
+    btn.style.display = "block";
+    alert("Details saved! Now click the blue button to send your SMS.");
 }
 
 function finalizeOrder() {
-    // 1. Clear the cart data
+    // Clear cart after sending SMS
     localStorage.removeItem('cart');
-    
-    // 2. Small delay to ensure the SMS app opens before the page changes
-    setTimeout(function() {
-        alert("Thank you for choosing Handmade by K (2026)!");
-        // 3. Redirect to home page
-        window.location.href = 'index.html';
-    }, 1000); 
 }
