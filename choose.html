@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose | Handmade by K</title>
+    <link rel="icon" type="image/png" href="logo2.png">
+    <link rel="stylesheet" href="testboton1.css">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --color-04: #f4c2c2; 
+            --color-05: #4682b4; 
+            --color-06: #228b22; 
+            --color-01: #5d7052; 
+            --color-02: #36454f; 
+            --color-03: #51394a; 
+        }
+
+        body {
+            font-family: -apple-system, system-ui, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .selector-row, .material-group { margin-bottom: 20px; }
+        .selector-row { display: flex; align-items: center; gap: 15px; }
+        .input-wrapper { flex-grow: 1; }
+
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            border: 2px solid rgba(0,0,0,0.05);
+            flex-shrink: 0;
+            margin-top: 20px;
+            overflow: hidden; 
+        }
+        
+        .swatch-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            /* Added transition for smooth growth/shrink effect */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* New CSS class for the highlighted image */
+        .swatch-image.highlight {
+            height: 150px;
+            width: auto; /* Let width adjust proportionally to maintain aspect ratio */
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover { background-color: #333; }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="banner">
+        <div class="header-inline-container">
+            <span class="header-main-title">Free shipping on orders over $30</span>
+            <span class="header-separator">|</span>
+            <span class="header-second-sentence">Order before 15:00 to ship today!</span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
+            <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
+        </ul>
+    </nav>
+
+    <main class="product-grid-containery">
+        <div class="card">
+            <!-- STEP 1 -->
+            <div class="section-title">Step 1: Material & Quality</div>
+            <div class="material-group">
+                <label for="materialType">Quality Level:</label>
+                <select id="materialType" onchange="handleMaterialChange()">
+                    <option value="basic">Basic ($18.00) - Acrylic, Poly, Nylon</option>
+                    <option value="premium">Premium ($22.00) - Wool, Alpaca</option>
+                </select>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="section-title">Step 2: Select Colors</div>
+            <img id="mainProductImage" src="selection.png" alt="Beanie sections: Crown, Stripe, Base" class="header-image">
+
+            <!-- Dynamic Color Selectors -->
+            <div class="selector-row">
+                <div class="input-wrapper">
+                    <!-- Added 'event' to the onchange handler -->
+                    <select id="crown" class="color-select" onchange="updateUI(event)"></select>
+                </div>
+                <div class="swatch"><img id="img-crown" src="" alt="Crown color swatch" class="swatch-image"></div>
+            </div>
+
+            <div class="selector-row">
+                <div class="input-wrapper">
+                     <!-- Added 'event' to the onchange handler -->
+                    <select id="stripe" class="color-select" onchange="updateUI(event)"></select>
+                </div>
+                <div class="swatch"><img id="img-stripe" src="" alt="Stripe color swatch" class="swatch-image"></div>
+            </div>
+
+            <div class="selector-row">
+                <div class="input-wrapper">
+                     <!-- Added 'event' to the onchange handler -->
+                    <select id="base" class="color-select" onchange="updateUI(event)"></select>
+                </div>
+                <div class="swatch"><img id="img-base" src="" alt="Base color swatch" class="swatch-image"></div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="section-title">Step 3: Add to Cart</div>
+            <div class="result-box">
+                <span id="priceDisplay" class="price-tag">$18.00</span>
+                <div id="finalText" style="font-size: 13px; color: #666; margin-bottom: 10px;">Summary loading...</div>
+                <button class="add-to-cart-btn" onclick="addToCart()">ADD TO CART</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const colorData = {
+            basic: [
+                { id: '04', name: 'Blush', imageUrl: 'blush.png' }, 
+                { id: '05', name: 'China Blue', imageUrl: 'chinablue.png' }, 
+                { id: '06', name: 'Forest', imageUrl: 'forest.png' }  
+            ],
+            premium: [
+                { id: '01', name: 'Kale', imageUrl: 'kale.png' }, 
+                { id: '02', name: 'Charcoal', imageUrl: 'charcoal.png' }, 
+                { id: '03', name: 'Raisin', imageUrl: 'raisin.png' }  
+            ]
+        };
+
+        function findColorDetails(colorId, materialType) {
+            const colors = colorData[materialType];
+            return colors.find(c => c.id === colorId);
+        }
+        
+        // This function doesn't take an event and only updates dropdowns, used on material change/load
+        function handleMaterialChange() {
+            const type = document.getElementById('materialType').value;
+            const selects = document.querySelectorAll('.color-select');
+            const options = colorData[type];
+            const price = type === 'basic' ? '$18.00' : '$22.00';
+
+            document.getElementById('priceDisplay').innerText = price;
+
+            selects.forEach(select => {
+                select.innerHTML = '';
+                options.forEach(opt => {
+                    const el = document.createElement('option');
+                    el.value = opt.id;
+                    el.textContent = `${opt.name} (ID: ${opt.id})`;
+                    select.appendChild(el);
+                });
+            });
+
+            // Call updateUI without an event for initial load
+            updateUI(null); 
+        }
+
+        // This function can accept an optional event object when a color dropdown changes
+        function updateUI(event) {
+            const ids = ['crown', 'stripe', 'base'];
+            const materialSelect = document.getElementById('materialType');
+            const materialType = materialSelect.value;
+            const materialText = materialSelect.options[materialSelect.selectedIndex].text;
+            let summaryParts = [];
+            
+            // 1. Reset all images to default size (remove highlight class)
+            document.querySelectorAll('.swatch-image').forEach(img => {
+                img.classList.remove('highlight');
+            });
+
+            ids.forEach(id => {
+                const select = document.getElementById(id);
+                const selectedColorId = select.value;
+                const colorDetails = findColorDetails(selectedColorId, materialType);
+                
+                // Update visual swatches image source
+                const imgElement = document.getElementById(`img-${id}`);
+                if (colorDetails && colorDetails.imageUrl) {
+                    imgElement.src = colorDetails.imageUrl;
+                }
+
+                summaryParts.push(`${id.charAt(0).toUpperCase() + id.slice(1)}: ${colorDetails.name}`);
+            });
+
+            // 2. Highlight the specific image that was just changed, if an event was passed in
+            if (event && event.target) {
+                // event.target is the <select> element that was changed
+                // We need to find its corresponding image
+                const selectId = event.target.id; // 'crown', 'stripe', or 'base'
+                const imageId = `img-${selectId}`;
+                const imageToHighlight = document.getElementById(imageId);
+                
+                if (imageToHighlight) {
+                    imageToHighlight.classList.add('highlight');
+                }
+            }
+
+            document.getElementById('finalText').innerText = `${materialText} | ${summaryParts.join(', ')}`;
+        }
+
+        function addToCart() {
+            const summary = document.getElementById('finalText').innerText;
+            const price = document.getElementById('priceDisplay').innerText;
+            alert(`Added to Cart!\n${summary}\nTotal: ${price}`);
+        }
+
+        window.onload = () => {
+            handleMaterialChange();
+        };
+    </script>
+</body>
+</html>
