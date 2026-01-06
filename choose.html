@@ -233,111 +233,99 @@
                 { id: '09', name: 'Marbel', imageUrl: 'marbel.png' }
             ]
         };
+       // Initialize the selectors on page load
+window.onload = () => {
+    populateSelectors('basic');
+};
 
-        function findColorDetails(colorId, materialType) {
-            const colors = colorData[materialType];
-            return colors.find(c => c.id === colorId);
-        }
-        
-        // This function doesn't take an event and only updates dropdowns, used on material change/load
-        function handleMaterialChange() {
-            const type = document.getElementById('materialType').value;
-            const selects = document.querySelectorAll('.color-select');
-            const options = colorData[type];
-            const price = type === 'basic' ? '$18.00' : '$22.00';
-
-            document.getElementById('priceDisplay').innerText = price;
-
-            selects.forEach(select => {
-                select.innerHTML = '';
-                options.forEach(opt => {
-                    const el = document.createElement('option');
-                    el.value = opt.id;
-                    el.textContent = `${opt.name} (ID: ${opt.id})`;
-                    select.appendChild(el);
-                });
-            });
-
-            // Call updateUI without an event for initial load
-            updateUI(null); 
-        }
-
-        // This function can accept an optional event object when a color dropdown changes
-        function updateUI(event) {
-            const ids = ['crown', 'stripe', 'base'];
-            const materialSelect = document.getElementById('materialType');
-            const materialType = materialSelect.value;
-            const materialText = materialSelect.options[materialSelect.selectedIndex].text;
-            let summaryParts = [];
-            
-            // 1. Reset all images to default size (remove highlight class)
-            document.querySelectorAll('.swatch-image').forEach(img => {
-                img.classList.remove('highlight');
-            });
-
-            ids.forEach(id => {
-                const select = document.getElementById(id);
-                const selectedColorId = select.value;
-                const colorDetails = findColorDetails(selectedColorId, materialType);
-                
-                // Update visual swatches image source
-                const imgElement = document.getElementById(`img-${id}`);
-                if (colorDetails && colorDetails.imageUrl) {
-                    imgElement.src = colorDetails.imageUrl;
-                }
-
-                summaryParts.push(`${id.charAt(0).toUpperCase() + id.slice(1)}: ${colorDetails.name}`);
-            });
-
-            // 2. Highlight the specific image that was just changed, if an event was passed in
-            if (event && event.target) {
-                // event.target is the <select> element that was changed
-                // We need to find its corresponding image
-                const selectId = event.target.id; // 'crown', 'stripe', or 'base'
-                const imageId = `img-${selectId}`;
-                const imageToHighlight = document.getElementById(imageId);
-                
-                if (imageToHighlight) {
-                    imageToHighlight.classList.add('highlight');
-                }
-            }
-
-            document.getElementById('finalText').innerText = `${materialText} | ${summaryParts.join(', ')}`;
-        }
-
-function addToCart() {
+function handleMaterialChange() {
     const material = document.getElementById('materialType').value;
-    const price = material === 'basic' ? 18.00 : 22.00;
-    const summaryText = document.getElementById('finalText').textContent;
-
-    const newItem = {
-        id: Date.now(),
-        name: "Custom Handmade Beanie",
-        price: price,
-        quantity: 1,
-        // CRITICAL: Ensure this matches your actual filename exactly
-        image: "selection.png", 
-        details: summaryText
-    };
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(newItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    alert("Added to cart!");
-    window.location.href = "cart.html";
+    populateSelectors(material);
+    
+    // Reset highlights and update price
+    resetAllHighlights();
+    updatePrice();
 }
 
+function populateSelectors(quality) {
+    const selects = ['crown', 'stripe', 'base'];
+    const options = colorData[quality];
 
-        window.onload = () => {
-            handleMaterialChange();
-        };
+    selects.forEach(id => {
+        const select = document.getElementById(id);
+        select.innerHTML = ''; // Clear current options
+        options.forEach(color => {
+            const opt = document.createElement('option');
+            opt.value = color.id;
+            opt.textContent = color.name;
+            opt.setAttribute('data-img', color.imageUrl);
+            select.appendChild(opt);
+        });
+        // Set initial images
+        updateUI({ target: select });
+    });
+}
+
+function updateUI(event) {
+    // 1. Remove highlight from all previous swatches
+    resetAllHighlights();
+
+    const select = event.target;
+    const imgId = 'img-' + select.id;
+    const targetImg = document.getElementById(imgId);
+    
+    // 2. Update the image source
+    const selectedOption = select.options[select.selectedIndex];
+    const imageUrl = selectedOption.getAttribute('data-img');
+    
+    if (imageUrl) {
+        targetImg.src = imageUrl;
+        // 3. Apply the 150px highlight class to the CURRENT section
+        targetImg.classList.add('highlight');
+    }
+
+    updateSummary();
+}
+
+function resetAllHighlights() {
+    // Removes the 'highlight' class, returning images to original size (60px)
+    document.querySelectorAll('.swatch-image').forEach(img => {
+        img.classList.remove('highlight');
+    });
+}
+
+function updatePrice() {
+    const material = document.getElementById('materialType').value;
+    const price = material === 'premium' ? '$22.00' : '$18.00';
+    document.getElementById('priceDisplay').textContent = price;
+}
+
+function updateSummary() {
+    updatePrice();
+    const c = document.getElementById('crown').options[document.getElementById('crown').selectedIndex]?.text || 'None';
+    const s = document.getElementById('stripe').options[document.getElementById('stripe').selectedIndex]?.text || 'None';
+    const b = document.getElementById('base').options[document.getElementById('base').selectedIndex]?.text || 'None';
+    
+    document.getElementById('finalText').textContent = `Crown: ${c} | Stripe: ${s} | Base: ${b}`;
+}
+
+function addToCart() {
+    alert("Added to cart! Total: " + document.getElementById('priceDisplay').textContent);
+}
+
+// Optional: Close highlights when clicking outside the selectors
+document.addEventListener('mousedown', (e) => {
+    if (!e.target.classList.contains('color-select')) {
+        resetAllHighlights();
+    }
+});
     </script>
  
         
 </body>
 
 </html>
+
 
 
 
