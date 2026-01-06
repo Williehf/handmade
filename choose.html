@@ -75,23 +75,30 @@
             border-radius: 8px;
             border: 2px solid rgba(0,0,0,0.05);
             flex-shrink: 0;
-            margin-top: 20px;
-            overflow: hidden; 
+            margin-top: 5px; /* Adjusted alignment */
+            position: relative; /* Allows child to pop out */
         }
         
         .swatch-image {
-            width: 100%;
-            height: 100%;
+            width: 60px;
+            height: 60px;
             object-fit: cover; 
             display: block;
-            /* Added transition for smooth growth/shrink effect */
+            border-radius: 6px;
             transition: all 0.3s ease-in-out;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
         }
 
-        /* New CSS class for the highlighted image */
+        /* When active/highlighted */
         .swatch-image.highlight {
+            width: 150px;
             height: 150px;
-            width: auto; /* Let width adjust proportionally to maintain aspect ratio */
+            z-index: 100;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border: 2px solid #fff;
         }
 
         .result-box {
@@ -325,6 +332,7 @@ document.addEventListener('mousedown', (e) => {
 </body>
 
 </html>
+
 
 
 
