@@ -131,19 +131,25 @@
 
     <header class="banner">
         <div class="header-inline-container">
-            <span class="header-main-title">Free shipping on orders over $30</span>
+            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
             <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to ship today!</span>
+            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
         </div>
+    </header>
+        <header class="banner1">
+        <h1>Handmade by K</h1>
+        
     </header>
 
     <nav class="navbar">
         <ul class="nav-list">
+            <!-- Changed href values to match section IDs below -->
             <li><a href="index.html" class="nav-button">🏠 Home</a></li>
             <li><a href="collection.html" class="nav-button">🛍️ Store</a></li>
+            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
             <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
         </ul>
-    </nav>
+    </nav> 
 
     <main class="product-grid-containery">
         <div class="card">
@@ -281,11 +287,29 @@
             document.getElementById('finalText').innerText = `${materialText} | ${summaryParts.join(', ')}`;
         }
 
-        function addToCart() {
-            const summary = document.getElementById('finalText').innerText;
-            const price = document.getElementById('priceDisplay').innerText;
-            alert(`Added to Cart!\n${summary}\nTotal: ${price}`);
-        }
+function addToCart() {
+    const material = document.getElementById('materialType').value;
+    const price = material === 'basic' ? 18.00 : 22.00;
+    const summaryText = document.getElementById('finalText').textContent;
+
+    const newItem = {
+        id: Date.now(),
+        name: "Custom Handmade Beanie",
+        price: price,
+        quantity: 1,
+        // CRITICAL: Ensure this matches your actual filename exactly
+        image: "selection.png", 
+        details: summaryText
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(newItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert("Added to cart!");
+    window.location.href = "cart.html";
+}
+
 
         window.onload = () => {
             handleMaterialChange();
