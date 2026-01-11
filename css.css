@@ -260,7 +260,8 @@ img{
 }
 
 .nav-button:hover {
-    background-color: #0056b3;
+    /*background-color: #0056b3;*/
+    background-color: #888
 }
 
 .nav-buttonf:hover {
