@@ -242,7 +242,7 @@ img{
     display: block;
     color: white;
     /*background-color: #6598c7;*/
-    background-color: #888888
+    background-color: #888888;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -253,7 +253,7 @@ img{
     display: block;
     color: white;
     /*background-color: #c27a1c;*/
-    background-color: #888888
+    background-color: #888888;
     padding: 10px 1px;
     text-decoration: none;
     border-radius: 5px;
@@ -263,12 +263,12 @@ img{
 
 .nav-button:hover {
     /*background-color: #0056b3;*/
-    background-color: #888888
+    background-color: #888888;
 }
 
 .nav-buttonf:hover {
     /*background-color: #912891;*/
-    background-color: #888888
+    background-color: #888888;
 }
 
 footer {
