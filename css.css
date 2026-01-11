@@ -252,7 +252,8 @@ img{
 .nav-buttonf {
     display: block;
     color: white;
-    background-color: #c27a1c;
+    /*background-color: #c27a1c;*/
+    background-color: #888888
     padding: 10px 1px;
     text-decoration: none;
     border-radius: 5px;
