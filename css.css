@@ -661,7 +661,8 @@ footer {
 }
 
 .show-overlay-buttonw:hover {
-    background-color: #68c2dd;
+    /*background-color: #68c2dd;*/
+    background-color: #888888
     transform: scale(1.05);
 }
 
