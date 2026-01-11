@@ -267,7 +267,8 @@ img{
 }
 
 .nav-buttonf:hover {
-    background-color: #912891;
+    /*background-color: #912891;*/
+    background-color: #888888
 }
 
 footer {
