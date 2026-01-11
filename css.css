@@ -241,7 +241,8 @@ img{
 .nav-button {
     display: block;
     color: white;
-    background-color: #6598c7;
+    /*background-color: #6598c7;*/
+    background-color: #888
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
