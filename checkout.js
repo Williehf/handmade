@@ -70,7 +70,7 @@ function placeOrder() {
                     `Total: $${total}`;
 
     // 5. Update the SMS Link
-    const ownerPhone = '+17874147255';
+    const ownerPhone = '+14436988769';
     const smsBtn = document.getElementById('sms-owner-link');
     
     // Encode message for SMS link
