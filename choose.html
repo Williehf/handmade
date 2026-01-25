@@ -1,366 +1,2521 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose | Handmade by K</title>
-    <link rel="icon" type="image/png" href="logo2.png">
-    <link rel="stylesheet" href="testboton1.css">
-    <link rel="stylesheet" href="css.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        :root {
-            --color-04: #f4c2c2; 
-            --color-05: #4682b4; 
-            --color-06: #228b22; 
-            --color-01: #5d7052; 
-            --color-02: #36454f; 
-            --color-03: #51394a; 
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Customize Your Beanie | Handmade by K</title>
+        <link rel="icon" type="image/png" href="logo2.png" />
 
-        body {
-            font-family: -apple-system, system-ui, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;1,6..12,300;1,6..12,400&display=swap"
+            rel="stylesheet"
+        />
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            overflow: hidden;
-        }
+        <style>
+            /* ========================================
+           CSS VARIABLES & RESET
+        ======================================== */
+            :root {
+                --color-cream: #faf9f6;
+                --color-cream-dark: #f5f3ef;
+                --color-sage: #7a8f6d;
+                --color-sage-dark: #5e7354;
+                --color-black: #1a1a1a;
+                --color-gray: #666666;
+                --color-gray-light: #999999;
+                --color-white: #ffffff;
 
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
+                --font-display: "Cormorant Garamond", serif;
+                --font-body: "Nunito Sans", sans-serif;
 
-        .section-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
+                --transition-fast: 0.2s ease;
+                --transition-medium: 0.3s ease;
+                --transition-slow: 0.5s ease;
+            }
 
-        .selector-row, .material-group { margin-bottom: 20px; }
-        .selector-row { display: flex; align-items: center; gap: 15px; }
-        .input-wrapper { flex-grow: 1; }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+            html {
+                scroll-behavior: smooth;
+            }
 
-        select {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            background: #fff;
-        }
+            body {
+                font-family: var(--font-body);
+                background-color: var(--color-cream);
+                color: var(--color-black);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
 
-        .swatch {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            border: 2px solid rgba(0,0,0,0.05);
-            flex-shrink: 0;
-            margin-top: 5px; /* Adjusted alignment */
-            position: relative; /* Allows child to pop out */
-        }
-        
-        .swatch-image {
-            width: 60px;
-            height: 60px;
-            object-fit: cover; 
-            display: block;
-            border-radius: 6px;
-            transition: all 0.3s ease-in-out;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 1;
-        }
+            img {
+                display: block;
+                max-width: 100%;
+            }
 
-        /* When active/highlighted */
-        .swatch-image.highlight {
-            width: 150px;
-            height: 150px;
-            z-index: 100;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border: 2px solid #fff;
-        }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-        .result-box {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            text-align: center;
-        }
+            ul {
+                list-style: none;
+            }
 
-        .add-to-cart-btn {
-            width: 100%;
-            background-color: #000;
-            color: #fff;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-
-        .add-to-cart-btn:hover { background-color: #333; }
-        
-        .price-tag {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <header class="banner">
-        <div class="header-inline-container">
-            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
-            <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
-        </div>
-    </header>
-        <header class="banner1">
-        <h1>Handmade by K</h1>
-        
-    </header>
-
-    <nav class="navbar">
-        <ul class="nav-list">
-            <!-- Changed href values to match section IDs below -->
-            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
-            <li><a href="choose.html" class="nav-button">🛍️ Order</a></li>
-            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
-            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
-        </ul>
-    </nav> 
-
-    <main class="product-grid-containery">
-        <div class="card">
-            <!-- STEP 1 -->
-            <div class="section-title">Step 1: Material & Quality</div>
-            <div class="material-group">
-                <label for="materialType">Quality Level:</label>
-                <select id="materialType" onchange="handleMaterialChange()">
-                    <option value="basic">Basic ($18.00) - Acrylic, Poly, Nylon</option>
-                    <option value="premium">Premium ($22.00) - Wool, Alpaca</option>
-                </select>
-            </div>
-
-            <!-- STEP 2 -->
-            <div class="section-title">Step 2: Select Colors</div>
-            <img id="mainProductImage" src="selection.png" alt="Beanie sections: Crown, Stripe, Base" class="header-image">
-
-            <!-- Dynamic Color Selectors -->
-            <div class="selector-row">
-                <div class="input-wrapper">
-                    <!-- Added 'event' to the onchange handler -->
-                    <select id="crown" class="color-select" onchange="updateUI(event)"></select>
-                </div>
-                <div class="swatch"><img id="img-crown" src="" alt="Crown color swatch" class="swatch-image"></div>
-            </div>
-
-            <div class="selector-row">
-                <div class="input-wrapper">
-                     <!-- Added 'event' to the onchange handler -->
-                    <select id="stripe" class="color-select" onchange="updateUI(event)"></select>
-                </div>
-                <div class="swatch"><img id="img-stripe" src="" alt="Stripe color swatch" class="swatch-image"></div>
-            </div>
-
-            <div class="selector-row">
-                <div class="input-wrapper">
-                     <!-- Added 'event' to the onchange handler -->
-                    <select id="base" class="color-select" onchange="updateUI(event)"></select>
-                </div>
-                <div class="swatch"><img id="img-base" src="" alt="Base color swatch" class="swatch-image"></div>
-            </div>
-
-            <!-- STEP 3 -->
-            <div class="section-title">Step 3: Add to Cart</div>
-            <div class="result-box">
-                <span id="priceDisplay" class="price-tag">$18.00</span>
-                <div id="finalText" style="font-size: 13px; color: #666; margin-bottom: 10px;">Summary loading...</div>
-                <button class="add-to-cart-btn" onclick="addToCart()">ADD TO CART</button>
-            </div>
-        </div>
-    </main>
-
-     <footer>
-        <p>&copy; 2026 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
-    </footer>
-    <script>
-        const colorData = {
-            basic: [
-                { id: '10', name: 'Blush', imageUrl: 'blush.png' }, 
-                { id: '11', name: 'China Blue', imageUrl: 'chinablue.png' }, 
-                { id: '12', name: 'Forest', imageUrl: 'forest.png' },
-                 { id: '14', name: 'Artichoke', imageUrl: 'artichoke.jpg' },
-                 { id: '15', name: 'Cement', imageUrl: 'cement.jpg' },
-                 { id: '16', name: 'Fatigues', imageUrl: 'fatigues.jpg' },
-                 { id: '17', name: 'Haze', imageUrl: 'haze.jpg' },
-                 { id: '18', name: 'Magic Hourt', imageUrl: 'magichour.jpg' },
-                 { id: '19', name: 'Mustard', imageUrl: 'mustard.jpg' },
-                 { id: '20', name: 'Peacoat', imageUrl: 'peacoat.png' },
-                 { id: '21', name: 'Rose Water', imageUrl: 'rosewater.jpg' },
-                 { id: '22', name: 'SunFlower', imageUrl: 'sunflower.jpg' } 
-            ],
-            premium: [
-                { id: '01', name: 'Kale', imageUrl: 'kale.png' }, 
-                { id: '02', name: 'Charcoal', imageUrl: 'charcoal.png' }, 
-                { id: '03', name: 'Raisin', imageUrl: 'raisin.png' },
-                { id: '04', name: 'Bedrock', imageUrl: 'bedrock.png' },
-                { id: '05', name: 'Carousel', imageUrl: 'carousel.png' },
-                { id: '06', name: 'City Light', imageUrl: 'cityligth.png' },
-                { id: '07', name: 'Coney Island', imageUrl: 'coneyisland.png' },
-                { id: '08', name: 'Constellation', imageUrl: 'constellation.png' },
-                { id: '09', name: 'Marbel', imageUrl: 'marble.png' }
-            ]
-        };
-       // Initialize the selectors on page load
- function findColorDetails(colorId, materialType) {
-            const colors = colorData[materialType];
-            return colors.find(c => c.id === colorId);
-        }
-        
-        function handleMaterialChange() {
-            const type = document.getElementById('materialType').value;
-            const selects = document.querySelectorAll('.color-select');
-            const options = colorData[type];
-            const price = type === 'basic' ? '$18.00' : '$22.00';
-
-            document.getElementById('priceDisplay').innerText = price;
-
-            selects.forEach(select => {
-                select.innerHTML = '';
-                options.forEach(opt => {
-                    const el = document.createElement('option');
-                    el.value = opt.id;
-                    el.textContent = `${opt.name} (ID: ${opt.id})`;
-                    select.appendChild(el);
-                });
-            });
-
-            // Refresh UI without triggering the pop-up zoom
-            updateUI(null); 
-        }
-
-        function updateUI(event) {
-            const ids = ['crown', 'stripe', 'base'];
-            const materialSelect = document.getElementById('materialType');
-            const materialType = materialSelect.value;
-            const materialText = materialSelect.options[materialSelect.selectedIndex].text;
-            let summaryParts = [];
-            
-            // 1. Reset all images to default size first
-            document.querySelectorAll('.swatch-image').forEach(img => {
-                img.classList.remove('highlight');
-            });
-
-            ids.forEach(id => {
-                const select = document.getElementById(id);
-                const selectedColorId = select.value;
-                const colorDetails = findColorDetails(selectedColorId, materialType);
-                
-                const imgElement = document.getElementById(`img-${id}`);
-                if (colorDetails && colorDetails.imageUrl) {
-                    imgElement.src = colorDetails.imageUrl;
+            /* ========================================
+           ANIMATIONS
+        ======================================== */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
                 }
-
-                summaryParts.push(`${id.charAt(0).toUpperCase() + id.slice(1)}: ${colorDetails ? colorDetails.name : 'None'}`);
-            });
-
-            // 2. Pop-up zoom: Highlight the image that was just changed
-            if (event && event.target) {
-                const selectId = event.target.id; 
-                const imageId = `img-${selectId}`;
-                const imageToHighlight = document.getElementById(imageId);
-                
-                if (imageToHighlight) {
-                    imageToHighlight.classList.add('highlight');
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
 
-            document.getElementById('finalText').innerText = `${materialText} | ${summaryParts.join(', ')}`;
-        }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
 
-        function addToCart() {
-            const material = document.getElementById('materialType').value;
-            const price = material === 'basic' ? 18.00 : 22.00;
-            const summaryText = document.getElementById('finalText').textContent;
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.02);
+                }
+            }
 
-            const newItem = {
-                id: Date.now(),
-                name: "Custom Handmade Beanie",
-                price: price,
-                quantity: 1,
-                image: "selection.png", 
-                details: summaryText
+            @keyframes shimmer {
+                0% {
+                    background-position: -200% 0;
+                }
+                100% {
+                    background-position: 200% 0;
+                }
+            }
+
+            .animate-fade-up {
+                animation: fadeInUp 0.8s ease forwards;
+            }
+
+            .animate-delay-1 {
+                animation-delay: 0.1s;
+            }
+            .animate-delay-2 {
+                animation-delay: 0.2s;
+            }
+            .animate-delay-3 {
+                animation-delay: 0.3s;
+            }
+            .animate-delay-4 {
+                animation-delay: 0.4s;
+            }
+
+            .will-animate {
+                opacity: 0;
+            }
+
+            /* ========================================
+           HEADER & NAVIGATION
+        ======================================== */
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background-color: var(--color-cream);
+                transition: box-shadow var(--transition-medium);
+            }
+
+            .header.scrolled {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+            }
+
+            .nav-link {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                color: var(--color-black);
+                position: relative;
+                transition: color var(--transition-fast);
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--color-sage);
+                transition: width var(--transition-medium);
+            }
+
+            .nav-link:hover {
+                color: var(--color-sage);
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .logo {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 600;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-black);
+                transition: opacity var(--transition-fast);
+            }
+
+            .logo:hover {
+                opacity: 0.7;
+            }
+
+            /* Cart Link */
+            .cart-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                background-color: var(--color-white);
+                border-radius: 50%;
+                transition: all var(--transition-medium);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .cart-link:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            .cart-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                min-width: 20px;
+                height: 20px;
+                padding: 0 6px;
+                background-color: #e53935;
+                color: var(--color-white);
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: all var(--transition-medium);
+            }
+
+            .cart-badge.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-black);
+                transition: all var(--transition-medium);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Mobile Menu */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--color-sage-dark);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-family: var(--font-display);
+                font-size: 2.05rem;
+                color: var(--color-cream);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active .nav-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .mobile-menu.active .nav-link:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+            .mobile-menu.active .nav-link:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+            .mobile-menu.active .nav-link:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+            .mobile-menu.active .nav-link:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .mobile-menu .nav-link:hover {
+                color: var(--color-white);
+            }
+
+            /* Mobile Header */
+            .mobile-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1001;
+                background-color: var(--color-cream);
+                padding: 1rem 1.5rem;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .mobile-header.menu-open {
+                background-color: var(--color-sage-dark);
+            }
+
+            .mobile-header .logo {
+                color: var(--color-black);
+                font-size: 1.25rem;
+                transition: color var(--transition-medium);
+            }
+
+            .mobile-header.menu-open .logo {
+                color: var(--color-cream);
+            }
+
+            .mobile-header .hamburger span {
+                transition: background-color var(--transition-medium);
+            }
+
+            .mobile-header.menu-open .hamburger span {
+                background-color: var(--color-cream);
+            }
+
+            /* ========================================
+           BREADCRUMB
+        ======================================== */
+            .breadcrumb {
+                padding: 6rem 2rem 1rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .breadcrumb-list {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.9rem;
+                color: var(--color-gray);
+            }
+
+            .breadcrumb-list a {
+                color: var(--color-gray);
+                transition: color var(--transition-fast);
+            }
+
+            .breadcrumb-list a:hover {
+                color: var(--color-sage);
+            }
+
+            .breadcrumb-list .separator {
+                color: var(--color-gray-light);
+            }
+
+            .breadcrumb-list .current {
+                color: var(--color-black);
+            }
+
+            /* ========================================
+           PRODUCT SECTION
+        ======================================== */
+            .product-section {
+                padding: 1rem 2rem 4rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .product-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            /* Product Image Gallery */
+            .product-gallery {
+                position: sticky;
+                top: 100px;
+            }
+
+            .main-image-container {
+                position: relative;
+                aspect-ratio: 1;
+                background-color: var(--color-cream-dark);
+                border-radius: 12px;
+                overflow: hidden;
+                margin-bottom: 1rem;
+            }
+
+            .main-product-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: opacity var(--transition-medium);
+            }
+
+            .main-product-image.loading {
+                opacity: 0.5;
+            }
+
+            /* Image Loading Shimmer */
+            .image-loading-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    transparent 100%
+                );
+                background-size: 200% 100%;
+                animation: shimmer 1.5s infinite;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity var(--transition-medium);
+            }
+
+            .main-image-container.loading .image-loading-overlay {
+                opacity: 1;
+            }
+
+            /* Color Preview Thumbnails */
+            .thumbnail-row {
+                display: flex;
+                gap: 0.75rem;
+            }
+
+            .thumbnail-swatch {
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                border: 2px solid transparent;
+                transition: all var(--transition-fast);
+                position: relative;
+            }
+
+            .thumbnail-swatch:hover {
+                transform: scale(1.05);
+            }
+
+            .thumbnail-swatch.active {
+                border-color: var(--color-sage);
+            }
+
+            .thumbnail-swatch img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* Beanie Section Indicator */
+            .section-indicator {
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                padding: 2px 6px;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: var(--color-white);
+                font-size: 0.65rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border-radius: 3px;
+            }
+
+            /* Product Info */
+            .product-info {
+                padding-top: 1rem;
+            }
+
+            .product-title {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 2.75rem);
+                font-weight: 500;
+                color: var(--color-black);
+                margin-bottom: 0.5rem;
+            }
+
+            .product-price {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 400;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+            }
+
+            .product-description {
+                font-size: 1.05rem;
+                color: var(--color-gray);
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
+
+            /* ========================================
+           COLOR SELECTORS
+        ======================================== */
+            .customizer-section {
+                margin-bottom: 2rem;
+            }
+
+            .section-label {
+                font-family: var(--font-body);
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: var(--color-gray);
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .section-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-size: 0.75rem;
+                font-weight: 700;
+                border-radius: 50%;
+            }
+
+            /* Color Dropdown */
+            .color-selector {
+                margin-bottom: 1.5rem;
+                position: relative;
+            }
+
+            .customizer-section {
+                position: relative;
+                z-index: 100;
+            }
+
+            .color-selector-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 0.75rem;
+            }
+
+            .color-selector-label {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            .selected-color-name {
+                font-size: 0.9rem;
+                color: var(--color-gray);
+                font-style: italic;
+            }
+
+            .color-dropdown-wrapper {
+                position: relative;
+                z-index: 1;
+            }
+
+            .color-dropdown-wrapper.active {
+                z-index: 300;
+            }
+
+            .color-dropdown-button {
+                width: 100%;
+                padding: 1rem 1.25rem;
+                background-color: var(--color-white);
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                transition: all var(--transition-fast);
+            }
+
+            .color-dropdown-button:hover {
+                border-color: var(--color-sage);
+            }
+
+            .color-dropdown-button:focus {
+                outline: none;
+                border-color: var(--color-sage);
+                box-shadow: 0 0 0 3px rgba(122, 143, 109, 0.15);
+            }
+
+            .color-dropdown-preview {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .color-swatch-mini {
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                flex-shrink: 0;
+            }
+
+            .color-name-display {
+                font-size: 1rem;
+                color: var(--color-black);
+            }
+
+            .dropdown-arrow {
+                width: 20px;
+                height: 20px;
+                color: var(--color-gray);
+                transition: transform var(--transition-fast);
+            }
+
+            .color-dropdown-button.open .dropdown-arrow {
+                transform: rotate(180deg);
+            }
+
+            /* Dropdown Panel */
+            .color-dropdown-panel {
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 0;
+                right: 0;
+                background-color: var(--color-white);
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+                z-index: 500;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all var(--transition-fast);
+                max-height: 280px;
+                overflow-y: auto;
+            }
+
+            .color-dropdown-panel.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .color-category {
+                padding: 0.75rem 1rem 0.5rem;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: var(--color-gray-light);
+                background-color: var(--color-cream);
+                position: sticky;
+                top: 0;
+            }
+
+            .color-option {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
+                cursor: pointer;
+                transition: background-color var(--transition-fast);
+            }
+
+            .color-option:hover {
+                background-color: var(--color-cream);
+            }
+
+            .color-option.selected {
+                background-color: rgba(122, 143, 109, 0.1);
+            }
+
+            .color-option .color-swatch-mini {
+                width: 32px;
+                height: 32px;
+            }
+
+            .color-option-info {
+                flex: 1;
+            }
+
+            .color-option-name {
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            .color-option-desc {
+                font-size: 0.8rem;
+                color: var(--color-gray);
+            }
+
+            .color-option-check {
+                width: 20px;
+                height: 20px;
+                color: var(--color-sage);
+                opacity: 0;
+                transition: opacity var(--transition-fast);
+            }
+
+            .color-option.selected .color-option-check {
+                opacity: 1;
+            }
+
+            /* ========================================
+           DETAILS ACCORDION
+        ======================================== */
+            .details-section {
+                border-top: 1px solid #e0e0e0;
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+            }
+
+            .details-title {
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: var(--color-gray);
+                margin-bottom: 1rem;
+            }
+
+            .details-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .details-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-size: 0.95rem;
+                color: var(--color-black);
+            }
+
+            .details-item svg {
+                width: 18px;
+                height: 18px;
+                color: var(--color-sage);
+                flex-shrink: 0;
+            }
+
+            /* ========================================
+           ADD TO CART SECTION
+        ======================================== */
+            .add-to-cart-section {
+                margin-top: 1.5rem;
+                position: relative;
+                z-index: 1;
+            }
+
+            .summary-box {
+                background-color: var(--color-cream-dark);
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .summary-title {
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--color-gray);
+                margin-bottom: 1rem;
+            }
+
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+            }
+
+            .summary-row:not(:last-child) {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .summary-label {
+                font-size: 0.9rem;
+                color: var(--color-gray);
+            }
+
+            .summary-value {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--color-black);
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .summary-color-dot {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .summary-total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 2px solid var(--color-sage);
+            }
+
+            .summary-total-label {
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--color-black);
+            }
+
+            .summary-total-price {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--color-black);
+            }
+
+            /* Quantity Selector */
+            .quantity-selector {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+            }
+
+            .quantity-label {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            .quantity-controls {
+                display: flex;
+                align-items: center;
+                gap: 0;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .quantity-btn {
+                width: 40px;
+                height: 40px;
+                background-color: var(--color-white);
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all var(--transition-fast);
+                color: var(--color-black);
+            }
+
+            .quantity-btn:hover {
+                background-color: var(--color-cream);
+            }
+
+            .quantity-btn:active {
+                background-color: var(--color-cream-dark);
+            }
+
+            .quantity-btn:disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+            }
+
+            .quantity-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .quantity-value {
+                width: 50px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--color-black);
+                background-color: var(--color-white);
+                border-left: 1px solid #e0e0e0;
+                border-right: 1px solid #e0e0e0;
+            }
+
+            .btn-add-to-cart {
+                width: 100%;
+                padding: 1.25rem 2rem;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-family: var(--font-body);
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+
+            .btn-add-to-cart:hover {
+                background-color: var(--color-sage-dark);
+                transform: scale(1.02);
+            }
+
+            .btn-add-to-cart svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .btn-add-to-cart.added {
+                background-color: #2e7d32;
+            }
+
+            /* ========================================
+           PRE-MADE COMBOS CAROUSEL
+        ======================================== */
+            .combos-section {
+                padding: 5rem 2rem;
+                background-color: var(--color-white);
+            }
+
+            .combos-container {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .combos-header {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .combos-title {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 2.75rem);
+                font-weight: 400;
+                font-style: italic;
+                color: var(--color-black);
+                margin-bottom: 0.75rem;
+            }
+
+            .combos-subtitle {
+                font-size: 1.1rem;
+                color: var(--color-gray);
+            }
+
+            .combos-carousel-container {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .combos-carousel {
+                display: flex;
+                gap: 1.5rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                padding: 1rem 0;
+                cursor: grab;
+            }
+
+            .combos-carousel::-webkit-scrollbar {
+                display: none;
+            }
+
+            .combo-card {
+                flex: 0 0 260px;
+                scroll-snap-align: start;
+                cursor: pointer;
+                transition: transform var(--transition-medium);
+            }
+
+            .combo-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .combo-image-container {
+                position: relative;
+                aspect-ratio: 3/4;
+                overflow: hidden;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+                background-color: var(--color-cream-dark);
+            }
+
+            .combo-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform var(--transition-slow);
+            }
+
+            .combo-card:hover .combo-image {
+                transform: scale(1.05);
+            }
+
+            .combo-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color var(--transition-medium);
+            }
+
+            .combo-card:hover .combo-overlay {
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+
+            .combo-select-btn {
+                opacity: 0;
+                transform: scale(0.8);
+                transition: all var(--transition-medium);
+                padding: 0.75rem 1.25rem;
+                background-color: var(--color-white);
+                color: var(--color-black);
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 6px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .combo-card:hover .combo-select-btn {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .combo-info {
+                text-align: center;
+            }
+
+            .combo-name {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--color-black);
+                margin-bottom: 0.25rem;
+            }
+
+            .combo-price {
+                font-size: 1rem;
+                color: var(--color-gray);
+            }
+
+            /* Carousel Navigation */
+            .carousel-nav {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 2rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--color-black);
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all var(--transition-medium);
+            }
+
+            .carousel-btn:hover {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+
+            .carousel-btn:hover svg path {
+                stroke: var(--color-white);
+            }
+
+            /* ========================================
+           FOOTER
+        ======================================== */
+            .footer {
+                background-color: var(--color-cream-dark);
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            .footer-links ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 1.05rem;
+                color: var(--color-gray);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-links a:hover {
+                color: var(--color-sage);
+            }
+
+            .footer-center {
+                text-align: center;
+            }
+
+            .footer-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--color-black);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background-color: var(--color-white);
+                transition: all var(--transition-medium);
+            }
+
+            .social-link:hover {
+                background-color: var(--color-sage);
+                transform: scale(1.1);
+            }
+
+            .social-link:hover .social-icon {
+                color: var(--color-white);
+            }
+
+            .social-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 3rem auto 0;
+                padding-top: 2rem;
+                border-top: 1px solid #e0e0e0;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                font-size: 0.95rem;
+                color: var(--color-gray-light);
+            }
+
+            /* ========================================
+           RESPONSIVE
+        ======================================== */
+            @media (max-width: 1024px) {
+                .product-container {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .product-gallery {
+                    position: static;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .header {
+                    display: none;
+                }
+
+                .mobile-header {
+                    display: flex;
+                }
+
+                .breadcrumb {
+                    padding: 5rem 1.5rem 1rem;
+                }
+
+                .product-section {
+                    padding: 1rem 1.5rem 3rem;
+                }
+
+                .combos-section {
+                    padding: 3rem 1.5rem;
+                }
+
+                .combo-card {
+                    flex: 0 0 200px;
+                }
+
+                .footer-container {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                    text-align: center;
+                }
+
+                .footer-links ul {
+                    align-items: center;
+                }
+
+                .footer-right {
+                    align-items: center;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .thumbnail-row {
+                    overflow-x: auto;
+                    padding-bottom: 0.5rem;
+                }
+
+                .thumbnail-swatch {
+                    flex-shrink: 0;
+                }
+
+                .combo-card {
+                    flex: 0 0 180px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Desktop Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="choose.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                    <li>
+                        <a href="contact.html" class="nav-link">Get in Touch</a>
+                    </li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+
+                <a href="index.html" class="logo">Handmade by K</a>
+
+                <a href="cart.html" class="cart-link" id="cartLink">
+                    <svg
+                        class="cart-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
+                        />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Mobile Header -->
+        <header class="mobile-header" id="mobileHeader">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">Handmade by K</a>
+
+            <a href="cart.html" class="cart-link" id="cartLinkMobile">
+                <svg
+                    class="cart-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                <span class="cart-badge" id="cartBadgeMobile">0</span>
+            </a>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="nav-links">
+                <li><a href="choose.html" class="nav-link">Shop</a></li>
+                <li><a href="about.html" class="nav-link">Our Story</a></li>
+                <li>
+                    <a href="contact.html" class="nav-link">Get in Touch</a>
+                </li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </div>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <ul class="breadcrumb-list">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">›</li>
+                <li class="current">Customize Your Beanie</li>
+            </ul>
+        </nav>
+
+        <!-- Product Section -->
+        <main class="product-section">
+            <div class="product-container">
+                <!-- Product Gallery -->
+                <div class="product-gallery will-animate animate-fade-up">
+                    <div class="main-image-container" id="mainImageContainer">
+                        <img
+                            src="beanie1.png"
+                            alt="Custom Handmade Beanie Preview"
+                            class="main-product-image"
+                            id="mainProductImage"
+                        />
+                        <div class="image-loading-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail-row">
+                        <div class="thumbnail-swatch" id="thumbCrown">
+                            <span class="section-indicator">Crown</span>
+                        </div>
+                        <div class="thumbnail-swatch" id="thumbStripe">
+                            <span class="section-indicator">Stripe</span>
+                        </div>
+                        <div class="thumbnail-swatch" id="thumbBase">
+                            <span class="section-indicator">Base</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 class="product-title will-animate animate-fade-up">
+                        Custom Handmade Beanie
+                    </h1>
+                    <p
+                        class="product-price will-animate animate-fade-up animate-delay-1"
+                        id="displayPrice"
+                    >
+                        $28.00
+                    </p>
+                    <p
+                        class="product-description will-animate animate-fade-up animate-delay-2"
+                    >
+                        Design your own unique beanie by selecting colors for
+                        each section. Made with premium Lion Brand Wool-Ease
+                        yarn, each piece is handcrafted with love and care in
+                        the US.
+                    </p>
+
+                    <!-- Color Customizer -->
+                    <div
+                        class="customizer-section will-animate animate-fade-up animate-delay-3"
+                    >
+                        <div class="section-label">
+                            <span class="section-number">1</span>
+                            Choose Your Colors
+                        </div>
+
+                        <!-- Crown Color -->
+                        <div class="color-selector">
+                            <div class="color-selector-header">
+                                <span class="color-selector-label"
+                                    >Crown (Top)</span
+                                >
+                                <span
+                                    class="selected-color-name"
+                                    id="crownSelectedName"
+                                    >Fisherman</span
+                                >
+                            </div>
+                            <div class="color-dropdown-wrapper">
+                                <button
+                                    class="color-dropdown-button"
+                                    id="crownDropdownBtn"
+                                    data-section="crown"
+                                >
+                                    <div class="color-dropdown-preview">
+                                        <span
+                                            class="color-swatch-mini"
+                                            id="crownSwatch"
+                                            style="background: #f5f2e8"
+                                        ></span>
+                                        <span
+                                            class="color-name-display"
+                                            id="crownNameDisplay"
+                                            >Fisherman</span
+                                        >
+                                    </div>
+                                    <svg
+                                        class="dropdown-arrow"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="color-dropdown-panel"
+                                    id="crownDropdown"
+                                    data-section="crown"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <!-- Stripe Color -->
+                        <div class="color-selector">
+                            <div class="color-selector-header">
+                                <span class="color-selector-label"
+                                    >Stripe (Middle)</span
+                                >
+                                <span
+                                    class="selected-color-name"
+                                    id="stripeSelectedName"
+                                    >Grey Marble</span
+                                >
+                            </div>
+                            <div class="color-dropdown-wrapper">
+                                <button
+                                    class="color-dropdown-button"
+                                    id="stripeDropdownBtn"
+                                    data-section="stripe"
+                                >
+                                    <div class="color-dropdown-preview">
+                                        <span
+                                            class="color-swatch-mini"
+                                            id="stripeSwatch"
+                                            style="background: #9a9a9a"
+                                        ></span>
+                                        <span
+                                            class="color-name-display"
+                                            id="stripeNameDisplay"
+                                            >Grey Marble</span
+                                        >
+                                    </div>
+                                    <svg
+                                        class="dropdown-arrow"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="color-dropdown-panel"
+                                    id="stripeDropdown"
+                                    data-section="stripe"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <!-- Base Color -->
+                        <div class="color-selector">
+                            <div class="color-selector-header">
+                                <span class="color-selector-label"
+                                    >Base (Bottom)</span
+                                >
+                                <span
+                                    class="selected-color-name"
+                                    id="baseSelectedName"
+                                    >Charcoal</span
+                                >
+                            </div>
+                            <div class="color-dropdown-wrapper">
+                                <button
+                                    class="color-dropdown-button"
+                                    id="baseDropdownBtn"
+                                    data-section="base"
+                                >
+                                    <div class="color-dropdown-preview">
+                                        <span
+                                            class="color-swatch-mini"
+                                            id="baseSwatch"
+                                            style="background: #4a4a4a"
+                                        ></span>
+                                        <span
+                                            class="color-name-display"
+                                            id="baseNameDisplay"
+                                            >Charcoal</span
+                                        >
+                                    </div>
+                                    <svg
+                                        class="dropdown-arrow"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="color-dropdown-panel"
+                                    id="baseDropdown"
+                                    data-section="base"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Section (moved above details) -->
+                    <div
+                        class="add-to-cart-section will-animate animate-fade-up animate-delay-3"
+                    >
+                        <div class="summary-box">
+                            <h4 class="summary-title">Your Selection</h4>
+                            <div class="summary-row">
+                                <span class="summary-label">Crown</span>
+                                <span class="summary-value">
+                                    <span
+                                        class="summary-color-dot"
+                                        id="summaryCrownDot"
+                                        style="background: #f5f2e8"
+                                    ></span>
+                                    <span id="summaryCrownName">Fisherman</span>
+                                </span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Stripe</span>
+                                <span class="summary-value">
+                                    <span
+                                        class="summary-color-dot"
+                                        id="summaryStripeDot"
+                                        style="background: #9a9a9a"
+                                    ></span>
+                                    <span id="summaryStripeName"
+                                        >Grey Marble</span
+                                    >
+                                </span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Base</span>
+                                <span class="summary-value">
+                                    <span
+                                        class="summary-color-dot"
+                                        id="summaryBaseDot"
+                                        style="background: #4a4a4a"
+                                    ></span>
+                                    <span id="summaryBaseName">Charcoal</span>
+                                </span>
+                            </div>
+                            <div class="summary-total">
+                                <span class="summary-total-label">Total</span>
+                                <span
+                                    class="summary-total-price"
+                                    id="summaryTotalPrice"
+                                    >$28.00</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div class="quantity-selector">
+                            <span class="quantity-label">Quantity</span>
+                            <div class="quantity-controls">
+                                <button
+                                    class="quantity-btn"
+                                    id="quantityMinus"
+                                    aria-label="Decrease quantity"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M5 12h14" />
+                                    </svg>
+                                </button>
+                                <span class="quantity-value" id="quantityValue"
+                                    >1</span
+                                >
+                                <button
+                                    class="quantity-btn"
+                                    id="quantityPlus"
+                                    aria-label="Increase quantity"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="btn-add-to-cart" id="addToCartBtn">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
+                                />
+                                <line x1="3" y1="6" x2="21" y2="6" />
+                                <path d="M16 10a4 4 0 01-8 0" />
+                            </svg>
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Product Details (moved below add to cart) -->
+                    <div
+                        class="details-section will-animate animate-fade-up animate-delay-4"
+                    >
+                        <h3 class="details-title">Details</h3>
+                        <div class="details-list">
+                            <div class="details-item">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    />
+                                </svg>
+                                Handmade with love in the US
+                            </div>
+                            <div class="details-item">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                Ships within 3-5 business days
+                            </div>
+                            <div class="details-item">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path d="M3 3h18v18H3zM21 9H3M9 21V9" />
+                                </svg>
+                                80% Acrylic, 20% Wool blend
+                            </div>
+                            <div class="details-item">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                                    />
+                                </svg>
+                                Machine washable & dryable
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pre-Made Combos Section -->
+        <section class="combos-section">
+            <div class="combos-container">
+                <div class="combos-header">
+                    <h2 class="combos-title">Need inspiration?</h2>
+                    <p class="combos-subtitle">
+                        Click any best seller to load its colors into the
+                        customizer
+                    </p>
+                </div>
+
+                <div class="combos-carousel-container">
+                    <div class="combos-carousel" id="combosCarousel">
+                        <!-- Combo cards will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <button
+                        class="carousel-btn"
+                        id="combosPrevBtn"
+                        aria-label="Previous"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button
+                        class="carousel-btn"
+                        id="combosNextBtn"
+                        aria-label="Next"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="choose.html">Shop</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-center"></div>
+
+                <div class="footer-right">
+                    <p class="footer-logo">Handmade by K</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle
+                                    cx="18"
+                                    cy="6"
+                                    r="1"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 Handmade by K. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <!-- Load Beanie Customizer Module -->
+        <script src="beanie-customizer.js"></script>
+
+        <script>
+            // ========================================
+            // PAGE INITIALIZATION
+            // ========================================
+            document.addEventListener("DOMContentLoaded", () => {
+                initializeCustomizer();
+                initializeDropdowns();
+                initializeCombosCarousel();
+                initializeMobileMenu();
+                initializeCartBadge();
+                initializeScrollAnimations();
+                checkURLParams();
+            });
+
+            // Current selections
+            let selectedColors = {
+                crown: "fisherman",
+                stripe: "grey-marble",
+                base: "charcoal",
             };
 
-            // Save to localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(newItem);
-            localStorage.setItem('cart', JSON.stringify(cart));
+            // Current quantity
+            let selectedQuantity = 1;
 
-            alert("Added to cart!");
-            // Redirect to cart page
-            window.location.href = "cart.html";
-        }
+            // ========================================
+            // CUSTOMIZER FUNCTIONS
+            // ========================================
+            function initializeCustomizer() {
+                populateDropdowns();
+                updateAllDisplays();
+                initializeQuantitySelector();
+            }
 
-        window.onload = () => {
-            handleMaterialChange();
-        };
+            function populateDropdowns() {
+                const sections = ["crown", "stripe", "base"];
 
-        // Close zoomed image if clicking outside
-        document.addEventListener('mousedown', (e) => {
-            if (!e.target.classList.contains('color-select')) {
-                document.querySelectorAll('.swatch-image').forEach(img => {
-                    img.classList.remove('highlight');
+                sections.forEach((section) => {
+                    const panel = document.getElementById(`${section}Dropdown`);
+                    if (!panel) return;
+
+                    panel.innerHTML = "";
+
+                    // Add Solids category
+                    panel.innerHTML += `<div class="color-category">Solid Colors</div>`;
+                    YARN_COLORS.solids.forEach((color) => {
+                        panel.innerHTML += createColorOption(color, section);
+                    });
+
+                    // Add Prints category
+                    panel.innerHTML += `<div class="color-category">Prints & Stripes</div>`;
+                    YARN_COLORS.prints.forEach((color) => {
+                        panel.innerHTML += createColorOption(color, section);
+                    });
+
+                    // Add Metallics category
+                    panel.innerHTML += `<div class="color-category">Metallics</div>`;
+                    YARN_COLORS.metallics.forEach((color) => {
+                        panel.innerHTML += createColorOption(color, section);
+                    });
+                });
+
+                // Add click handlers to color options
+                document.querySelectorAll(".color-option").forEach((option) => {
+                    option.addEventListener("click", () => {
+                        const section = option.dataset.section;
+                        const colorId = option.dataset.colorId;
+                        selectColor(section, colorId);
+                    });
                 });
             }
-        });
-    </script>
- 
-        
-</body>
 
+            function createColorOption(color, section) {
+                const isSelected = selectedColors[section] === color.id;
+                const bgStyle = color.hex.includes("gradient")
+                    ? `background: ${color.hex};`
+                    : `background-color: ${color.hex};`;
+
+                return `
+                <div class="color-option ${isSelected ? "selected" : ""}"
+                     data-section="${section}"
+                     data-color-id="${color.id}">
+                    <span class="color-swatch-mini" style="${bgStyle}"></span>
+                    <div class="color-option-info">
+                        <div class="color-option-name">${color.name}</div>
+                        ${color.description ? `<div class="color-option-desc">${color.description}</div>` : ""}
+                    </div>
+                    <svg class="color-option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                </div>
+            `;
+            }
+
+            function selectColor(section, colorId) {
+                selectedColors[section] = colorId;
+
+                // Close dropdown
+                closeAllDropdowns();
+
+                // Update displays
+                updateAllDisplays();
+
+                // Update selected state in dropdown
+                document
+                    .querySelectorAll(
+                        `.color-option[data-section="${section}"]`,
+                    )
+                    .forEach((opt) => {
+                        opt.classList.toggle(
+                            "selected",
+                            opt.dataset.colorId === colorId,
+                        );
+                    });
+            }
+
+            function updateAllDisplays() {
+                ["crown", "stripe", "base"].forEach((section) => {
+                    const color = getColorById(selectedColors[section]);
+                    if (!color) return;
+
+                    const bgStyle = color.hex.includes("gradient")
+                        ? color.hex
+                        : color.hex;
+
+                    // Update dropdown button
+                    const swatch = document.getElementById(`${section}Swatch`);
+                    const nameDisplay = document.getElementById(
+                        `${section}NameDisplay`,
+                    );
+                    const selectedName = document.getElementById(
+                        `${section}SelectedName`,
+                    );
+
+                    if (swatch) {
+                        if (color.hex.includes("gradient")) {
+                            swatch.style.background = color.hex;
+                        } else {
+                            swatch.style.background = color.hex;
+                        }
+                    }
+                    if (nameDisplay) nameDisplay.textContent = color.name;
+                    if (selectedName) selectedName.textContent = color.name;
+
+                    // Update summary
+                    const summaryDot = document.getElementById(
+                        `summary${capitalize(section)}Dot`,
+                    );
+                    const summaryName = document.getElementById(
+                        `summary${capitalize(section)}Name`,
+                    );
+
+                    if (summaryDot) {
+                        if (color.hex.includes("gradient")) {
+                            summaryDot.style.background = color.hex;
+                        } else {
+                            summaryDot.style.background = color.hex;
+                        }
+                    }
+                    if (summaryName) summaryName.textContent = color.name;
+
+                    // Update thumbnail swatches
+                    const thumb = document.getElementById(
+                        `thumb${capitalize(section)}`,
+                    );
+                    if (thumb) {
+                        if (color.hex.includes("gradient")) {
+                            thumb.style.background = color.hex;
+                        } else {
+                            thumb.style.background = color.hex;
+                        }
+                    }
+                });
+
+                // Update price
+                updatePrice();
+
+                // Update product image
+                updateProductImage();
+            }
+
+            function updatePrice() {
+                const price = calculatePrice(
+                    selectedColors.crown,
+                    selectedColors.stripe,
+                    selectedColors.base,
+                );
+
+                const totalPrice = price * selectedQuantity;
+                const formattedUnitPrice = `$${price.toFixed(2)}`;
+                const formattedTotalPrice = `$${totalPrice.toFixed(2)}`;
+
+                document.getElementById("displayPrice").textContent =
+                    formattedUnitPrice;
+                document.getElementById("summaryTotalPrice").textContent =
+                    formattedTotalPrice;
+            }
+
+            function updateProductImage() {
+                const imageContainer =
+                    document.getElementById("mainImageContainer");
+                const mainImage = document.getElementById("mainProductImage");
+
+                // Try to load the specific color combo image
+                const imagePath = `${selectedColors.crown}_${selectedColors.stripe}_${selectedColors.base}.jpg`;
+
+                imageContainer.classList.add("loading");
+
+                const testImg = new Image();
+                testImg.onload = () => {
+                    mainImage.src = imagePath;
+                    imageContainer.classList.remove("loading");
+                };
+                testImg.onerror = () => {
+                    // If combo image doesn't exist, check for preset match
+                    const preset = PRESET_COMBOS.find(
+                        (p) =>
+                            p.crown === selectedColors.crown &&
+                            p.stripe === selectedColors.stripe &&
+                            p.base === selectedColors.base,
+                    );
+
+                    if (preset && preset.image) {
+                        mainImage.src = preset.image;
+                    } else {
+                        // Fallback to default
+                        mainImage.src = "beanie1.png";
+                    }
+                    imageContainer.classList.remove("loading");
+                };
+
+                testImg.src = imagePath;
+            }
+
+            function capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }
+
+            // ========================================
+            // DROPDOWN FUNCTIONS
+            // ========================================
+            function initializeDropdowns() {
+                const dropdownButtons = document.querySelectorAll(
+                    ".color-dropdown-button",
+                );
+
+                dropdownButtons.forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const section = btn.dataset.section;
+                        toggleDropdown(section);
+                    });
+                });
+
+                // Close dropdowns when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (!e.target.closest(".color-dropdown-wrapper")) {
+                        closeAllDropdowns();
+                    }
+                });
+            }
+
+            function toggleDropdown(section) {
+                const btn = document.getElementById(`${section}DropdownBtn`);
+                const panel = document.getElementById(`${section}Dropdown`);
+                const wrapper = btn.closest(".color-dropdown-wrapper");
+                const isOpen = panel.classList.contains("open");
+
+                closeAllDropdowns();
+
+                if (!isOpen) {
+                    btn.classList.add("open");
+                    panel.classList.add("open");
+                    wrapper.classList.add("active");
+                }
+            }
+
+            function closeAllDropdowns() {
+                document
+                    .querySelectorAll(".color-dropdown-button")
+                    .forEach((btn) => {
+                        btn.classList.remove("open");
+                    });
+                document
+                    .querySelectorAll(".color-dropdown-panel")
+                    .forEach((panel) => {
+                        panel.classList.remove("open");
+                    });
+                document
+                    .querySelectorAll(".color-dropdown-wrapper")
+                    .forEach((wrapper) => {
+                        wrapper.classList.remove("active");
+                    });
+            }
+
+            // ========================================
+            // COMBOS CAROUSEL
+            // ========================================
+            function initializeCombosCarousel() {
+                const carousel = document.getElementById("combosCarousel");
+                if (!carousel) return;
+
+                // Populate carousel
+                PRESET_COMBOS.forEach((combo) => {
+                    const card = document.createElement("div");
+                    card.className = "combo-card";
+                    card.innerHTML = `
+                    <div class="combo-image-container">
+                        <img src="${combo.image}" alt="${combo.name}" class="combo-image" loading="lazy">
+                        <div class="combo-overlay">
+                            <button class="combo-select-btn">Select Colors</button>
+                        </div>
+                    </div>
+                    <div class="combo-info">
+                        <h3 class="combo-name">${combo.name}</h3>
+                        <p class="combo-price">$${combo.price.toFixed(2)}</p>
+                    </div>
+                `;
+
+                    card.addEventListener("click", () => {
+                        loadPresetCombo(combo);
+                    });
+
+                    carousel.appendChild(card);
+                });
+
+                // Carousel navigation
+                const prevBtn = document.getElementById("combosPrevBtn");
+                const nextBtn = document.getElementById("combosNextBtn");
+                const scrollAmount = 280;
+
+                prevBtn?.addEventListener("click", () => {
+                    carousel.scrollBy({
+                        left: -scrollAmount,
+                        behavior: "smooth",
+                    });
+                });
+
+                nextBtn?.addEventListener("click", () => {
+                    carousel.scrollBy({
+                        left: scrollAmount,
+                        behavior: "smooth",
+                    });
+                });
+
+                // Drag to scroll
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                carousel.addEventListener("mousedown", (e) => {
+                    isDown = true;
+                    carousel.style.cursor = "grabbing";
+                    startX = e.pageX - carousel.offsetLeft;
+                    scrollLeft = carousel.scrollLeft;
+                });
+
+                carousel.addEventListener("mouseleave", () => {
+                    isDown = false;
+                    carousel.style.cursor = "grab";
+                });
+
+                carousel.addEventListener("mouseup", () => {
+                    isDown = false;
+                    carousel.style.cursor = "grab";
+                });
+
+                carousel.addEventListener("mousemove", (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - carousel.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    carousel.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+            function loadPresetCombo(combo) {
+                selectedColors.crown = combo.crown;
+                selectedColors.stripe = combo.stripe;
+                selectedColors.base = combo.base;
+
+                // Update dropdown selected states
+                ["crown", "stripe", "base"].forEach((section) => {
+                    document
+                        .querySelectorAll(
+                            `.color-option[data-section="${section}"]`,
+                        )
+                        .forEach((opt) => {
+                            opt.classList.toggle(
+                                "selected",
+                                opt.dataset.colorId === selectedColors[section],
+                            );
+                        });
+                });
+
+                updateAllDisplays();
+
+                // Scroll to customizer
+                document.querySelector(".product-section").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+
+            // ========================================
+            // QUANTITY SELECTOR
+            // ========================================
+            function initializeQuantitySelector() {
+                const minusBtn = document.getElementById("quantityMinus");
+                const plusBtn = document.getElementById("quantityPlus");
+
+                minusBtn?.addEventListener("click", () => {
+                    if (selectedQuantity > 1) {
+                        selectedQuantity--;
+                        updateQuantityDisplay();
+                    }
+                });
+
+                plusBtn?.addEventListener("click", () => {
+                    if (selectedQuantity < 99) {
+                        selectedQuantity++;
+                        updateQuantityDisplay();
+                    }
+                });
+
+                updateQuantityDisplay();
+            }
+
+            function updateQuantityDisplay() {
+                const valueDisplay = document.getElementById("quantityValue");
+                const minusBtn = document.getElementById("quantityMinus");
+
+                if (valueDisplay) {
+                    valueDisplay.textContent = selectedQuantity;
+                }
+
+                // Disable minus button when quantity is 1
+                if (minusBtn) {
+                    minusBtn.disabled = selectedQuantity <= 1;
+                }
+
+                // Update total price display
+                updatePrice();
+            }
+
+            // ========================================
+            // ADD TO CART
+            // ========================================
+            document
+                .getElementById("addToCartBtn")
+                ?.addEventListener("click", () => {
+                    const crownColor = getColorById(selectedColors.crown);
+                    const stripeColor = getColorById(selectedColors.stripe);
+                    const baseColor = getColorById(selectedColors.base);
+
+                    const price = calculatePrice(
+                        selectedColors.crown,
+                        selectedColors.stripe,
+                        selectedColors.base,
+                    );
+
+                    const cartItem = {
+                        id: Date.now(),
+                        name: "Custom Handmade Beanie",
+                        price: price,
+                        quantity: selectedQuantity,
+                        image: document.getElementById("mainProductImage").src,
+                        details: `Crown: ${crownColor?.name || "Unknown"}, Stripe: ${stripeColor?.name || "Unknown"}, Base: ${baseColor?.name || "Unknown"}`,
+                        colors: { ...selectedColors },
+                    };
+
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    cart.push(cartItem);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    // Button feedback
+                    const btn = document.getElementById("addToCartBtn");
+                    const qtyText =
+                        selectedQuantity > 1
+                            ? `${selectedQuantity} Items Added!`
+                            : "Added to Cart!";
+                    btn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                ${qtyText}
+            `;
+                    btn.classList.add("added");
+
+                    // Update cart badge
+                    updateCartBadge();
+
+                    // Reset quantity and button after delay
+                    setTimeout(() => {
+                        selectedQuantity = 1;
+                        updateQuantityDisplay();
+                        btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    Add to Cart
+                `;
+                        btn.classList.remove("added");
+                    }, 2000);
+                });
+
+            // ========================================
+            // CART BADGE
+            // ========================================
+            function initializeCartBadge() {
+                updateCartBadge();
+            }
+
+            function updateCartBadge() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const count = cart.reduce(
+                    (sum, item) => sum + (item.quantity || 1),
+                    0,
+                );
+
+                const badges = [
+                    document.getElementById("cartBadge"),
+                    document.getElementById("cartBadgeMobile"),
+                ];
+
+                badges.forEach((badge) => {
+                    if (badge) {
+                        badge.textContent = count;
+                        if (count > 0) {
+                            badge.classList.add("visible");
+                        } else {
+                            badge.classList.remove("visible");
+                        }
+                    }
+                });
+            }
+
+            // ========================================
+            // MOBILE MENU
+            // ========================================
+            function initializeMobileMenu() {
+                const hamburger = document.getElementById("hamburger");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const mobileHeader = document.getElementById("mobileHeader");
+                const mobileLinks = mobileMenu?.querySelectorAll(".nav-link");
+
+                hamburger?.addEventListener("click", () => {
+                    hamburger.classList.toggle("active");
+                    mobileMenu.classList.toggle("active");
+                    mobileHeader.classList.toggle("menu-open");
+                    document.body.style.overflow =
+                        mobileMenu.classList.contains("active") ? "hidden" : "";
+                });
+
+                mobileLinks?.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        hamburger.classList.remove("active");
+                        mobileMenu.classList.remove("active");
+                        mobileHeader.classList.remove("menu-open");
+                        document.body.style.overflow = "";
+                    });
+                });
+            }
+
+            // ========================================
+            // HEADER SCROLL EFFECT
+            // ========================================
+            window.addEventListener("scroll", () => {
+                const header = document.getElementById("header");
+                if (header) {
+                    if (window.scrollY > 50) {
+                        header.classList.add("scrolled");
+                    } else {
+                        header.classList.remove("scrolled");
+                    }
+                }
+            });
+
+            // ========================================
+            // SCROLL ANIMATIONS
+            // ========================================
+            function initializeScrollAnimations() {
+                const animatedElements =
+                    document.querySelectorAll(".will-animate");
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.opacity = "1";
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.1,
+                        rootMargin: "0px 0px -50px 0px",
+                    },
+                );
+
+                animatedElements.forEach((el) => observer.observe(el));
+            }
+
+            // ========================================
+            // URL PARAMS (for linking from homepage)
+            // ========================================
+            function checkURLParams() {
+                const params = new URLSearchParams(window.location.search);
+                const presetId = params.get("preset");
+
+                if (presetId) {
+                    const preset = PRESET_COMBOS.find((p) => p.id === presetId);
+                    if (preset) {
+                        loadPresetCombo(preset);
+                    }
+                }
+            }
+        </script>
+    </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

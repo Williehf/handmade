@@ -1,175 +1,2249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | Handmade by K</title>
-    <link rel="icon" type="image/png" href="logo2.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="testboton1.css">
-    <link rel="stylesheet" href="css.css">
-    <style>
-        /* Responsive Container */
-        .checkout-container {
-            display: flex;
-            flex-direction: column; /* Default to mobile-first (stacked) */
-            gap: 30px;
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkout | Handmade by K</title>
+        <link rel="icon" type="image/png" href="logo2.png" />
 
-        /* Form Styling */
-        .checkout-form {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;1,6..12,300;1,6..12,400&display=swap"
+            rel="stylesheet"
+        />
 
-        .checkout-form input {
-            padding: 12px;
-            font-size: 16px; /* Prevents iPhone "auto-zoom" on focus */
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+        <style>
+            /* ========================================
+               CSS VARIABLES & RESET
+            ======================================== */
+            :root {
+                --color-cream: #faf9f6;
+                --color-cream-dark: #f5f3ef;
+                --color-sage: #7a8f6d;
+                --color-sage-dark: #5e7354;
+                --color-black: #1a1a1a;
+                --color-gray: #666666;
+                --color-gray-light: #999999;
+                --color-white: #ffffff;
+                --color-error: #c44536;
+                --color-error-light: #fef2f2;
+                --color-success: #2e7d32;
 
-        /* Order Summary Styling */
-        .order-summary {
-            flex: 1;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 12px;
-            background-color: #f9f9f9;
-            height: fit-content;
-        }
+                --font-display: "Cormorant Garamond", serif;
+                --font-body: "Nunito Sans", sans-serif;
 
-        .order-summary ul {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-
-        .order-summary li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        /* Button Styling */
-        .place-order-btn, .nav-buttonf {
-            display: block;
-            text-align: center;
-            width: 100%;
-            padding: 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-
-        .nav-buttonf {
-            background-color: #007bff; /* Different color for the SMS button */
-        }
-
-        /* DESKTOP LAYOUT (Wider than iPhone) */
-        @media (min-width: 768px) {
-            .checkout-container {
-                flex-direction: row; /* Side-by-side on desktop */
-                align-items: flex-start;
+                --transition-fast: 0.2s ease;
+                --transition-medium: 0.3s ease;
+                --transition-slow: 0.5s ease;
             }
-        }
 
-        /* Typography Fixes */
-        .tabletitle {
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    <header class="banner">
-        <div class="header-inline-container">
-            <span class="header-main-title">Free shipping on orders over $30</span>
-            <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to ship today!</span>
-        </div>
-    </header>
+            html {
+                scroll-behavior: smooth;
+            }
 
-    <header class="banner1">
-        <h1>Handmade by K</h1>
-    </header>
+            body {
+                font-family: var(--font-body);
+                background-color: var(--color-cream);
+                color: var(--color-black);
+                line-height: 1.6;
+                overflow-x: hidden;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
 
-    <nav class="navbar">
-        <ul class="nav-list">
-            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
-            <li><a href="choose.html" class="nav-button">🛍️ Order</a></li>
-            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
-            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
-        </ul>
-    </nav>
+            img {
+                display: block;
+                max-width: 100%;
+            }
 
-    <div class="tabletitle">
-        <h4>Checkout</h4>
-        <a href="cart.html">Back to Cart</a>
-        <a href="choose.html">Back to Choose</a>
-    </div>
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-    <main class="checkout-container">
-        <!-- Shipping Details Section -->
-        <div class="checkout-form">
-            <h3>Shipping Details</h3>
-            <p> We accept multiple forms of payment. 
-                Mobile users can fill out the form below and send us an SMS. 
-                Your unique order or reference number will be generated automatically and included in the message.</p>
-            <p style="font-size: 0.9rem; color: #666;">Methods: CashApp, Venmo, PayPal, ATH móvil</p>
-            
-            <input type="text" id="cust-name" placeholder="Full Name">
-            <input type="text" id="cust-address" placeholder="Address">
-            <input type="text" id="cust-city" placeholder="City">
-            <input type="text" id="cust-zip" placeholder="Zip Code">
+            ul {
+                list-style: none;
+            }
 
-            <button class="place-order-btn" onclick="placeOrder()">1. Save Order & Prepare SMS</button>
-            <a id="sms-owner-link" href="#" style="display:none;" class="nav-buttonf" onclick="finalizeOrder()">2. Send SMS to Owner</a>
-        </div>
+            /* ========================================
+               ANIMATIONS
+            ======================================== */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
 
-        <!-- Order Summary Section -->
-        <div class="order-summary">
-            <h3>Order Summary</h3>
-            <ul id="summary-items">
-                <!-- Items injected by checkout.js -->
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes shake {
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+                10%,
+                30%,
+                50%,
+                70%,
+                90% {
+                    transform: translateX(-5px);
+                }
+                20%,
+                40%,
+                60%,
+                80% {
+                    transform: translateX(5px);
+                }
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-fade-up {
+                animation: fadeInUp 0.8s ease forwards;
+            }
+
+            .animate-delay-1 {
+                animation-delay: 0.1s;
+            }
+            .animate-delay-2 {
+                animation-delay: 0.2s;
+            }
+            .animate-delay-3 {
+                animation-delay: 0.3s;
+            }
+
+            .will-animate {
+                opacity: 0;
+            }
+
+            .shake {
+                animation: shake 0.5s ease;
+            }
+
+            /* ========================================
+               HEADER & NAVIGATION
+            ======================================== */
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background-color: var(--color-cream);
+                transition: box-shadow var(--transition-medium);
+            }
+
+            .header.scrolled {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+            }
+
+            .nav-link {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                color: var(--color-black);
+                position: relative;
+                transition: color var(--transition-fast);
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--color-sage);
+                transition: width var(--transition-medium);
+            }
+
+            .nav-link:hover {
+                color: var(--color-sage);
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .logo {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 600;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-black);
+                transition: opacity var(--transition-fast);
+            }
+
+            .logo:hover {
+                opacity: 0.7;
+            }
+
+            .cart-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                background-color: var(--color-white);
+                border-radius: 50%;
+                transition: all var(--transition-medium);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .cart-link:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            .cart-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                min-width: 20px;
+                height: 20px;
+                padding: 0 6px;
+                background-color: #e53935;
+                color: var(--color-white);
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: all var(--transition-medium);
+            }
+
+            .cart-badge.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-black);
+                transition: all var(--transition-medium);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Mobile Menu */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--color-sage-dark);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-family: var(--font-display);
+                font-size: 2.05rem;
+                color: var(--color-cream);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active .nav-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .mobile-menu.active .nav-link:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+            .mobile-menu.active .nav-link:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+            .mobile-menu.active .nav-link:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+            .mobile-menu.active .nav-link:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .mobile-menu .nav-link:hover {
+                color: var(--color-white);
+            }
+
+            /* Mobile Header */
+            .mobile-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1001;
+                background-color: var(--color-cream);
+                padding: 1rem 1.5rem;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .mobile-header .logo {
+                font-size: 1.25rem;
+            }
+
+            /* ========================================
+               CHECKOUT SECTION
+            ======================================== */
+            .checkout-section {
+                flex: 1;
+                padding: 7rem 2rem 4rem;
+                background-color: var(--color-white);
+            }
+
+            .checkout-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .checkout-header {
+                margin-bottom: 3rem;
+            }
+
+            .checkout-title {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 2.75rem);
+                font-weight: 400;
+                font-style: italic;
+                color: var(--color-black);
+                margin-bottom: 0.5rem;
+            }
+
+            .checkout-breadcrumb {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.9rem;
+                color: var(--color-gray);
+            }
+
+            .checkout-breadcrumb a {
+                color: var(--color-sage);
+                transition: color var(--transition-fast);
+            }
+
+            .checkout-breadcrumb a:hover {
+                color: var(--color-sage-dark);
+            }
+
+            .checkout-grid {
+                display: grid;
+                grid-template-columns: 1.4fr 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            /* ========================================
+               CART ITEMS SECTION
+            ======================================== */
+            .cart-section {
+                background-color: var(--color-cream);
+                border-radius: 12px;
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .cart-items {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cart-item {
+                display: grid;
+                grid-template-columns: 80px 1fr auto;
+                gap: 1.25rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid #e0e0e0;
+                align-items: start;
+            }
+
+            .cart-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .cart-item-image {
+                width: 80px;
+                height: 80px;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: var(--color-cream-dark);
+            }
+
+            .cart-item-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .cart-item-details {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .cart-item-name {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--color-black);
+            }
+
+            .cart-item-colors {
+                font-size: 0.9rem;
+                color: var(--color-gray);
+                line-height: 1.4;
+            }
+
+            .cart-item-quantity {
+                font-size: 0.9rem;
+                color: var(--color-gray-light);
+                margin-top: 0.25rem;
+            }
+
+            .cart-item-price {
+                font-family: var(--font-display);
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: var(--color-black);
+                text-align: right;
+            }
+
+            .cart-item-remove {
+                background: none;
+                border: none;
+                color: var(--color-gray-light);
+                cursor: pointer;
+                padding: 0.25rem;
+                transition: color var(--transition-fast);
+                margin-top: 0.5rem;
+            }
+
+            .cart-item-remove:hover {
+                color: var(--color-error);
+            }
+
+            .cart-item-remove svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .cart-empty {
+                text-align: center;
+                padding: 3rem 1rem;
+            }
+
+            .cart-empty-icon {
+                width: 64px;
+                height: 64px;
+                margin: 0 auto 1rem;
+                color: var(--color-gray-light);
+            }
+
+            .cart-empty-text {
+                font-size: 1.1rem;
+                color: var(--color-gray);
+                margin-bottom: 1.5rem;
+            }
+
+            .cart-empty-link {
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-weight: 500;
+                border-radius: 4px;
+                transition: background-color var(--transition-fast);
+            }
+
+            .cart-empty-link:hover {
+                background-color: var(--color-sage-dark);
+            }
+
+            /* ========================================
+               CHECKOUT FORM
+            ======================================== */
+            .checkout-form-section {
+                position: sticky;
+                top: 100px;
+            }
+
+            .checkout-form {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .form-section {
+                background-color: var(--color-cream);
+                border-radius: 12px;
+                padding: 1.5rem;
+            }
+
+            .form-section-title {
+                font-family: var(--font-body);
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: var(--color-gray);
+                margin-bottom: 1.25rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .form-section-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-size: 0.75rem;
+                font-weight: 700;
+                border-radius: 50%;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .form-group:last-child {
+                margin-bottom: 0;
+            }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .form-label {
+                font-family: var(--font-body);
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            .form-label .required {
+                color: var(--color-sage);
+                margin-left: 2px;
+            }
+
+            .form-input,
+            .form-select {
+                font-family: var(--font-body);
+                font-size: 16px;
+                padding: 0.875rem 1rem;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                background-color: var(--color-white);
+                color: var(--color-black);
+                transition: all var(--transition-fast);
+                outline: none;
+                width: 100%;
+            }
+
+            .form-input:focus,
+            .form-select:focus {
+                border-color: var(--color-sage);
+                box-shadow: 0 0 0 3px rgba(122, 143, 109, 0.1);
+            }
+
+            .form-input::placeholder {
+                color: var(--color-gray-light);
+            }
+
+            .form-input.error,
+            .form-select.error {
+                border-color: var(--color-error);
+                background-color: var(--color-error-light);
+            }
+
+            .form-input.error:focus,
+            .form-select.error:focus {
+                box-shadow: 0 0 0 3px rgba(196, 69, 54, 0.1);
+            }
+
+            .form-select {
+                cursor: pointer;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 0.75rem center;
+                background-size: 18px;
+                padding-right: 2.5rem;
+            }
+
+            .form-error {
+                display: none;
+                font-size: 0.85rem;
+                color: var(--color-error);
+                margin-top: 0.25rem;
+                animation: slideDown 0.3s ease;
+            }
+
+            .form-error.visible {
+                display: flex;
+                align-items: center;
+                gap: 0.35rem;
+            }
+
+            .form-error svg {
+                width: 14px;
+                height: 14px;
+                flex-shrink: 0;
+            }
+
+            /* Shipping Options */
+            .shipping-options {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .shipping-option {
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                background-color: var(--color-white);
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all var(--transition-fast);
+            }
+
+            .shipping-option:hover {
+                border-color: var(--color-sage);
+            }
+
+            .shipping-option.selected {
+                border-color: var(--color-sage);
+                background-color: rgba(122, 143, 109, 0.05);
+            }
+
+            .shipping-option input {
+                display: none;
+            }
+
+            .shipping-radio {
+                width: 20px;
+                height: 20px;
+                border: 2px solid #e0e0e0;
+                border-radius: 50%;
+                margin-right: 1rem;
+                position: relative;
+                transition: all var(--transition-fast);
+                flex-shrink: 0;
+            }
+
+            .shipping-option.selected .shipping-radio {
+                border-color: var(--color-sage);
+            }
+
+            .shipping-option.selected .shipping-radio::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 10px;
+                height: 10px;
+                background-color: var(--color-sage);
+                border-radius: 50%;
+            }
+
+            .shipping-details {
+                flex: 1;
+            }
+
+            .shipping-name {
+                font-weight: 600;
+                color: var(--color-black);
+                margin-bottom: 0.15rem;
+            }
+
+            .shipping-description {
+                font-size: 0.85rem;
+                color: var(--color-gray);
+            }
+
+            .shipping-price {
+                font-family: var(--font-display);
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            /* ========================================
+               ORDER SUMMARY
+            ======================================== */
+            .order-summary {
+                background-color: var(--color-cream);
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-top: 1rem;
+            }
+
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+            }
+
+            .summary-row:not(:last-child) {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .summary-label {
+                font-size: 0.95rem;
+                color: var(--color-gray);
+            }
+
+            .summary-value {
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: var(--color-black);
+            }
+
+            .summary-total {
+                margin-top: 0.5rem;
+                padding-top: 1rem;
+                border-top: 2px solid var(--color-sage);
+            }
+
+            .summary-total .summary-label {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--color-black);
+            }
+
+            .summary-total .summary-value {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--color-black);
+            }
+
+            /* Place Order Button */
+            .btn-place-order {
+                width: 100%;
+                padding: 1.25rem 2rem;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-family: var(--font-body);
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+            }
+
+            .btn-place-order:hover:not(:disabled) {
+                background-color: var(--color-sage-dark);
+                transform: scale(1.02);
+            }
+
+            .btn-place-order:disabled {
+                background-color: var(--color-gray-light);
+                cursor: not-allowed;
+            }
+
+            .btn-place-order svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .btn-place-order.processing {
+                pointer-events: none;
+            }
+
+            .btn-place-order.success {
+                background-color: var(--color-success);
+            }
+
+            /* SMS Button */
+            .btn-sms {
+                width: 100%;
+                padding: 1rem 2rem;
+                background-color: var(--color-black);
+                color: var(--color-white);
+                font-family: var(--font-body);
+                font-size: 1rem;
+                font-weight: 500;
+                text-align: center;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+                display: none;
+                margin-top: 1rem;
+            }
+
+            .btn-sms.visible {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .btn-sms:hover {
+                background-color: #333;
+            }
+
+            .btn-sms svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Continue Shopping Link */
+            .continue-shopping {
+                display: block;
+                text-align: center;
+                margin-top: 1rem;
+                color: var(--color-gray);
+                font-size: 0.9rem;
+                transition: color var(--transition-fast);
+            }
+
+            .continue-shopping:hover {
+                color: var(--color-sage);
+            }
+
+            /* ========================================
+               FOOTER
+            ======================================== */
+            .footer {
+                background-color: var(--color-cream-dark);
+                padding: 4rem 2rem 2rem;
+                margin-top: auto;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            .footer-links ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 1.05rem;
+                color: var(--color-gray);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-links a:hover {
+                color: var(--color-sage);
+            }
+
+            .footer-center {
+                text-align: center;
+            }
+
+            .footer-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--color-black);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background-color: var(--color-white);
+                transition: all var(--transition-medium);
+            }
+
+            .social-link:hover {
+                background-color: var(--color-sage);
+                transform: scale(1.1);
+            }
+
+            .social-link:hover .social-icon {
+                color: var(--color-white);
+            }
+
+            .social-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 3rem auto 0;
+                padding-top: 2rem;
+                border-top: 1px solid #e0e0e0;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                font-size: 0.95rem;
+                color: var(--color-gray-light);
+            }
+
+            /* ========================================
+               RESPONSIVE DESIGN
+            ======================================== */
+            @media (max-width: 1024px) {
+                .checkout-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .checkout-form-section {
+                    position: static;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .header {
+                    display: none;
+                }
+
+                .mobile-header {
+                    display: flex;
+                }
+
+                .checkout-section {
+                    padding: 5rem 1.5rem 3rem;
+                }
+
+                .cart-item {
+                    grid-template-columns: 60px 1fr;
+                    gap: 1rem;
+                }
+
+                .cart-item-image {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .cart-item-price {
+                    grid-column: 2;
+                    text-align: left;
+                    margin-top: 0.5rem;
+                }
+
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-container {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                    text-align: center;
+                }
+
+                .footer-links ul {
+                    align-items: center;
+                }
+
+                .footer-right {
+                    align-items: center;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .checkout-title {
+                    font-size: 1.75rem;
+                }
+
+                .cart-section,
+                .form-section,
+                .order-summary {
+                    padding: 1.25rem;
+                }
+
+                .shipping-option {
+                    flex-wrap: wrap;
+                }
+
+                .shipping-price {
+                    width: 100%;
+                    margin-top: 0.5rem;
+                    padding-left: 2.25rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Desktop Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="choose.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
+                    <li>
+                        <a href="contact.html" class="nav-link">Get in Touch</a>
+                    </li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+
+                <a href="index.html" class="logo">Handmade by K</a>
+
+                <a href="cart.html" class="cart-link" id="cartLink">
+                    <svg
+                        class="cart-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
+                        />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Mobile Header -->
+        <header class="mobile-header" id="mobileHeader">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">Handmade by K</a>
+
+            <a href="cart.html" class="cart-link" id="cartLinkMobile">
+                <svg
+                    class="cart-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                <span class="cart-badge" id="cartBadgeMobile">0</span>
+            </a>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="nav-links">
+                <li><a href="choose.html" class="nav-link">Shop</a></li>
+                <li><a href="about.html" class="nav-link">Our Story</a></li>
+                <li>
+                    <a href="contact.html" class="nav-link">Get in Touch</a>
+                </li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
-            <hr>
-            <div style="margin-top: 15px; font-size: 1.2rem;">
-                <strong>Total: $<span id="summary-total">0.00</span></strong>
-            </div>
         </div>
-    </main>
 
-    <script src="checkout.js"></script>
+        <!-- Checkout Section -->
+        <main class="checkout-section">
+            <div class="checkout-container">
+                <div class="checkout-header will-animate animate-fade-up">
+                    <h1 class="checkout-title">Checkout</h1>
+                    <nav class="checkout-breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>›</span>
+                        <a href="cart.html">Cart</a>
+                        <span>›</span>
+                        <span>Checkout</span>
+                    </nav>
+                </div>
 
-    <footer>
-        <p>&copy; 2026 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
-    </footer>
-</body>
+                <div class="checkout-grid">
+                    <!-- Cart Items -->
+                    <div
+                        class="cart-section will-animate animate-fade-up animate-delay-1"
+                    >
+                        <h2 class="section-title">Your Order</h2>
+                        <div class="cart-items" id="cartItems">
+                            <!-- Cart items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div
+                        class="checkout-form-section will-animate animate-fade-up animate-delay-2"
+                    >
+                        <form
+                            class="checkout-form"
+                            id="checkoutForm"
+                            novalidate
+                        >
+                            <!-- Shipping Information -->
+                            <div class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="form-section-number">1</span>
+                                    Shipping Information
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="fullName">
+                                        Full Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        class="form-input"
+                                        placeholder="Enter your full name"
+                                        autocomplete="name"
+                                        required
+                                    />
+                                    <span class="form-error" id="fullNameError">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <span>Please enter your full name</span>
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="email">
+                                        Email <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="form-input"
+                                        placeholder="your@email.com"
+                                        autocomplete="email"
+                                        required
+                                    />
+                                    <span class="form-error" id="emailError">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <span
+                                            >Please enter a valid email
+                                            address</span
+                                        >
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">
+                                        Phone <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        class="form-input"
+                                        placeholder="(123) 456-7890"
+                                        autocomplete="tel"
+                                        required
+                                    />
+                                    <span class="form-error" id="phoneError">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <span
+                                            >Please enter a valid phone
+                                            number</span
+                                        >
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="address">
+                                        Street Address
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        class="form-input"
+                                        placeholder="123 Main Street"
+                                        autocomplete="street-address"
+                                        required
+                                    />
+                                    <span class="form-error" id="addressError">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <span
+                                            >Please enter your street
+                                            address</span
+                                        >
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="address2">
+                                        Apartment, Suite, etc.
+                                        <span
+                                            style="
+                                                color: var(--color-gray-light);
+                                                font-weight: 400;
+                                            "
+                                            >(optional)</span
+                                        >
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="address2"
+                                        name="address2"
+                                        class="form-input"
+                                        placeholder="Apt 4B"
+                                        autocomplete="address-line2"
+                                    />
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="city">
+                                            City <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="city"
+                                            name="city"
+                                            class="form-input"
+                                            placeholder="City"
+                                            autocomplete="address-level2"
+                                            required
+                                        />
+                                        <span class="form-error" id="cityError">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                            >
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                />
+                                                <line
+                                                    x1="12"
+                                                    y1="8"
+                                                    x2="12"
+                                                    y2="12"
+                                                />
+                                                <line
+                                                    x1="12"
+                                                    y1="16"
+                                                    x2="12.01"
+                                                    y2="16"
+                                                />
+                                            </svg>
+                                            <span>Please enter your city</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="state">
+                                            State
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="state"
+                                            name="state"
+                                            class="form-input"
+                                            placeholder="State"
+                                            autocomplete="address-level1"
+                                            required
+                                        />
+                                        <span
+                                            class="form-error"
+                                            id="stateError"
+                                        >
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                            >
+                                                <circle
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                />
+                                                <line
+                                                    x1="12"
+                                                    y1="8"
+                                                    x2="12"
+                                                    y2="12"
+                                                />
+                                                <line
+                                                    x1="12"
+                                                    y1="16"
+                                                    x2="12.01"
+                                                    y2="16"
+                                                />
+                                            </svg>
+                                            <span>Please enter your state</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="zipCode">
+                                        ZIP Code <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="zipCode"
+                                        name="zipCode"
+                                        class="form-input"
+                                        placeholder="12345"
+                                        autocomplete="postal-code"
+                                        maxlength="10"
+                                        required
+                                    />
+                                    <span class="form-error" id="zipCodeError">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <span
+                                            >Please enter a valid ZIP code</span
+                                        >
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Method -->
+                            <div class="form-section">
+                                <h3 class="form-section-title">
+                                    <span class="form-section-number">2</span>
+                                    Shipping Method
+                                </h3>
+
+                                <div class="shipping-options">
+                                    <label
+                                        class="shipping-option selected"
+                                        data-shipping="domestic"
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="shipping"
+                                            value="domestic"
+                                            checked
+                                        />
+                                        <span class="shipping-radio"></span>
+                                        <div class="shipping-details">
+                                            <div class="shipping-name">
+                                                US Domestic Shipping
+                                            </div>
+                                            <div class="shipping-description">
+                                                5-7 business days
+                                            </div>
+                                        </div>
+                                        <span class="shipping-price"
+                                            >$5.99</span
+                                        >
+                                    </label>
+
+                                    <label
+                                        class="shipping-option"
+                                        data-shipping="puerto-rico"
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="shipping"
+                                            value="puerto-rico"
+                                        />
+                                        <span class="shipping-radio"></span>
+                                        <div class="shipping-details">
+                                            <div class="shipping-name">
+                                                Puerto Rico
+                                            </div>
+                                            <div class="shipping-description">
+                                                7-10 business days
+                                            </div>
+                                        </div>
+                                        <span class="shipping-price"
+                                            >$12.99</span
+                                        >
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Order Summary -->
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span class="summary-label">Subtotal</span>
+                                    <span
+                                        class="summary-value"
+                                        id="summarySubtotal"
+                                        >$0.00</span
+                                    >
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Shipping</span>
+                                    <span
+                                        class="summary-value"
+                                        id="summaryShipping"
+                                        >$5.99</span
+                                    >
+                                </div>
+                                <div class="summary-row summary-total">
+                                    <span class="summary-label">Total</span>
+                                    <span
+                                        class="summary-value"
+                                        id="summaryTotal"
+                                        >$0.00</span
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- Place Order Button -->
+                            <button
+                                type="submit"
+                                class="btn-place-order"
+                                id="placeOrderBtn"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <rect
+                                        x="1"
+                                        y="4"
+                                        width="22"
+                                        height="16"
+                                        rx="2"
+                                        ry="2"
+                                    />
+                                    <line x1="1" y1="10" x2="23" y2="10" />
+                                </svg>
+                                Place Order
+                            </button>
+
+                            <!-- SMS Button (hidden initially) -->
+                            <a href="#" class="btn-sms" id="smsButton">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                                    />
+                                </svg>
+                                Send Order via SMS
+                            </a>
+
+                            <a href="choose.html" class="continue-shopping"
+                                >← Continue Shopping</a
+                            >
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="choose.html">Shop</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-center"></div>
+
+                <div class="footer-right">
+                    <p class="footer-logo">Handmade by K</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle
+                                    cx="18"
+                                    cy="6"
+                                    r="1"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 Handmade by K. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // ========================================
+            // INITIALIZATION
+            // ========================================
+            document.addEventListener("DOMContentLoaded", () => {
+                initializePage();
+                displayCartItems();
+                initializeShippingOptions();
+                initializeFormValidation();
+                initializeMobileMenu();
+                updateCartBadge();
+                triggerAnimations();
+            });
+
+            // Shipping costs
+            const SHIPPING_COSTS = {
+                domestic: 5.99,
+                "puerto-rico": 12.99,
+            };
+
+            let selectedShipping = "domestic";
+            let cartSubtotal = 0;
+
+            // ========================================
+            // CART DISPLAY
+            // ========================================
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById("cartItems");
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = `
+                        <div class="cart-empty">
+                            <svg class="cart-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <path d="M16 10a4 4 0 01-8 0"/>
+                            </svg>
+                            <p class="cart-empty-text">Your cart is empty</p>
+                            <a href="choose.html" class="cart-empty-link">Start Shopping</a>
+                        </div>
+                    `;
+                    document.getElementById("placeOrderBtn").disabled = true;
+                    updateOrderSummary(0);
+                    return;
+                }
+
+                cartSubtotal = 0;
+                let itemsHTML = "";
+
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    cartSubtotal += itemTotal;
+
+                    itemsHTML += `
+                        <div class="cart-item" data-index="${index}">
+                            <div class="cart-item-image">
+                                <img src="${item.image || "beanie1.png"}" alt="${item.name}" onerror="this.src='beanie1.png'">
+                            </div>
+                            <div class="cart-item-details">
+                                <h3 class="cart-item-name">${item.name}</h3>
+                                <p class="cart-item-colors">${item.details || "No color details"}</p>
+                                <p class="cart-item-quantity">Qty: ${item.quantity}</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p class="cart-item-price">$${itemTotal.toFixed(2)}</p>
+                                <button class="cart-item-remove" onclick="removeCartItem(${index})" aria-label="Remove item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                cartItemsContainer.innerHTML = itemsHTML;
+                updateOrderSummary(cartSubtotal);
+            }
+
+            function removeCartItem(index) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                displayCartItems();
+                updateCartBadge();
+            }
+
+            function updateOrderSummary(subtotal) {
+                const shippingCost = SHIPPING_COSTS[selectedShipping];
+                const total = subtotal + shippingCost;
+
+                document.getElementById("summarySubtotal").textContent =
+                    `$${subtotal.toFixed(2)}`;
+                document.getElementById("summaryShipping").textContent =
+                    `$${shippingCost.toFixed(2)}`;
+                document.getElementById("summaryTotal").textContent =
+                    `$${total.toFixed(2)}`;
+            }
+
+            // ========================================
+            // SHIPPING OPTIONS
+            // ========================================
+            function initializeShippingOptions() {
+                const shippingOptions =
+                    document.querySelectorAll(".shipping-option");
+
+                shippingOptions.forEach((option) => {
+                    option.addEventListener("click", () => {
+                        // Remove selected from all
+                        shippingOptions.forEach((opt) =>
+                            opt.classList.remove("selected"),
+                        );
+
+                        // Add selected to clicked
+                        option.classList.add("selected");
+
+                        // Update selected shipping
+                        selectedShipping = option.dataset.shipping;
+
+                        // Update order summary
+                        updateOrderSummary(cartSubtotal);
+                    });
+                });
+            }
+
+            // ========================================
+            // FORM VALIDATION
+            // ========================================
+            function initializeFormValidation() {
+                const form = document.getElementById("checkoutForm");
+                const inputs = form.querySelectorAll(".form-input[required]");
+
+                // Real-time validation
+                inputs.forEach((input) => {
+                    input.addEventListener("blur", () => validateField(input));
+                    input.addEventListener("input", () => {
+                        if (input.classList.contains("error")) {
+                            validateField(input);
+                        }
+                    });
+                });
+
+                // Form submission
+                form.addEventListener("submit", handleFormSubmit);
+            }
+
+            function validateField(input) {
+                const fieldName = input.id;
+                const value = input.value.trim();
+                const errorElement = document.getElementById(
+                    `${fieldName}Error`,
+                );
+
+                let isValid = true;
+                let errorMessage = "";
+
+                switch (fieldName) {
+                    case "fullName":
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your full name";
+                        } else if (value.length < 2) {
+                            isValid = false;
+                            errorMessage = "Name must be at least 2 characters";
+                        } else if (!/^[a-zA-Z\s\-']+$/.test(value)) {
+                            isValid = false;
+                            errorMessage =
+                                "Name can only contain letters, spaces, and hyphens";
+                        }
+                        break;
+
+                    case "email":
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your email address";
+                        } else if (!emailRegex.test(value)) {
+                            isValid = false;
+                            errorMessage =
+                                "Please enter a valid email (e.g., you@example.com)";
+                        }
+                        break;
+
+                    case "phone":
+                        const phoneRegex = /^[\d\s\-\(\)\+]{10,}$/;
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your phone number";
+                        } else if (!phoneRegex.test(value)) {
+                            isValid = false;
+                            errorMessage =
+                                "Please enter a valid phone number (at least 10 digits)";
+                        }
+                        break;
+
+                    case "address":
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your street address";
+                        } else if (value.length < 5) {
+                            isValid = false;
+                            errorMessage =
+                                "Please enter a complete street address";
+                        }
+                        break;
+
+                    case "city":
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your city";
+                        } else if (value.length < 2) {
+                            isValid = false;
+                            errorMessage = "Please enter a valid city name";
+                        }
+                        break;
+
+                    case "state":
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your state";
+                        } else if (value.length < 2) {
+                            isValid = false;
+                            errorMessage = "Please enter a valid state";
+                        }
+                        break;
+
+                    case "zipCode":
+                        // US ZIP: 5 digits or 5+4 format
+                        // PR ZIP: 00xxx format
+                        const zipRegex = /^\d{5}(-\d{4})?$/;
+                        if (!value) {
+                            isValid = false;
+                            errorMessage = "Please enter your ZIP code";
+                        } else if (!zipRegex.test(value)) {
+                            isValid = false;
+                            errorMessage =
+                                "Please enter a valid ZIP code (e.g., 12345 or 12345-6789)";
+                        }
+                        break;
+                }
+
+                // Update UI
+                if (isValid) {
+                    input.classList.remove("error");
+                    if (errorElement) {
+                        errorElement.classList.remove("visible");
+                    }
+                } else {
+                    input.classList.add("error");
+                    if (errorElement) {
+                        errorElement.querySelector(
+                            "span:last-child",
+                        ).textContent = errorMessage;
+                        errorElement.classList.add("visible");
+                    }
+                }
+
+                return isValid;
+            }
+
+            function handleFormSubmit(e) {
+                e.preventDefault();
+
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                if (cart.length === 0) {
+                    alert(
+                        "Your cart is empty. Please add items before checking out.",
+                    );
+                    return;
+                }
+
+                // Validate all fields
+                const requiredInputs = document.querySelectorAll(
+                    ".form-input[required]",
+                );
+                let allValid = true;
+                let firstInvalidField = null;
+
+                requiredInputs.forEach((input) => {
+                    const isValid = validateField(input);
+                    if (!isValid) {
+                        allValid = false;
+                        if (!firstInvalidField) {
+                            firstInvalidField = input;
+                        }
+                    }
+                });
+
+                if (!allValid) {
+                    // Shake the form section
+                    const formSection = document.querySelector(".form-section");
+                    formSection.classList.add("shake");
+                    setTimeout(
+                        () => formSection.classList.remove("shake"),
+                        500,
+                    );
+
+                    // Scroll to first invalid field
+                    if (firstInvalidField) {
+                        firstInvalidField.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                        });
+                        firstInvalidField.focus();
+                    }
+                    return;
+                }
+
+                // All valid - process order
+                processOrder();
+            }
+
+            function processOrder() {
+                const btn = document.getElementById("placeOrderBtn");
+                btn.classList.add("processing");
+                btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
+                        <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                    </svg>
+                    Processing...
+                `;
+
+                // Add spin animation
+                const style = document.createElement("style");
+                style.textContent =
+                    "@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }";
+                document.head.appendChild(style);
+
+                // Simulate processing delay
+                setTimeout(() => {
+                    // Get form data
+                    const formData = {
+                        fullName: document
+                            .getElementById("fullName")
+                            .value.trim(),
+                        email: document.getElementById("email").value.trim(),
+                        phone: document.getElementById("phone").value.trim(),
+                        address: document
+                            .getElementById("address")
+                            .value.trim(),
+                        address2: document
+                            .getElementById("address2")
+                            .value.trim(),
+                        city: document.getElementById("city").value.trim(),
+                        state: document.getElementById("state").value.trim(),
+                        zipCode: document
+                            .getElementById("zipCode")
+                            .value.trim(),
+                    };
+
+                    // Get order details
+                    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    const shippingCost = SHIPPING_COSTS[selectedShipping];
+                    const total = cartSubtotal + shippingCost;
+                    const orderId =
+                        "ORD-2026-" + Math.floor(Math.random() * 1000000);
+
+                    // Format items for SMS
+                    const itemsList = cart
+                        .map(
+                            (item) =>
+                                `• ${item.name} (${item.details || "N/A"}) x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`,
+                        )
+                        .join("\n");
+
+                    // Build SMS message
+                    const shippingName =
+                        selectedShipping === "domestic"
+                            ? "US Domestic"
+                            : "Puerto Rico";
+                    const fullAddress = formData.address2
+                        ? `${formData.address}, ${formData.address2}, ${formData.city}, ${formData.state} ${formData.zipCode}`
+                        : `${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
+
+                    const message =
+                        `🧶 HANDMADE BY K - NEW ORDER\n\n` +
+                        `Order ID: ${orderId}\n` +
+                        `Customer: ${formData.fullName}\n` +
+                        `Email: ${formData.email}\n` +
+                        `Phone: ${formData.phone}\n` +
+                        `Address: ${fullAddress}\n\n` +
+                        `Items:\n${itemsList}\n\n` +
+                        `Subtotal: $${cartSubtotal.toFixed(2)}\n` +
+                        `Shipping (${shippingName}): $${shippingCost.toFixed(2)}\n` +
+                        `TOTAL: $${total.toFixed(2)}`;
+
+                    // Update button to success state
+                    btn.classList.remove("processing");
+                    btn.classList.add("success");
+                    btn.innerHTML = `
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Order Ready!
+                    `;
+
+                    // Show SMS button
+                    const smsBtn = document.getElementById("smsButton");
+                    const ownerPhone = "+14436988769";
+                    smsBtn.href = `sms:${ownerPhone}?body=${encodeURIComponent(message)}`;
+                    smsBtn.classList.add("visible");
+                    smsBtn.onclick = function () {
+                        // Clear cart after clicking SMS
+                        setTimeout(() => {
+                            localStorage.removeItem("cart");
+                            alert(
+                                "Thank you for your order! We'll be in touch soon. 🧶",
+                            );
+                            window.location.href = "index.html";
+                        }, 1000);
+                    };
+                }, 1500);
+            }
+
+            // ========================================
+            // CART BADGE
+            // ========================================
+            function updateCartBadge() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const count = cart.reduce(
+                    (sum, item) => sum + (item.quantity || 1),
+                    0,
+                );
+
+                const badges = [
+                    document.getElementById("cartBadge"),
+                    document.getElementById("cartBadgeMobile"),
+                ];
+
+                badges.forEach((badge) => {
+                    if (badge) {
+                        badge.textContent = count;
+                        if (count > 0) {
+                            badge.classList.add("visible");
+                        } else {
+                            badge.classList.remove("visible");
+                        }
+                    }
+                });
+            }
+
+            // ========================================
+            // MOBILE MENU
+            // ========================================
+            function initializeMobileMenu() {
+                const hamburger = document.getElementById("hamburger");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const mobileHeader = document.getElementById("mobileHeader");
+                const mobileLinks = mobileMenu?.querySelectorAll(".nav-link");
+
+                hamburger?.addEventListener("click", () => {
+                    hamburger.classList.toggle("active");
+                    mobileMenu.classList.toggle("active");
+                    document.body.style.overflow =
+                        mobileMenu.classList.contains("active") ? "hidden" : "";
+                });
+
+                mobileLinks?.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        hamburger.classList.remove("active");
+                        mobileMenu.classList.remove("active");
+                        document.body.style.overflow = "";
+                    });
+                });
+            }
+
+            // ========================================
+            // HEADER SCROLL EFFECT
+            // ========================================
+            function initializePage() {
+                const header = document.getElementById("header");
+
+                window.addEventListener("scroll", () => {
+                    if (header) {
+                        if (window.scrollY > 50) {
+                            header.classList.add("scrolled");
+                        } else {
+                            header.classList.remove("scrolled");
+                        }
+                    }
+                });
+            }
+
+            // ========================================
+            // ANIMATIONS
+            // ========================================
+            function triggerAnimations() {
+                document.querySelectorAll(".will-animate").forEach((el) => {
+                    el.style.opacity = "1";
+                });
+            }
+        </script>
+    </body>
 </html>
-
-
-
-
-
-
-
-
-

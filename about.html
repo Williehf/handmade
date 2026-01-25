@@ -1,85 +1,1170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handmade by K</title>
-      <link rel="icon" type="image/png" href="logo2.png">
-    <!-- Links the external CSS file -->
-   
-     <link rel="stylesheet" href="testboton1.css">
-         <link rel="stylesheet" href="css.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Our Story | Handmade by K</title>
+        <link rel="icon" type="image/png" href="logo2.png" />
 
-</head>
-<body>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;1,6..12,300;1,6..12,400&display=swap"
+            rel="stylesheet"
+        />
 
+        <style>
+            /* ========================================
+           CSS VARIABLES & RESET
+        ======================================== */
+            :root {
+                --color-cream: #faf9f6;
+                --color-cream-dark: #f5f3ef;
+                --color-sage: #7a8f6d;
+                --color-sage-dark: #5e7354;
+                --color-black: #1a1a1a;
+                --color-gray: #666666;
+                --color-gray-light: #999999;
+                --color-white: #ffffff;
 
-    <header class="banner">
-        <div class="header-inline-container">
-            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
-            <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
+                --font-display: "Cormorant Garamond", serif;
+                --font-body: "Nunito Sans", sans-serif;
+
+                --transition-fast: 0.2s ease;
+                --transition-medium: 0.3s ease;
+                --transition-slow: 0.5s ease;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--font-body);
+                background-color: var(--color-cream);
+                color: var(--color-black);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            img {
+                display: block;
+                max-width: 100%;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            /* ========================================
+           ANIMATIONS
+        ======================================== */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease forwards;
+            }
+
+            .animate-fade-up {
+                animation: fadeInUp 0.8s ease forwards;
+            }
+
+            .animate-delay-1 {
+                animation-delay: 0.1s;
+            }
+            .animate-delay-2 {
+                animation-delay: 0.2s;
+            }
+            .animate-delay-3 {
+                animation-delay: 0.3s;
+            }
+            .animate-delay-4 {
+                animation-delay: 0.4s;
+            }
+            .animate-delay-5 {
+                animation-delay: 0.5s;
+            }
+
+            .will-animate {
+                opacity: 0;
+            }
+
+            /* ========================================
+           HEADER & NAVIGATION
+        ======================================== */
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background-color: var(--color-cream);
+                transition: box-shadow var(--transition-medium);
+            }
+
+            .header.scrolled {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+            }
+
+            .nav-link {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                color: var(--color-black);
+                position: relative;
+                transition: color var(--transition-fast);
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--color-sage);
+                transition: width var(--transition-medium);
+            }
+
+            .nav-link:hover {
+                color: var(--color-sage);
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .nav-link.active {
+                color: var(--color-sage);
+            }
+
+            .nav-link.active::after {
+                width: 100%;
+            }
+
+            .logo {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 600;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-black);
+                transition: opacity var(--transition-fast);
+            }
+
+            .logo:hover {
+                opacity: 0.7;
+            }
+
+            .cart-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                background-color: var(--color-white);
+                border-radius: 50%;
+                transition: all var(--transition-medium);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .cart-link:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            .cart-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                min-width: 20px;
+                height: 20px;
+                padding: 0 6px;
+                background-color: #e53935;
+                color: var(--color-white);
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: all var(--transition-medium);
+            }
+
+            .cart-badge.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-black);
+                transition: all var(--transition-medium);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Mobile Menu */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--color-sage-dark);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-family: var(--font-display);
+                font-size: 2.05rem;
+                color: var(--color-cream);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active .nav-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .mobile-menu.active .nav-link:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+            .mobile-menu.active .nav-link:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+            .mobile-menu.active .nav-link:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+            .mobile-menu.active .nav-link:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .mobile-menu .nav-link:hover {
+                color: var(--color-white);
+            }
+
+            /* Mobile Header */
+            .mobile-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1001;
+                background-color: transparent;
+                padding: 1rem 1.5rem;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .mobile-header .logo {
+                font-size: 1.55rem;
+            }
+
+            .mobile-header .cart-link {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* ========================================
+           STORY HERO
+        ======================================== */
+            .story-hero {
+                padding: 10rem 2rem 4rem;
+                text-align: center;
+                background-color: var(--color-white);
+            }
+
+            .story-hero-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .story-subtitle {
+                font-family: var(--font-body);
+                font-size: 1.05rem;
+                font-weight: 500;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-sage);
+                margin-bottom: 1rem;
+            }
+
+            .story-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.75rem, 5vw, 4rem);
+                font-weight: 400;
+                font-style: italic;
+                color: var(--color-black);
+                margin-bottom: 2rem;
+                line-height: 1.1;
+            }
+
+            .story-intro {
+                font-size: 1.3rem;
+                color: var(--color-gray);
+                line-height: 1.8;
+                margin-bottom: 3rem;
+            }
+
+            /* ========================================
+           STORY CONTENT
+        ======================================== */
+            .story-content-section {
+                padding: 4rem 2rem;
+                background-color: var(--color-cream);
+            }
+
+            .story-content-container {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .story-paragraph {
+                font-size: 1.2rem;
+                color: var(--color-gray);
+                line-height: 1.9;
+                margin-bottom: 2rem;
+            }
+
+            .story-paragraph strong {
+                color: var(--color-black);
+                font-weight: 600;
+            }
+
+            .story-paragraph em {
+                font-style: italic;
+                color: var(--color-sage-dark);
+            }
+
+            /* ========================================
+           VALUES SECTION (Similar to Materials)
+        ======================================== */
+            .values-section {
+                padding: 6rem 2rem;
+                background-color: var(--color-white);
+            }
+
+            .values-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .values-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.05rem, 3vw, 2.75rem);
+                font-weight: 400;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+            }
+
+            .values-description {
+                font-size: 1.25rem;
+                color: var(--color-gray);
+                line-height: 1.8;
+                max-width: 700px;
+                margin: 0 auto 3rem;
+            }
+
+            .values-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+
+            .value-item {
+                text-align: center;
+                padding: 1.5rem;
+                transition: transform var(--transition-medium);
+            }
+
+            .value-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .value-icon {
+                width: 50px;
+                height: 50px;
+                margin: 0 auto 1rem;
+                fill: var(--color-sage);
+            }
+
+            .value-name {
+                font-family: var(--font-body);
+                font-size: 1.15rem;
+                font-weight: 600;
+                color: var(--color-black);
+                margin-bottom: 0.5rem;
+            }
+
+            .value-desc {
+                font-size: 1.1rem;
+                color: var(--color-gray);
+                line-height: 1.5;
+            }
+
+            /* ========================================
+           CTA SECTION
+        ======================================== */
+            .cta-section {
+                padding: 5rem 2rem;
+                background-color: var(--color-cream);
+                text-align: center;
+            }
+
+            .cta-content {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .cta-title {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 4vw, 2.5rem);
+                font-weight: 400;
+                font-style: italic;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-text {
+                font-size: 1.2rem;
+                color: var(--color-gray);
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 1rem 2rem;
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border: none;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+            }
+
+            .btn-primary {
+                background-color: var(--color-sage);
+                color: var(--color-white);
+            }
+
+            .btn-primary:hover {
+                background-color: var(--color-sage-dark);
+                transform: scale(1.02);
+            }
+
+            /* ========================================
+           FOOTER
+        ======================================== */
+            .footer {
+                background-color: var(--color-cream-dark);
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            .footer-links ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 1.15rem;
+                color: var(--color-gray);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-links a:hover {
+                color: var(--color-sage);
+            }
+
+            .footer-center {
+                text-align: center;
+            }
+
+            .footer-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                font-family: var(--font-display);
+                font-size: 1.55rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--color-black);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .footer-social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background-color: var(--color-white);
+                transition: all var(--transition-medium);
+            }
+
+            .footer-social-link:hover {
+                background-color: var(--color-sage);
+                transform: scale(1.1);
+            }
+
+            .footer-social-link:hover .footer-social-icon {
+                color: var(--color-white);
+            }
+
+            .footer-social-icon {
+                width: 24px;
+                height: 24px;
+                color: var(--color-black);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 3rem auto 0;
+                padding-top: 2rem;
+                border-top: 1px solid #e0e0e0;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                font-size: 1.05rem;
+                color: var(--color-gray-light);
+            }
+
+            /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+            @media (max-width: 1024px) {
+                .values-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .header {
+                    display: none;
+                }
+
+                .mobile-header {
+                    display: flex;
+                }
+
+                .story-hero {
+                    padding: 6rem 1.5rem 3rem;
+                }
+
+                .story-content-section {
+                    padding: 3rem 1.5rem;
+                }
+
+                .values-section {
+                    padding: 4rem 1.5rem;
+                }
+
+                .values-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                }
+
+                .cta-section {
+                    padding: 4rem 1.5rem;
+                }
+
+                .footer-container {
+                    grid-template-columns: 1fr;
+                    gap: 2.5rem;
+                    text-align: center;
+                }
+
+                .footer-links ul {
+                    align-items: center;
+                }
+
+                .footer-right {
+                    align-items: center;
+                }
+
+                .footer-social {
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .values-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Desktop Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="choose.html" class="nav-link">Shop</a></li>
+                    <li>
+                        <a href="about.html" class="nav-link active"
+                            >Our Story</a
+                        >
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">Get in Touch</a>
+                    </li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+
+                <a href="index.html" class="logo">Handmade by K</a>
+
+                <a href="cart.html" class="cart-link" id="cartLink">
+                    <svg
+                        class="cart-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
+                        />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header" id="mobileHeader">
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">Handmade by K</a>
+
+            <a href="cart.html" class="cart-link" id="mobileCartLink">
+                <svg
+                    class="cart-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                <span class="cart-badge" id="mobileCartBadge">0</span>
+            </a>
         </div>
-    </header>
-        <header class="banner1">
-        <h1>Handmade by K</h1>
-        
-    </header>
 
-    <nav class="navbar">
-        <ul class="nav-list">
-            <!-- Changed href values to match section IDs below -->
-            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
-            <li><a href="choose.html" class="nav-button">🛍️ Order</a></li>
-            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
-            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
-        </ul>
-    </nav>
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobileMenu">
+            <ul class="nav-links">
+                <li><a href="choose.html" class="nav-link">Shop</a></li>
+                <li>
+                    <a href="about.html" class="nav-link active">Our Story</a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link">Get in Touch</a>
+                </li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </nav>
 
+        <!-- Story Hero -->
+        <section class="story-hero">
+            <div class="story-hero-content">
+                <span class="story-subtitle will-animate animate-fade-up"
+                    >Our Story</span
+                >
+                <h1
+                    class="story-title will-animate animate-fade-up animate-delay-1"
+                >
+                    A legacy woven with <em>love</em>
+                </h1>
+                <p
+                    class="story-intro will-animate animate-fade-up animate-delay-2"
+                >
+                    Every beanie we create carries the warmth of tradition and
+                    the care of handcrafted quality.
+                </p>
+            </div>
+        </section>
 
-<main class="story-section">
-    <article class="story-content">
-        <p>The scent of yarn and the soft click-clack of knitting needles are among my earliest and most cherished memories. 
-         This is the story of how <<b><i>My grandmother</i></b>, a woman whose hands were rarely still, taught me the art of turning a simple string into a beanie.<br>
+        <!-- Story Content -->
+        <section class="story-content-section">
+            <div class="story-content-container">
+                <p
+                    class="story-paragraph will-animate animate-fade-up animate-delay-1"
+                >
+                    The scent of yarn and the soft click-clack of knitting
+                    needles are among my earliest and most cherished memories.
+                    This is the story of how <strong>my grandmother</strong>, a
+                    woman whose hands were rarely still, taught me the art of
+                    turning a simple string into something meaningful.
+                </p>
 
-        <br>Growing up, my grandmother’s house was a treasure trove of tactile wonders. 
-        Baskets of colorful yarn overflowed in every corner, and every flat surface held a half-finished project. 
-        She created warmth not just with the blankets and sweaters she made, but with her presence.<br>
+                <p
+                    class="story-paragraph will-animate animate-fade-up animate-delay-2"
+                >
+                    Growing up, her house was a treasure trove of tactile
+                    wonders. Baskets of colorful yarn overflowed in every
+                    corner, and every flat surface held a half-finished project.
+                    She created warmth not just with the blankets and beanies
+                    she made, but with her presence.
+                </p>
 
-        <br>I must have been seven or eight years old when I first asked her to teach me. 
-        She smiled, her eyes crinkled at the corners, and pulled out two smooth, wooden needles and a skein of bright blue yarn. 
-        "<b><i>First</i></b>," she said in her gentle, firm voice, "we learn to cast on. 
-        This is where the magic begins."<br>
+                <p
+                    class="story-paragraph will-animate animate-fade-up animate-delay-3"
+                >
+                    <em>Patience was her primary lesson.</em> I fumbled, dropped
+                    stitches, and created knots that seemed impossible to
+                    untangle. She never grew frustrated. Instead, she would
+                    simply place her warm hands over mine and guide my fingers.
+                    "It's like weaving a little spell," she'd murmur. "Each loop
+                    a promise of warmth."
+                </p>
 
-        <br><b><i>Patience was her primary lesson.</i></b>
-        I fumbled, dropped stitches, and created knots that seemed impossible to untangle. 
-        She never grew frustrated. 
-        Instead, she would simply place her warm, calloused hands over mine and guide my fingers. 
-        "It's like weaving a little spell," she’d murmur. 
-        "Each loop a promise of warmth."<br>
+                <p
+                    class="story-paragraph will-animate animate-fade-up animate-delay-4"
+                >
+                    Today, as I click my own needles, creating beanies to share
+                    with the world, I feel her presence in every loop and every
+                    row. This craft is a <strong>legacy of love</strong>,
+                    patience, and warmth—a story spun from yarn, stitch by
+                    stitch.
+                </p>
+            </div>
+        </section>
 
-        <br>We started with the basics: the knit stitch, the purl stitch, the rhythm of the work. 
-        The first beanie I ever made was a lumpy, uneven thing, far too big on one side and strangely tight on the other. 
-        But when I presented it to her, she put it on immediately, beaming as if it were the finest cashmere. 
-        "Perfect for the garden," she declared.<br>
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="values-container">
+                <h2 class="values-title will-animate animate-fade-up">
+                    What We Value
+                </h2>
+                <p
+                    class="values-description will-animate animate-fade-up animate-delay-1"
+                >
+                    Every beanie is crafted with intention, care, and a
+                    commitment to quality that honors the craft.
+                </p>
 
-        <br>Through those long afternoons, sitting beside her while the world outside faded away, 
-        I learned more than just how to create a beanie. 
-        She taught me resilience through dropped stitches, the value of slow, deliberate work, 
-        and the profound joy of creating something with your own <b><i>hands</i></b> for someone you love.<br>
+                <div class="values-grid">
+                    <div
+                        class="value-item will-animate animate-fade-up animate-delay-1"
+                    >
+                        <svg class="value-icon" viewBox="0 0 48 48">
+                            <path
+                                d="M24 4L4 24l20 20 20-20L24 4z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <path
+                                d="M24 14v10M24 28v2"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        <h4 class="value-name">Handcrafted</h4>
+                        <p class="value-desc">
+                            Each beanie is individually made by hand
+                        </p>
+                    </div>
 
-        <br>Today, as I click my own needles, creating beanies to share with the world, 
-        I feel her presence in every loop and every row. This craft is a <b><i>legacy of love</i></b>, 
-        patience, and warmth—a story spun from yarn, stitch by stitch.</p>
-    </article>
-</main>
+                    <div
+                        class="value-item will-animate animate-fade-up animate-delay-2"
+                    >
+                        <svg class="value-icon" viewBox="0 0 48 48">
+                            <path
+                                d="M24 2L2 14v20l22 12 22-12V14L24 2z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <path
+                                d="M2 14l22 12M24 26v20M46 14L24 26"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                        <h4 class="value-name">Quality</h4>
+                        <p class="value-desc">
+                            Premium materials built to last
+                        </p>
+                    </div>
 
-    
-     <!-- FOOTER SECTION -->
-    <footer>
-        <p>&copy; 2026 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
-    </footer>
-</body>
+                    <div
+                        class="value-item will-animate animate-fade-up animate-delay-3"
+                    >
+                        <svg class="value-icon" viewBox="0 0 48 48">
+                            <path
+                                d="M24 6c-9.941 0-18 8.059-18 18s8.059 18 18 18 18-8.059 18-18S33.941 6 24 6z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <path
+                                d="M24 14v10l6 6"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        <h4 class="value-name">Care</h4>
+                        <p class="value-desc">Made with attention to detail</p>
+                    </div>
 
+                    <div
+                        class="value-item will-animate animate-fade-up animate-delay-4"
+                    >
+                        <svg class="value-icon" viewBox="0 0 48 48">
+                            <path
+                                d="M24 4L8 12v12c0 8.284 6.716 20 16 20s16-11.716 16-20V12L24 4z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                        <h4 class="value-name">Tradition</h4>
+                        <p class="value-desc">Honoring time-tested methods</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title will-animate animate-fade-up">
+                    Ready to find your perfect beanie?
+                </h2>
+                <p
+                    class="cta-text will-animate animate-fade-up animate-delay-1"
+                >
+                    Browse our collection or create a custom piece that's
+                    uniquely yours.
+                </p>
+                <a
+                    href="choose.html"
+                    class="btn btn-primary will-animate animate-fade-up animate-delay-2"
+                    >Shop Collection</a
+                >
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="choose.html">Shop</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-center"></div>
+
+                <div class="footer-right">
+                    <a href="index.html" class="footer-logo">Handmade by K</a>
+                    <div class="footer-social">
+                        <a
+                            href="http://instagram.com"
+                            target="_blank"
+                            class="footer-social-link"
+                            aria-label="Instagram"
+                        >
+                            <svg
+                                class="footer-social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle
+                                    cx="18"
+                                    cy="6"
+                                    r="1"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </a>
+                        <a
+                            href="http://facebook.com"
+                            target="_blank"
+                            class="footer-social-link"
+                            aria-label="Facebook"
+                        >
+                            <svg
+                                class="footer-social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 Handmade by K. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // ========================================
+            // MOBILE MENU
+            // ========================================
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileHeader = document.getElementById("mobileHeader");
+            const mobileLinks = mobileMenu.querySelectorAll(".nav-link");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+                mobileHeader.classList.toggle("menu-open");
+                document.body.style.overflow = mobileMenu.classList.contains(
+                    "active",
+                )
+                    ? "hidden"
+                    : "";
+            });
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    mobileMenu.classList.remove("active");
+                    mobileHeader.classList.remove("menu-open");
+                    document.body.style.overflow = "";
+                });
+            });
+
+            // ========================================
+            // HEADER SCROLL EFFECT
+            // ========================================
+            const header = document.getElementById("header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // ========================================
+            // CART BADGE
+            // ========================================
+            class Cart {
+                constructor() {
+                    this.items = JSON.parse(localStorage.getItem("cart")) || [];
+                    this.updateBadges();
+                }
+
+                getItemCount() {
+                    return this.items.reduce(
+                        (sum, item) => sum + (item.quantity || 1),
+                        0,
+                    );
+                }
+
+                updateBadges() {
+                    const count = this.getItemCount();
+                    const badges = document.querySelectorAll(".cart-badge");
+
+                    badges.forEach((badge) => {
+                        badge.textContent = count;
+                        if (count > 0) {
+                            badge.classList.add("visible");
+                        } else {
+                            badge.classList.remove("visible");
+                        }
+                    });
+                }
+            }
+
+            const cart = new Cart();
+
+            // ========================================
+            // SCROLL ANIMATIONS
+            // ========================================
+            const animatedElements = document.querySelectorAll(".will-animate");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = "1";
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                },
+            );
+
+            animatedElements.forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Initial load
+            window.addEventListener("load", () => {
+                document.querySelectorAll(".will-animate").forEach((el) => {
+                    el.style.opacity = "1";
+                });
+            });
+        </script>
+    </body>
 </html>
-
