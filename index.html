@@ -1,212 +1,2173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handmade by K</title>
-    <link rel="icon" type="image/png" href="logo2.png">
-    <!-- Links the external CSS file -->
-   
-     <link rel="stylesheet" href="testboton1.css">
-         <link rel="stylesheet" href="css.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Handmade by K</title>
+        <link rel="icon" type="image/png" href="logo2.png" />
 
-</head>
-<body>
-    <header class="banner">
-        <div class="header-inline-container">
-            <span class="header-main-title"> <span>Free shipping on orders over $30</span></span>
-            <span class="header-separator">|</span>
-            <span class="header-second-sentence">Order before 15:00 to have your order shipped today!</span>
-        </div>
-    </header>
-        <header class="banner1">
-        <h1>Welcome to Handmade by K</h1>
-    </header>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;1,6..12,300;1,6..12,400&display=swap"
+            rel="stylesheet"
+        />
 
-    <nav class="navbar">
-        <ul class="nav-list">
-            <!-- Changed href values to match section IDs below -->
-            <li><a href="index.html" class="nav-button">🏠 Home</a></li>
-            <li><a href="choose.html" class="nav-button">🛍️ Order</a></li>
-            <li><a href="contact.html" class="nav-button">📞 Contact</a></li>
-            <li><a href="cart.html" class="nav-button">🛒 Cart</a></li>
-        </ul>
-    </nav>
+        <style>
+            /* ========================================
+           CSS VARIABLES & RESET
+        ======================================== */
+            :root {
+                --color-cream: #faf9f6;
+                --color-cream-dark: #f5f3ef;
+                --color-sage: #7a8f6d;
+                --color-sage-dark: #5e7354;
+                --color-black: #1a1a1a;
+                --color-gray: #666666;
+                --color-gray-light: #999999;
+                --color-white: #ffffff;
 
-    <main>
-              <div class="image-container"> 
-                <!-- The background image -->
-            <img src="tomas.png" alt="Scenic landscape" class="overlay-image">
-                <!-- The text to place on top -->
-                <div class="overlay-text">
-                    <h3>A dream brought to life, handcrafted with heart</h3>
-                    <p>Welcome to Handmade by K, your destination for uniquely crafted winter beanies. 
-        Each beanie is handmade in US, with the finest materials and a touch of love. 
-        Explore our collection and find the perfect beanie to keep you warm and stylish all winter long.</p>
-                   <br> <a href="gallery.html" class="show-button">Gallery</a>
-                </div>
-            </div>
-<!--NewColumn-->
-<section id="section-home">
-    <div class="two-column-containerx">
-        <div class="columnx">
-            <h3>Explore our beanies</h3>
-            <p>Discover our exclusive range of handmade winter beanies, each designed for ultimate warmth and style. 
-        From classic designs to unique patterns, our collection offers something for everyone. 
-        Made with premium materials, our beanies provide superior comfort and durability, perfect for braving the winter chill. 
-        Find your perfect beanie today!</p>
-             <a href="gallery.html" class="nav-buttonx">View Ours Collection</a>
-    </div>
-         <div class="image-wrapperx">
-            <img src="beanies.png" alt="Handcrafted Beanie" class="responsive-imagex">
-             <span class="subtitlex">Fresh for Winter</span>
-                </div>
-    </div>
-</section>
+                --font-display: "Cormorant Garamond", serif;
+                --font-body: "Nunito Sans", sans-serif;
 
-         <!-- NEW PHOTO GALLERY SECTION (4x4 Table) -->
-        <section id="photo-gallery">
-         <h4>Gallery</h4>
-            <div class="scroll-wrapperq" id="scroll-wrapper">
-  <!--<div class="galleryA">-->
+                --transition-fast: 0.2s ease;
+                --transition-medium: 0.3s ease;
+                --transition-slow: 0.5s ease;
+            }
 
-    <div class="scroll-contentq">
-    <img src="santa1.png" class="zoom-imgq" draggable="false">
-    <img src="b&b.png" class="zoom-imgq" draggable="false">
-    <img src="pitu.png" class="zoom-imgq" draggable="false">
-    <img src="bridge2s.png" class="zoom-imgq" draggable="false">
-    <img src="b&g.png" class="zoom-imgq" draggable="false">
-    <img src="brillo.png" class="zoom-imgq" draggable="false">
-    <img src="pelusagris.png" class="zoom-imgq" draggable="false">
-    <img src="lengua.png" class="zoom-imgq" draggable="false">
-    <img src="florb.png" class="zoom-imgq" draggable="false">
-    <img src="maron.png" class="zoom-imgq" draggable="false">
-    <img src="intrains.png" class="zoom-imgq" draggable="false">
-    <img src="forest.png" class="zoom-imgq" draggable="false">
-    <img src="g&bbflor.png" class="zoom-imgq" draggable="false">
-    <img src="funnys.png" class="zoom-imgq" draggable="false">
-    <img src="flor1.png" class="zoom-imgq" draggable="false">
-    <img src="g&wb.png" class="zoom-imgq" draggable="false">
-    <img src="tropical.png" class="zoom-imgq" draggable="false">
-    <img src="m&b.png" class="zoom-imgq" draggable="false">
-    <img src="flor2.png" class="zoom-imgq" draggable="false">
-    <img src="smokes.png" class="zoom-imgq" draggable="false">
-    <img src="black1.png" class="zoom-imgq" draggable="false">
-    <img src="red.png" class="zoom-imgq" draggable="false">
-    <img src="walls.png" class="zoom-imgq" draggable="false">
-    <img src="pars.png" class="zoom-imgq" draggable="false">
-    <img src="santa2.png" class="zoom-imgq" draggable="false">
-    <img src="menta.png" class="zoom-imgq" draggable="false">
-    <img src="trains.png" class="zoom-imgq" draggable="false">
-    <img src="todo.png" class="zoom-imgq" draggable="false">
-         <!-- The button is now a sibling, positioned on top 
-                <button class="show-overlay-button">Show</button>
-                <a href="collection.html" class="show-overlay-button">Shop</a>-->
-</div></div>
-        </section>
-      
-<!--NewColumn-->
-<section id="section-home">
-    <div class="two-column-containerx">
-        <div class="image-wrapperx">
-            <img src="bridges.png" alt="Handcrafted Beanie" class="responsive-imagex">
-        </div>
-        <div class="columnx">
-            <span class="subtitlex">Get Ready!</span>
-            <h3>New Arrivals</h3>
-            <p>Be the first to see our latest creations! 
-                Our new collection features fresh designs and cozy materials to keep you stylish and warm all season long.</p>
-            <a href="choose.html" class="nav-buttonx">Don't miss out - Order Now</a>
-        </div>
-    </div>
-</section>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    <section id="material-specs">
-        <div class="specs-container">
-            <h2>The Perfect Blend of Materials</h2>
-            <p>A handmade beanie made from a blend of wool, polyester, nylon, and acrylic offers a superior combination of benefits, balancing natural warmth and breathability with the enhanced durability, shape retention, and easy care of synthetic fibers. This thoughtful blend is designed for versatility, performance, and everyday comfort.</p>
+            html {
+                scroll-behavior: smooth;
+            }
 
-            <div class="material-list-wrapper">
-                <h3>Component Benefits:</h3>
-                <ul>
+            body {
+                font-family: var(--font-body);
+                background-color: var(--color-cream);
+                color: var(--color-black);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            img {
+                display: block;
+                max-width: 100%;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            /* ========================================
+           ANIMATIONS
+        ======================================== */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease forwards;
+            }
+
+            .animate-fade-up {
+                animation: fadeInUp 0.8s ease forwards;
+            }
+
+            .animate-delay-1 {
+                animation-delay: 0.1s;
+            }
+            .animate-delay-2 {
+                animation-delay: 0.2s;
+            }
+            .animate-delay-3 {
+                animation-delay: 0.3s;
+            }
+            .animate-delay-4 {
+                animation-delay: 0.4s;
+            }
+            .animate-delay-5 {
+                animation-delay: 0.5s;
+            }
+
+            /* Initial state for animated elements */
+            .will-animate {
+                opacity: 0;
+            }
+
+            /* ========================================
+           HEADER & NAVIGATION
+        ======================================== */
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background-color: var(--color-cream);
+                transition: box-shadow var(--transition-medium);
+            }
+
+            .header.scrolled {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            /* Desktop Navigation */
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+            }
+
+            .nav-link {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                color: var(--color-black);
+                position: relative;
+                transition: color var(--transition-fast);
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--color-sage);
+                transition: width var(--transition-medium);
+            }
+
+            .nav-link:hover {
+                color: var(--color-sage);
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            /* Logo */
+            .logo {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                font-weight: 600;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-black);
+                transition: opacity var(--transition-fast);
+            }
+
+            .logo:hover {
+                opacity: 0.7;
+            }
+
+            /* Cart */
+            .cart-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                background-color: var(--color-white);
+                border-radius: 50%;
+                transition: all var(--transition-medium);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .cart-link:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            .cart-icon {
+                width: 20px;
+                height: 20px;
+                color: var(--color-black);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                min-width: 20px;
+                height: 20px;
+                padding: 0 6px;
+                background-color: #e53935;
+                color: var(--color-white);
+                font-size: 0.7rem;
+                font-weight: 600;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: all var(--transition-medium);
+            }
+
+            .cart-badge.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .cart-badge.bump {
+                animation: cartBump 0.3s ease;
+            }
+
+            @keyframes cartBump {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.3);
+                }
+            }
+
+            /* Hamburger Menu */
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-black);
+                transition: all var(--transition-medium);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Mobile Menu Overlay */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--color-sage-dark);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu .nav-link {
+                font-family: var(--font-display);
+                font-size: 2.05rem;
+                color: var(--color-cream);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all var(--transition-medium);
+            }
+
+            .mobile-menu.active .nav-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .mobile-menu.active .nav-link:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+            .mobile-menu.active .nav-link:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+            .mobile-menu.active .nav-link:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+            .mobile-menu.active .nav-link:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .mobile-menu .nav-link:hover {
+                color: var(--color-white);
+            }
+
+            .mobile-menu .nav-link::after {
+                background-color: var(--color-cream);
+            }
+
+            /* Mobile Header adjustments */
+            .mobile-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1001;
+                background-color: transparent;
+                padding: 1rem 1.5rem;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .mobile-header.menu-open {
+                background-color: var(--color-sage-dark);
+            }
+
+            .mobile-header .logo {
+                color: var(--color-black);
+                transition: color var(--transition-medium);
+            }
+
+            .mobile-header.menu-open .logo {
+                color: var(--color-cream);
+            }
+
+            .mobile-header .hamburger span {
+                background-color: var(--color-black);
+                transition: background-color var(--transition-medium);
+            }
+
+            .mobile-header.menu-open .hamburger span {
+                background-color: var(--color-cream);
+            }
+
+            .mobile-header .cart-link {
+                transition: all var(--transition-medium);
+                background-color: var(--color-white);
+            }
+
+            .mobile-header.menu-open .cart-link {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .mobile-header .cart-icon {
+                color: var(--color-black);
+                transition: color var(--transition-medium);
+            }
+
+            .mobile-header.menu-open .cart-icon {
+                color: var(--color-cream);
+            }
+
+            /* ========================================
+           HERO SECTION
+        ======================================== */
+            .hero {
+                position: relative;
+                height: 100vh;
+                min-height: 600px;
+                max-height: 900px;
+                overflow: hidden;
+                margin-top: 0;
+            }
+
+            .hero-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 70% center;
+            }
+
+            .hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    to right,
+                    rgba(250, 249, 246, 0.85) 0%,
+                    rgba(250, 249, 246, 0.6) 40%,
+                    rgba(250, 249, 246, 0) 70%
+                );
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 10;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 4rem;
+                max-width: 600px;
+            }
+
+            .hero-subtitle {
+                font-family: var(--font-body);
+                font-size: 1.05rem;
+                font-weight: 500;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: var(--color-sage);
+                margin-bottom: 1rem;
+            }
+
+            .hero-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.75rem, 5vw, 4.25rem);
+                font-weight: 400;
+                line-height: 1.1;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-title em {
+                font-style: italic;
+            }
+
+            .hero-description {
+                font-size: 1.25rem;
+                color: var(--color-gray);
+                margin-bottom: 2rem;
+                max-width: 400px;
+                line-height: 1.7;
+            }
+
+            /* CTA Button */
+            .btn {
+                display: inline-block;
+                padding: 1rem 2rem;
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                border: none;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+            }
+
+            .btn-primary {
+                background-color: var(--color-sage);
+                color: var(--color-white);
+            }
+
+            .btn-primary:hover {
+                background-color: var(--color-sage-dark);
+                transform: scale(1.02);
+            }
+
+            .btn-outline {
+                background-color: transparent;
+                color: var(--color-black);
+                border: 1px solid var(--color-black);
+            }
+
+            .btn-outline:hover {
+                background-color: var(--color-black);
+                color: var(--color-white);
+                transform: scale(1.02);
+            }
+
+            /* ========================================
+           BEST SELLERS SECTION
+        ======================================== */
+            .best-sellers {
+                padding: 6rem 2rem;
+                background-color: var(--color-white);
+            }
+
+            .best-sellers-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 300px 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            .best-sellers-intro {
+                position: sticky;
+                top: 120px;
+            }
+
+            .section-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.25rem, 4vw, 3.25rem);
+                font-weight: 400;
+                font-style: italic;
+                color: var(--color-black);
+                margin-bottom: 1rem;
+            }
+
+            .section-description {
+                font-size: 1.2rem;
+                color: var(--color-gray);
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
+
+            .btn-dark {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+
+            .btn-dark:hover {
+                background-color: #333;
+                transform: scale(1.02);
+            }
+
+            /* Carousel */
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .carousel {
+                display: flex;
+                gap: 1.5rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 1rem 0;
+                cursor: grab;
+            }
+
+            .carousel::-webkit-scrollbar {
+                display: none;
+            }
+
+            .carousel:active {
+                cursor: grabbing;
+            }
+
+            .carousel-item {
+                flex: 0 0 280px;
+                scroll-snap-align: start;
+                transition: transform var(--transition-medium);
+            }
+
+            .carousel-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .product-image-container {
+                position: relative;
+                aspect-ratio: 3/4;
+                overflow: hidden;
+                margin-bottom: 1rem;
+                cursor: pointer;
+            }
+
+            .product-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform var(--transition-slow);
+            }
+
+            .product-image-container:hover .product-image {
+                transform: scale(1.05);
+            }
+
+            .product-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color var(--transition-medium);
+            }
+
+            .product-image-container:hover .product-overlay {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .view-icon {
+                opacity: 0;
+                transform: scale(0.8);
+                transition: all var(--transition-medium);
+                width: 40px;
+                height: 40px;
+                background-color: var(--color-white);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .product-image-container:hover .view-icon {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .product-name {
+                font-family: var(--font-body);
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: var(--color-black);
+                margin-bottom: 0.3rem;
+            }
+
+            .product-price {
+                font-size: 1.15rem;
+                color: var(--color-gray);
+            }
+
+            /* Carousel Navigation */
+            .carousel-nav {
+                display: flex;
+                gap: 0.5rem;
+                margin-top: 2rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--color-black);
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all var(--transition-medium);
+            }
+
+            .carousel-btn:hover {
+                background-color: var(--color-black);
+                color: var(--color-white);
+            }
+
+            .carousel-btn:hover svg path {
+                stroke: var(--color-white);
+            }
+
+            /* Carousel Progress Indicator */
+            .carousel-progress-container {
+                width: 100%;
+                height: 3px;
+                background-color: #e0e0e0;
+                margin-top: 2rem;
+                border-radius: 2px;
+                overflow: hidden;
+            }
+
+            .carousel-progress-bar {
+                height: 100%;
+                background-color: var(--color-sage);
+                width: 0%;
+                border-radius: 2px;
+                transition: width 0.1s ease-out;
+            }
+
+            /* ========================================
+           IMAGE PREVIEW MODAL
+        ======================================== */
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                z-index: 2000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-medium);
+            }
+
+            .modal.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .modal-content {
+                position: relative;
+                max-width: 90vw;
+                max-height: 90vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .modal-image {
+                max-width: 100%;
+                max-height: 70vh;
+                object-fit: contain;
+                transform: scale(0.9);
+                transition: transform var(--transition-medium);
+            }
+
+            .modal.active .modal-image {
+                transform: scale(1);
+            }
+
+            .modal-product-info {
+                text-align: center;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all var(--transition-medium) 0.1s;
+            }
+
+            .modal.active .modal-product-info {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .modal-product-name {
+                font-family: var(--font-display);
+                font-size: 1.75rem;
+                color: var(--color-white);
+                margin-bottom: 0.5rem;
+            }
+
+            .modal-product-price {
+                font-size: 1.25rem;
+                color: var(--color-gray-light);
+                margin-bottom: 1rem;
+            }
+
+            .modal-cta {
+                display: inline-block;
+                padding: 0.875rem 2rem;
+                background-color: var(--color-sage);
+                color: var(--color-white);
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                transition: all var(--transition-medium);
+            }
+
+            .modal-cta:hover {
+                background-color: var(--color-sage-dark);
+                transform: scale(1.05);
+            }
+
+            .modal-close {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                width: 50px;
+                height: 50px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 2001;
+            }
+
+            .modal-close::before,
+            .modal-close::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 30px;
+                height: 2px;
+                background-color: var(--color-white);
+                transition: background-color var(--transition-fast);
+            }
+
+            .modal-close::before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            .modal-close::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+
+            .modal-close:hover::before,
+            .modal-close:hover::after {
+                background-color: var(--color-sage);
+            }
+
+            .modal-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color var(--transition-fast);
+            }
+
+            .modal-nav:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .modal-nav svg path {
+                stroke: var(--color-white);
+            }
+
+            .modal-prev {
+                left: 2rem;
+            }
+
+            .modal-next {
+                right: 2rem;
+            }
+
+            .modal-counter {
+                position: absolute;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                color: var(--color-white);
+                font-size: 1.15rem;
+                letter-spacing: 2px;
+            }
+
+            /* ========================================
+           CRAFTSMANSHIP SECTION
+        ======================================== */
+            .craftsmanship {
+                padding: 6rem 2rem;
+                background-color: var(--color-cream);
+            }
+
+            .craftsmanship-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .craftsmanship-title {
+                font-family: var(--font-display);
+                font-size: clamp(2.05rem, 3vw, 2.75rem);
+                font-weight: 400;
+                color: var(--color-black);
+                margin-bottom: 1.5rem;
+            }
+
+            .craftsmanship-text {
+                font-size: 1.25rem;
+                color: var(--color-gray);
+                line-height: 1.8;
+                max-width: 700px;
+                margin: 0 auto 3rem;
+            }
+
+            .materials-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+
+            .material-item {
+                text-align: center;
+                padding: 1.5rem;
+                transition: transform var(--transition-medium);
+            }
+
+            .material-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .material-icon {
+                width: 50px;
+                height: 50px;
+                margin: 0 auto 1rem;
+                fill: var(--color-sage);
+            }
+
+            .material-name {
+                font-family: var(--font-body);
+                font-size: 1.15rem;
+                font-weight: 600;
+                color: var(--color-black);
+                margin-bottom: 0.5rem;
+            }
+
+            .material-desc {
+                font-size: 1.1rem;
+                color: var(--color-gray);
+                line-height: 1.5;
+            }
+
+            /* ========================================
+           FOOTER
+        ======================================== */
+            .footer {
+                background-color: var(--color-cream-dark);
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            .footer-links ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                font-size: 1.15rem;
+                color: var(--color-gray);
+                transition: color var(--transition-fast);
+                position: relative;
+            }
+
+            .footer-links a:hover {
+                color: var(--color-sage);
+            }
+
+            .footer-center {
+                text-align: center;
+            }
+
+            .footer-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1.5rem;
+            }
+
+            .footer-logo {
+                font-family: var(--font-display);
+                font-size: 1.55rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--color-black);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background-color: var(--color-white);
+                transition: all var(--transition-medium);
+            }
+
+            .social-link:hover {
+                background-color: var(--color-sage);
+                transform: scale(1.1);
+            }
+
+            .social-link:hover .social-icon {
+                color: var(--color-white);
+            }
+
+            .social-icon {
+                width: 24px;
+                height: 24px;
+                color: var(--color-black);
+                transition: color var(--transition-fast);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 3rem auto 0;
+                padding-top: 2rem;
+                border-top: 1px solid #e0e0e0;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                font-size: 1.05rem;
+                color: var(--color-gray-light);
+            }
+
+            /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+            @media (max-width: 1024px) {
+                .best-sellers-container {
+                    grid-template-columns: 250px 1fr;
+                    gap: 2rem;
+                }
+
+                .materials-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                /* Header */
+                .header {
+                    display: none;
+                }
+
+                .mobile-header {
+                    display: flex;
+                }
+
+                /* Hero */
+                .hero {
+                    margin-top: 0;
+                }
+
+                .hero-overlay {
+                    background: linear-gradient(
+                        to top,
+                        rgba(250, 249, 246, 0.95) 0%,
+                        rgba(250, 249, 246, 0.7) 50%,
+                        rgba(250, 249, 246, 0.3) 100%
+                    );
+                }
+
+                .hero-content {
+                    justify-content: flex-end;
+                    padding: 0 1.5rem 4rem;
+                    max-width: 100%;
+                }
+
+                .hero-title {
+                    font-size: 2.45rem;
+                }
+
+                .hero-description {
+                    font-size: 1.2rem;
+                }
+
+                /* Best Sellers */
+                .best-sellers {
+                    padding: 4rem 1.5rem;
+                }
+
+                .best-sellers-container {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .best-sellers-intro {
+                    position: static;
+                    text-align: center;
+                }
+
+                .carousel-nav {
+                    justify-content: center;
+                }
+
+                .carousel-item {
+                    flex: 0 0 220px;
+                }
+
+                /* Craftsmanship */
+                .craftsmanship {
+                    padding: 4rem 1.5rem;
+                }
+
+                .materials-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                }
+
+                /* Footer */
+                .footer-container {
+                    grid-template-columns: 1fr;
+                    gap: 2.5rem;
+                    text-align: center;
+                }
+
+                .footer-links ul {
+                    align-items: center;
+                }
+
+                .footer-right {
+                    align-items: center;
+                }
+
+                .footer-social {
+                    justify-content: center;
+                }
+
+                /* Modal */
+                .modal-prev {
+                    left: 0.5rem;
+                }
+
+                .modal-next {
+                    right: 0.5rem;
+                }
+
+                .modal-close {
+                    top: 1rem;
+                    right: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-title {
+                    font-size: 2.05rem;
+                }
+
+                .carousel-item {
+                    flex: 0 0 180px;
+                }
+
+                .materials-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .btn {
+                    padding: 0.85rem 1.5rem;
+                    font-size: 1.05rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Desktop Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="choose.html" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link">Our Story</a></li>
                     <li>
-                        <strong>Wool (Natural Insulation & Moisture Management):</strong> Provides excellent natural warmth and insulation by trapping air pockets. Wool is naturally breathable and can wick away significant amounts of moisture vapor without feeling wet, keeping you dry and comfortable during various activities.
+                        <a href="contact.html" class="nav-link">Get in Touch</a>
                     </li>
-                    <li>
-                        <strong>Acrylic (Softness & Easy Care):</strong> Adds a soft, cozy, and lightweight feel that mimics wool without the potential itchiness, making it comfortable for all-day wear. Acrylic also ensures the beanie is easy to care for and resists shrinking.
-                    </li>
-                    <li>
-                        <strong>Nylon (Strength & Abrasion Resistance):</strong> Enhances the overall durability of the fabric, providing high tensile strength and resistance to abrasion, helping the beanie last longer.
-                    </li>
-                    <li>
-                        <strong>Polyester (Durability & Shape Retention):</strong> Contributes to the beanie's resilience, ensuring it resists wrinkles and holds its shape well over time. It is often used in blends to improve the properties of other fibers.
-                    </li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                 </ul>
-            </div>
+
+                <a href="index.html" class="logo">Handmade by K</a>
+
+                <a href="cart.html" class="cart-link" id="cartLink">
+                    <svg
+                        class="cart-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
+                        />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Mobile Header -->
+        <header class="mobile-header" id="mobileHeader">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="index.html" class="logo">Handmade by K</a>
+
+            <a href="cart.html" class="cart-link" id="cartLinkMobile">
+                <svg
+                    class="cart-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                <span class="cart-badge" id="cartBadgeMobile">0</span>
+            </a>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="nav-links">
+                <li><a href="choose.html" class="nav-link">Shop</a></li>
+                <li><a href="about.html" class="nav-link">Our Story</a></li>
+                <li>
+                    <a href="contact.html" class="nav-link">Get in Touch</a>
+                </li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
         </div>
-    </section>
 
+        <!-- Hero Section -->
+        <section class="hero">
+            <img
+                src="tomas.png"
+                alt="Handcrafted winter beanies"
+                class="hero-image"
+            />
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-subtitle will-animate animate-fade-up"
+                    >Handcrafted with Love</span
+                >
+                <h1
+                    class="hero-title will-animate animate-fade-up animate-delay-1"
+                >
+                    Warmth for<br /><em>every</em> season.
+                </h1>
+                <p
+                    class="hero-description will-animate animate-fade-up animate-delay-2"
+                >
+                    Unique winter beanies handmade in the US with premium
+                    materials and a touch of heart.
+                </p>
+                <a
+                    href="choose.html"
+                    class="btn btn-primary will-animate animate-fade-up animate-delay-3"
+                    >Shop Collection</a
+                >
+            </div>
+        </section>
 
+        <!-- Best Sellers Section -->
+        <section class="best-sellers" id="best-sellers">
+            <div class="best-sellers-container">
+                <div class="best-sellers-intro will-animate animate-fade-up">
+                    <h2 class="section-title">Best sellers</h2>
+                    <p class="section-description">
+                        Discover our most-loved handcrafted beanies. Each piece
+                        is carefully made to keep you warm and stylish all
+                        winter long.
+                    </p>
+                    <a href="choose.html" class="btn btn-dark"
+                        >Shop Best Sellers</a
+                    >
 
-
-<!--NewColumn-->
-<section id="section-home">
-    <div class="two-column-containerx">
-        <div class="columnx">
-            <h3>Handmade with passion</h3>
-            <p>Each Homemade Winter Beanie is carefully crafted by hand in US. 
-        We pour our heart into every stitch, ensuring that you receive a beanie of the highest quality. 
-        Experience the warmth and comfort that only a handmade beanie can provide.</p>
-    </div>
-         <div class="image-wrapperx">
-            <img src="takes.png" alt="Handcrafted Beanie" class="responsive-imagex">
+                    <div class="carousel-nav">
+                        <button
+                            class="carousel-btn"
+                            id="prevBtn"
+                            aria-label="Previous"
+                        >
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button
+                            class="carousel-btn"
+                            id="nextBtn"
+                            aria-label="Next"
+                        >
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-    </div>
-</section>
-    </main>
 
-    <script src="scroll.js"> 
-</script>
+                <div class="carousel-container">
+                    <div class="carousel" id="carousel">
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="0">
+                                <img
+                                    src="beanie1.png"
+                                    alt="Santa Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Santa Classic</h3>
+                            <p class="product-price">$28.00</p>
+                        </div>
 
-<header class="banner2">
-<h3>"A small business is an amazing way to serve and leave an impact on the world you live in."<br> Nicole S.</h3>
-</header>    
-<!-- FOOTER SECTION -->
-    <footer>
-        <p>&copy; 2026 Handmade by K | <a href="about.html" class="footer-link">About Us</a></p>
-    </footer>
-</body>
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="1">
+                                <img
+                                    src="beanie2.png"
+                                    alt="Black & Brown Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Noir & Cocoa</h3>
+                            <p class="product-price">$26.00</p>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="2">
+                                <img
+                                    src="beanie1.png"
+                                    alt="Bridge Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Brooklyn Bridge</h3>
+                            <p class="product-price">$30.00</p>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="3">
+                                <img
+                                    src="beanie2.png"
+                                    alt="Brillo Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Shimmer Luxe</h3>
+                            <p class="product-price">$32.00</p>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="4">
+                                <img
+                                    src="beanie1.png"
+                                    alt="Floral Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Garden Bloom</h3>
+                            <p class="product-price">$29.00</p>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="5">
+                                <img
+                                    src="beanie2.png"
+                                    alt="Tropical Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Tropical Escape</h3>
+                            <p class="product-price">$28.00</p>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="product-image-container" data-index="6">
+                                <img
+                                    src="beanie1.png"
+                                    alt="Mint Beanie"
+                                    class="product-image"
+                                />
+                                <div class="product-overlay">
+                                    <span class="view-icon">
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="11" cy="11" r="8" />
+                                            <path d="M21 21l-4.35-4.35" />
+                                            <path d="M11 8v6M8 11h6" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="product-name">Fresh Mint</h3>
+                            <p class="product-price">$27.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicator -->
+                    <div class="carousel-progress-container">
+                        <div
+                            class="carousel-progress-bar"
+                            id="carouselProgress"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Craftsmanship Section -->
+        <section class="craftsmanship">
+            <div class="craftsmanship-container">
+                <h2 class="craftsmanship-title will-animate animate-fade-up">
+                    The Perfect Blend of Materials
+                </h2>
+                <p
+                    class="craftsmanship-text will-animate animate-fade-up animate-delay-1"
+                >
+                    Each beanie is crafted from a thoughtful blend designed for
+                    warmth, comfort, and lasting quality.
+                </p>
+
+                <div class="materials-grid">
+                    <div
+                        class="material-item will-animate animate-fade-up animate-delay-1"
+                    >
+                        <svg class="material-icon" viewBox="0 0 48 48">
+                            <circle
+                                cx="24"
+                                cy="24"
+                                r="20"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <path
+                                d="M24 8c-8.8 0-16 7.2-16 16s7.2 16 16 16"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                fill="none"
+                            />
+                        </svg>
+                        <h4 class="material-name">Wool</h4>
+                        <p class="material-desc">
+                            Natural warmth & breathability
+                        </p>
+                    </div>
+
+                    <div
+                        class="material-item will-animate animate-fade-up animate-delay-2"
+                    >
+                        <svg class="material-icon" viewBox="0 0 48 48">
+                            <rect
+                                x="8"
+                                y="8"
+                                width="32"
+                                height="32"
+                                rx="4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <path
+                                d="M16 24h16M24 16v16"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                        <h4 class="material-name">Acrylic</h4>
+                        <p class="material-desc">Soft & easy care</p>
+                    </div>
+
+                    <div
+                        class="material-item will-animate animate-fade-up animate-delay-3"
+                    >
+                        <svg class="material-icon" viewBox="0 0 48 48">
+                            <path
+                                d="M24 4L4 24l20 20 20-20L24 4z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                        <h4 class="material-name">Nylon</h4>
+                        <p class="material-desc">Strength & durability</p>
+                    </div>
+
+                    <div
+                        class="material-item will-animate animate-fade-up animate-delay-4"
+                    >
+                        <svg class="material-icon" viewBox="0 0 48 48">
+                            <circle
+                                cx="24"
+                                cy="24"
+                                r="16"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <circle
+                                cx="24"
+                                cy="24"
+                                r="8"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                        <h4 class="material-name">Polyester</h4>
+                        <p class="material-desc">Shape retention</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="choose.html">Shop</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-center">
+                    <!-- Empty center column for spacing -->
+                </div>
+
+                <div class="footer-right">
+                    <p class="footer-logo">Handmade by K</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle
+                                    cx="18"
+                                    cy="6"
+                                    r="1"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg
+                                class="social-icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 Handmade by K. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <!-- Image Preview Modal -->
+        <div class="modal" id="modal">
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close modal"
+            ></button>
+            <button
+                class="modal-nav modal-prev"
+                id="modalPrev"
+                aria-label="Previous image"
+            >
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+            <div class="modal-content">
+                <img src="" alt="" class="modal-image" id="modalImage" />
+                <div class="modal-product-info">
+                    <h3 class="modal-product-name" id="modalProductName">
+                        Product Name
+                    </h3>
+                    <p class="modal-product-price" id="modalProductPrice">
+                        $00.00
+                    </p>
+                    <a href="choose.html" class="modal-cta">Shop Now</a>
+                </div>
+            </div>
+            <button
+                class="modal-nav modal-next"
+                id="modalNext"
+                aria-label="Next image"
+            >
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+            <div class="modal-counter" id="modalCounter">1 / 7</div>
+        </div>
+
+        <script>
+            // ========================================
+            // MOBILE MENU
+            // ========================================
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileHeader = document.getElementById("mobileHeader");
+            const mobileLinks = mobileMenu.querySelectorAll(".nav-link");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+                mobileHeader.classList.toggle("menu-open");
+                document.body.style.overflow = mobileMenu.classList.contains(
+                    "active",
+                )
+                    ? "hidden"
+                    : "";
+            });
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    mobileMenu.classList.remove("active");
+                    mobileHeader.classList.remove("menu-open");
+                    document.body.style.overflow = "";
+                });
+            });
+
+            // ========================================
+            // HEADER SCROLL EFFECT
+            // ========================================
+            const header = document.getElementById("header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // ========================================
+            // CAROUSEL
+            // ========================================
+            const carousel = document.getElementById("carousel");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const carouselProgress =
+                document.getElementById("carouselProgress");
+            const scrollAmount = 300;
+
+            // Update progress bar
+            function updateProgress() {
+                const scrollLeft = carousel.scrollLeft;
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                const progress =
+                    maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+                carouselProgress.style.width = `${Math.max(5, progress)}%`;
+            }
+
+            // Initialize progress
+            updateProgress();
+
+            // Listen for scroll events
+            carousel.addEventListener("scroll", updateProgress);
+
+            prevBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+            });
+
+            nextBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            });
+
+            // Drag to scroll
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener("mousedown", (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener("mouseleave", () => {
+                isDown = false;
+            });
+
+            carousel.addEventListener("mouseup", () => {
+                isDown = false;
+            });
+
+            carousel.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // ========================================
+            // IMAGE PREVIEW MODAL
+            // ========================================
+            const modal = document.getElementById("modal");
+            const modalImage = document.getElementById("modalImage");
+            const modalClose = document.getElementById("modalClose");
+            const modalPrev = document.getElementById("modalPrev");
+            const modalNext = document.getElementById("modalNext");
+            const modalCounter = document.getElementById("modalCounter");
+            const productImages = document.querySelectorAll(
+                ".product-image-container",
+            );
+
+            const images = [
+                {
+                    src: "santa1.png",
+                    alt: "Santa Classic Beanie",
+                    name: "Santa Classic",
+                    price: "$28.00",
+                },
+                {
+                    src: "b&b.png",
+                    alt: "Noir & Cocoa Beanie",
+                    name: "Noir & Cocoa",
+                    price: "$26.00",
+                },
+                {
+                    src: "bridge2s.png",
+                    alt: "Brooklyn Bridge Beanie",
+                    name: "Brooklyn Bridge",
+                    price: "$30.00",
+                },
+                {
+                    src: "brillo.png",
+                    alt: "Shimmer Luxe Beanie",
+                    name: "Shimmer Luxe",
+                    price: "$32.00",
+                },
+                {
+                    src: "florb.png",
+                    alt: "Garden Bloom Beanie",
+                    name: "Garden Bloom",
+                    price: "$29.00",
+                },
+                {
+                    src: "tropical.png",
+                    alt: "Tropical Escape Beanie",
+                    name: "Tropical Escape",
+                    price: "$28.00",
+                },
+                {
+                    src: "menta.png",
+                    alt: "Fresh Mint Beanie",
+                    name: "Fresh Mint",
+                    price: "$27.00",
+                },
+            ];
+
+            let currentIndex = 0;
+
+            const modalProductName =
+                document.getElementById("modalProductName");
+            const modalProductPrice =
+                document.getElementById("modalProductPrice");
+
+            function openModal(index) {
+                currentIndex = index;
+                updateModalImage();
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeModal() {
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+
+            function updateModalImage() {
+                const product = images[currentIndex];
+                modalImage.src = product.src;
+                modalImage.alt = product.alt;
+                modalProductName.textContent = product.name;
+                modalProductPrice.textContent = product.price;
+                modalCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+            }
+
+            function showPrevImage() {
+                currentIndex =
+                    (currentIndex - 1 + images.length) % images.length;
+                updateModalImage();
+            }
+
+            function showNextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateModalImage();
+            }
+
+            productImages.forEach((container) => {
+                container.addEventListener("click", () => {
+                    const index = parseInt(container.dataset.index);
+                    openModal(index);
+                });
+            });
+
+            modalClose.addEventListener("click", closeModal);
+            modalPrev.addEventListener("click", showPrevImage);
+            modalNext.addEventListener("click", showNextImage);
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!modal.classList.contains("active")) return;
+                if (e.key === "Escape") closeModal();
+                if (e.key === "ArrowLeft") showPrevImage();
+                if (e.key === "ArrowRight") showNextImage();
+            });
+
+            // ========================================
+            // SCROLL ANIMATIONS
+            // ========================================
+            const animatedElements = document.querySelectorAll(".will-animate");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = "1";
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                },
+            );
+
+            animatedElements.forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Initial load animations for hero
+            window.addEventListener("load", () => {
+                document
+                    .querySelectorAll(".hero .will-animate")
+                    .forEach((el) => {
+                        el.style.opacity = "1";
+                    });
+            });
+
+            // ========================================
+            // CART BADGE FUNCTIONALITY
+            // ========================================
+            const cartBadge = document.getElementById("cartBadge");
+            const cartBadgeMobile = document.getElementById("cartBadgeMobile");
+
+            // Cart class to manage cart state
+            class Cart {
+                constructor() {
+                    this.items = this.loadCart();
+                    this.updateBadge();
+                }
+
+                loadCart() {
+                    try {
+                        const saved = localStorage.getItem("handmadeByKCart");
+                        return saved ? JSON.parse(saved) : [];
+                    } catch (e) {
+                        return [];
+                    }
+                }
+
+                saveCart() {
+                    try {
+                        localStorage.setItem(
+                            "handmadeByKCart",
+                            JSON.stringify(this.items),
+                        );
+                    } catch (e) {
+                        console.log("Could not save cart to localStorage");
+                    }
+                }
+
+                getItemCount() {
+                    return this.items.reduce(
+                        (total, item) => total + (item.quantity || 1),
+                        0,
+                    );
+                }
+
+                addItem(product) {
+                    const existingItem = this.items.find(
+                        (item) => item.id === product.id,
+                    );
+                    if (existingItem) {
+                        existingItem.quantity =
+                            (existingItem.quantity || 1) + 1;
+                    } else {
+                        this.items.push({ ...product, quantity: 1 });
+                    }
+                    this.saveCart();
+                    this.updateBadge(true);
+                }
+
+                removeItem(productId) {
+                    this.items = this.items.filter(
+                        (item) => item.id !== productId,
+                    );
+                    this.saveCart();
+                    this.updateBadge();
+                }
+
+                updateBadge(animate = false) {
+                    const count = this.getItemCount();
+
+                    // Update both desktop and mobile badges
+                    [cartBadge, cartBadgeMobile].forEach((badge) => {
+                        if (badge) {
+                            badge.textContent = count;
+
+                            if (count > 0) {
+                                badge.classList.add("visible");
+                                if (animate) {
+                                    badge.classList.remove("bump");
+                                    // Trigger reflow to restart animation
+                                    void badge.offsetWidth;
+                                    badge.classList.add("bump");
+                                }
+                            } else {
+                                badge.classList.remove("visible");
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Initialize cart
+            const cart = new Cart();
+
+            // Example: Make cart available globally for other pages
+            window.handmadeCart = cart;
+
+            // Demo: Add item when clicking on a product (for testing)
+            // In production, this would be on an "Add to Cart" button
+            document
+                .querySelectorAll(".carousel-item")
+                .forEach((item, index) => {
+                    const productName =
+                        item.querySelector(".product-name")?.textContent;
+                    const productPrice =
+                        item.querySelector(".product-price")?.textContent;
+
+                    // Double-click to add to cart (for demo purposes)
+                    item.addEventListener("dblclick", (e) => {
+                        e.preventDefault();
+                        cart.addItem({
+                            id: `product-${index}`,
+                            name: productName,
+                            price: productPrice,
+                            image: images[index]?.src,
+                        });
+                    });
+                });
+        </script>
+    </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
